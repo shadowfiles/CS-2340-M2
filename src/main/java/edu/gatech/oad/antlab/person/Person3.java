@@ -48,7 +48,6 @@ public class Person3 {
 			for(int i=1;i<=input.length();i++)
 				output+=input.charAt(input.length()-i);
 			return output;
-		}
-	  return null;
+		}else return "";
 	}
 }
