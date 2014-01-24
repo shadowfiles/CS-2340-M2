@@ -1,3 +1,3 @@
-Name: Keith Cavanaugh
-GTiD: 902913062
-ExCrd: N/A
+Name: Josh Williams
+GTid: 902874674	
+Extra Credit: make the app real pretty and stuff yo
