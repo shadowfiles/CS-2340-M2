@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+defaultTasks 'jar'
+
+jar
+{
+	manifest
+	{
+		attributes
+		(
+			'Main-Class': "edu.gatech.oad.antlab.pkg1.AntLabMain",
+			'Class-Path': "../../lib/resources.jar"
+		)
+	}
+}
+
+dependencies
+{        
+	compile fileTree(dir: 'lib', include: '*.jar') 
+}
