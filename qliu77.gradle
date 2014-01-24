@@ -1,24 +1,18 @@
 apply plugin: 'java'
-sourceSets { 
-   main { 
-     java.srcDir "$projectDir/src"
-   } 
- }
 
-repositories {
-   flatDir(dirs: "$projectDir/lib")
-}
-
-dependencies {
-   compile ':resources'
-}
-
-version = '1.0'
+defaultTasks 'jar'
 
 jar {
-    manifest {
+        manifest {
+                attributes(
+                'Main-Class': "edu.gatech.oad.antlab.pkg1.AntLabMain",
+                'Class-Path': "../../lib/resources.jar"
+                )
+        }
+}
 
-        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': version , 'Main-Class' : "edu.gatech.oad.antlab.pkg1.AntLabMain",
-        'Class-Path' : '../../lib/resources.jar'
-    }
+dependencies {        
+        compile fileTree(dir: 'lib', include: '*.jar') 
+        
+
 }
