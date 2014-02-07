@@ -11,7 +11,8 @@
         android:layout_gravity="center"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:visibility="gone" >
+        android:visibility="gone" 
+        android:background="@color/background_standard">
 
         <ProgressBar
             style="?android:attr/progressBarStyleLarge"
@@ -29,6 +30,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
+    
     <!-- Login form -->
 
     <ScrollView
@@ -39,8 +41,9 @@
         <LinearLayout
             style="@style/LoginFormContainer"
             android:orientation="vertical" >
+            
 
-            <EditText
+        		<EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -71,6 +74,7 @@
                 android:paddingRight="32dp"
                 android:text="@string/action_sign_in_register" />
         </LinearLayout>
+            
     </ScrollView>
 
 </merge>
