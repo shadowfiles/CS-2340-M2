@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><string name="app_name">CS2340-Water-s-Warriors</string>
-<string name="login_button">Login</string>
-<string name="front_message">Welcome</string>
-<string name="register_button">Register</string>
-<string name="username_text">Username</string>
-<string name="password_text">Password</string>
-    
-    
+<resources>
 
+    <string name="app_name">CS2340-Water-s-Warriors</string>
+    <string name="login_button">Login</string>
+    <string name="front_message">Welcome</string>
+    <string name="register_button">Register</string>
+    <string name="username_text">Username</string>
+    <string name="password_text">Password</string>
+    <string name="title_activity_sucess">Success</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_login">LoginActivity</string>
+	<string name="blank"></string>
+	<string name="money_pic_decription">MoneyPicture</string>
+	
 </resources>
