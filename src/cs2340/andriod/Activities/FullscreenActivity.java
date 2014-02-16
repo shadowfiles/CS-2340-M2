@@ -1,6 +1,7 @@
-package cs2340.andriod.cs_2340_water_s_warrioirs;
+package cs2340.andriod.Activities;
 
 
+import cs2340.andriod.cs_2340_water_s_warrioirs.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ public class FullscreenActivity extends Activity {
 		setContentView(R.layout.activity_fullscreen);
 	}
 	 
-	public void changePage(View view){
+	public void goLoginPage(View view){
 		Intent intent = new Intent(FullscreenActivity.this, LoginActivity.class);
 		startActivity(intent);
 	}

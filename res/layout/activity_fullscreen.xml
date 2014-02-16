@@ -7,7 +7,7 @@
     tools:context=".FullscreenActivity" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/feedback_string"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -33,7 +33,7 @@
         android:layout_above="@+id/Register"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:onClick="changePage"
+        android:onClick="goLoginPage"
         android:text="@string/login_button" />
 
     <ImageView
@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:contentDescription="@string/money_pic_decription"
         android:src="@drawable/money" />
 
 </RelativeLayout>
