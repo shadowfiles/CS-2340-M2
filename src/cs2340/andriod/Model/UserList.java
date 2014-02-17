@@ -9,7 +9,7 @@ public class UserList implements Model {
 
 	public UserList() {
 		Users = new ArrayList<User>();
-		Users.add(new User ("admin", "pass1234"));
+		Users.add(new User ("admin", "pass123"));
 	}
 
 	public boolean goodPass(String name, String key) {
