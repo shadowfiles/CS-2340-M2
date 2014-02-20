@@ -41,6 +41,11 @@
             android:name="cs2340.andriod.Activities.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name="cs2340.andriod.cs_2340_water_s_warrioirs.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
     </application>
 
 </manifest>

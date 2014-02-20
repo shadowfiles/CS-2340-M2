@@ -1,3 +1,4 @@
+<<<<<<< Original
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cs2340.andriod.cs_2340_water_s_warrioirs"
@@ -41,6 +42,26 @@
             android:name="cs2340.andriod.Activities.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name="cs2340.andriod.cs_2340_water_s_warrioirs.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
     </application>
 
 </manifest>
+
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <application>
+        <activity android:name=".RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/FullscreenTheme"
+            >
+        </activity>
+    </application>
+
+</manifest>
+>>>>>>> Added
