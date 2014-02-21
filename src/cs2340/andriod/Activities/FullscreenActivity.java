@@ -19,4 +19,8 @@ public class FullscreenActivity extends Activity {
 		Intent intent = new Intent(FullscreenActivity.this, LoginActivity.class);
 		startActivity(intent);
 	}
+	public void goRegisterPage(View view) {
+		Intent intent = new Intent(FullscreenActivity.this, RegisterActivity.class);
+		startActivity(intent);
+	}
 }

@@ -24,6 +24,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="goRegisterPage"
         android:text="@string/register_button" />
 
     <Button
