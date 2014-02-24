@@ -1,10 +1,10 @@
 package cs2340.andriod.Views;
 
-import cs2340.andriod.Model.Model;
+import cs2340.andriod.Presenters.PresenterInterface;
 
 public interface IntroPageView {
 
-	void attemptIntroCallback(ClickListener listener);
+	void attemptIntroCallback(PresenterInterface listener);
 	void transferPageReg();
 	void tranferPageLogin();
 

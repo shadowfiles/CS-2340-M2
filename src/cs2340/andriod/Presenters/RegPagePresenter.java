@@ -1,11 +1,10 @@
 package cs2340.andriod.Presenters;
 
 import cs2340.andriod.Model.Model;
-import cs2340.andriod.Views.ClickListener;
 import cs2340.andriod.Views.LoginPageView;
 import cs2340.andriod.Views.RegisterPageView;
 
-public class RegPagePresenter implements ClickListener {
+public class RegPagePresenter implements PresenterInterface {
 
 	private RegisterPageView view;
 	private Model model;

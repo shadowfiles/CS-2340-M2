@@ -1,7 +1,7 @@
 package cs2340.andriod.Activities;
 
+import cs2340.andriod.Presenters.PresenterInterface;
 import cs2340.andriod.Presenters.LoginPagePresenter;
-import cs2340.andriod.Views.ClickListener;
 import cs2340.andriod.Views.LoginPageView;
 import cs2340.andriod.Model.UserList;
 import cs2340.andriod.cs_2340_water_s_warrioirs.R;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class LoginActivity extends Activity implements LoginPageView{
 
-	private ClickListener listener;
+	private PresenterInterface listener;
 	LoginPagePresenter presenter;
 	EditText usernameField;
 	EditText passwordField;
@@ -61,7 +61,7 @@ public class LoginActivity extends Activity implements LoginPageView{
 	}
 
 	@Override
-	public void attemptLoginCallback(ClickListener lsnr) {
+	public void attemptLoginCallback(PresenterInterface lsnr) {
 		listener = lsnr;
 	}
 

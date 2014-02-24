@@ -8,9 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import cs2340.andriod.Model.Model;
 import cs2340.andriod.Model.UserList;
+import cs2340.andriod.Presenters.PresenterInterface;
 import cs2340.andriod.Presenters.LoginPagePresenter;
 import cs2340.andriod.Presenters.RegPagePresenter;
-import cs2340.andriod.Views.ClickListener;
 import cs2340.andriod.Views.RegisterPageView;
 import cs2340.andriod.cs_2340_water_s_warrioirs.R;
 import cs2340.andriod.cs_2340_water_s_warrioirs.util.SystemUiHider;
@@ -23,7 +23,7 @@ import cs2340.andriod.cs_2340_water_s_warrioirs.util.SystemUiHider;
  */
 public class RegisterActivity extends Activity implements RegisterPageView {
 
-	private ClickListener listener;
+	private PresenterInterface listener;
 	RegPagePresenter presenter;
 	EditText username;
 	EditText passOne;
@@ -75,7 +75,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
 	}
 
 	@Override
-	public void attemptRegisterCallback(ClickListener lsnr) {
+	public void attemptRegisterCallback(PresenterInterface lsnr) {
 		listener = lsnr;
 	}
 

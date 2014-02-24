@@ -1,10 +1,9 @@
 package cs2340.andriod.Presenters;
 
 import cs2340.andriod.Model.Model;
-import cs2340.andriod.Views.ClickListener;
 import cs2340.andriod.Views.LoginPageView;
 
-public class LoginPagePresenter implements ClickListener {
+public class LoginPagePresenter implements PresenterInterface {
 
 	private LoginPageView view;
 	private Model model;

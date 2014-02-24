@@ -37,4 +37,10 @@ public class UserList implements Model {
 		return Users;
 	}
 
+	@Override
+	public void addAccount() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
