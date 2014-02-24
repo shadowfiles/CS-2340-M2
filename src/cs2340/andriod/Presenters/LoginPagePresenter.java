@@ -17,7 +17,7 @@ public class LoginPagePresenter implements ClickListener {
 	}
 	
 	@Override
-	public void onClick() {
+	public void onClickOne() {
 		counter++;
 		if (model.goodPass(view.getUsername(), view.getPassword()) == true) {
 			view.goToSuccess();
@@ -35,5 +35,8 @@ public class LoginPagePresenter implements ClickListener {
 		
 		}
 	}
+
+	@Override
+	public void onClickTwo() {}
 
 }

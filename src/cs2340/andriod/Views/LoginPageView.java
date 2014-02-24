@@ -5,5 +5,5 @@ public interface LoginPageView {
 	String getPassword();
 	void setErrorMessage(String text);
 	void attemptLoginCallback(ClickListener listener);
-	void goToSuccess();
+	void goToSuccess(); 
 }
