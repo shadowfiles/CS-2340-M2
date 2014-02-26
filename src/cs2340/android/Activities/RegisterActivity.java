@@ -1,4 +1,4 @@
-package cs2340.andriod.Activities;
+package cs2340.android.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
