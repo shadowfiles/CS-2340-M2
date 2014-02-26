@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import cs2340.andriod.Model.Model;
-import cs2340.andriod.Model.UserList;
-import cs2340.andriod.Presenters.PresenterInterface;
-import cs2340.andriod.Presenters.LoginPagePresenter;
-import cs2340.andriod.Presenters.RegPagePresenter;
-import cs2340.andriod.Views.RegisterPageView;
-import cs2340.andriod.cs_2340_water_s_warrioirs.R;
-import cs2340.andriod.cs_2340_water_s_warrioirs.util.SystemUiHider;
+import cs2340.andriod.cs_2340_water_s_warriors.R;
+import cs2340.android.Model.UserList;
+import cs2340.android.Presenters.PresenterInterface;
+import cs2340.android.Presenters.RegPagePresenter;
+import cs2340.android.Views.RegisterPageView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -36,7 +33,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
 
 		presenter = new RegPagePresenter(UserList.getInstance(), this);
 		
-		username = (EditText) findViewById(R.id.Username_Reg);
+		username = (EditText) findViewById(cs2340.andriod.cs_2340_water_s_warriors.R.id.Username_Reg);
 		passOne = (EditText) findViewById(R.id.PassRegOne);
 		passTwo = (EditText) findViewById(R.id.PassRegTwo);
 	}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cs2340.andriod.cs_2340_water_s_warrioirs"
+    package="cs2340.andriod.cs_2340_water_s_warriors"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -32,20 +32,6 @@
         <activity
             android:name="cs2340.andriod.Activities.SucessActivity"
             android:label="@string/title_activity_sucess" >
-        </activity>
-        <activity
-            android:name="cs2340.andriod.Activities.LoginActivity"
-            android:label="@string/title_activity_login" >
-        </activity>
-        <activity
-            android:name="cs2340.andriod.Activities.LoginActivity"
-            android:label="@string/title_activity_login" >
-        </activity>
-        <activity
-            android:name="cs2340.andriod.cs_2340_water_s_warrioirs.RegistrationActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_registration"
-            android:theme="@style/FullscreenTheme" >
         </activity>
         <activity
             android:name="cs2340.andriod.Activities.RegisterActivity"

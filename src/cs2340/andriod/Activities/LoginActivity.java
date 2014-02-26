@@ -1,17 +1,17 @@
 package cs2340.andriod.Activities;
 
-import cs2340.andriod.Presenters.PresenterInterface;
-import cs2340.andriod.Presenters.LoginPagePresenter;
-import cs2340.andriod.Views.LoginPageView;
-import cs2340.andriod.Model.UserList;
-import cs2340.andriod.cs_2340_water_s_warrioirs.R;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import cs2340.android.Model.UserList;
+import cs2340.android.Presenters.LoginPagePresenter;
+import cs2340.android.Presenters.PresenterInterface;
+import cs2340.android.Views.LoginPageView;
+import cs2340.andriod.cs_2340_water_s_warriors.R;
 
 public class LoginActivity extends Activity implements LoginPageView{
 
