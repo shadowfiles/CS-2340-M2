@@ -1,4 +1,4 @@
-package cs2340.andriod.Activities;
+package cs2340.android.Activities;
 
 
 import android.app.Activity;
@@ -10,7 +10,7 @@ import cs2340.android.Presenters.PresenterInterface;
 import cs2340.android.Views.IntroPageView;
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 
-public class FullscreenActivity extends Activity implements IntroPageView{
+public class IntroActivity extends Activity implements IntroPageView{
 	
 	PresenterInterface listener;
 	IntroPagePresenter presenter;
@@ -28,7 +28,7 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 	}
 	
 	public void tranferPageLogin() {
-		Intent intent = new Intent(FullscreenActivity.this, LoginActivity.class);
+		Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
 		startActivity(intent);
 	}
 	
@@ -37,7 +37,7 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 	}
 	
 	public void transferPageReg() {
-		Intent intent = new Intent(FullscreenActivity.this, RegisterActivity.class);
+		Intent intent = new Intent(IntroActivity.this, RegisterActivity.class);
 		startActivity(intent);
 	}
 

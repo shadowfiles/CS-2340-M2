@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="cs2340.andriod.Activities.FullscreenActivity"
+            android:name="cs2340.android.Activities.IntroActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -25,16 +25,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cs2340.andriod.Activities.LoginActivity"
+            android:name="cs2340.android.Activities.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="cs2340.andriod.Activities.SucessActivity"
+            android:name="cs2340.android.Activities.SucessActivity"
             android:label="@string/title_activity_sucess" >
         </activity>
         <activity
-            android:name="cs2340.andriod.Activities.RegisterActivity"
+            android:name="cs2340.android.Activities.RegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_register"
             android:theme="@style/FullscreenTheme" >

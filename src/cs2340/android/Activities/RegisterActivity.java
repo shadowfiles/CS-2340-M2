@@ -1,4 +1,4 @@
-package cs2340.andriod.Activities;
+package cs2340.android.Activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -84,7 +84,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
 
 	@Override
 	public void goToIntro() {
-		Intent intent = new Intent(RegisterActivity.this, FullscreenActivity.class);
+		Intent intent = new Intent(RegisterActivity.this, IntroActivity.class);
 		startActivity(intent);		
 	}
 
