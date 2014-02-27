@@ -19,4 +19,5 @@ public interface UserPageView {
 		
 	void goToAddAccount();
 	//DO LATER void logoutAndReturnToIntro();
+	void goToIntro();
 }
