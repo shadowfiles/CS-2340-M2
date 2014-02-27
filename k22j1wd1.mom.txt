@@ -1,0 +1,36 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch CODE-M6-HERE
+# Your branch is behind 'origin/CODE-M6-HERE' by 14 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   AndroidManifest.xml
+#	modified:   bin/AndroidManifest.xml
+#	modified:   bin/classes/cs2340/andriod/cs_2340_water_s_warriors/R$id.class
+#	modified:   bin/classes/cs2340/andriod/cs_2340_water_s_warriors/R$layout.class
+#	modified:   bin/classes/cs2340/andriod/cs_2340_water_s_warriors/R$menu.class
+#	modified:   bin/classes/cs2340/andriod/cs_2340_water_s_warriors/R$string.class
+#	modified:   bin/classes/cs2340/andriod/cs_2340_water_s_warriors/R$style.class
+#	modified:   bin/classes/cs2340/andriod/cs_2340_water_s_warriors/R$styleable.class
+#	modified:   bin/classes/cs2340/android/Activities/FullscreenActivity.class
+#	modified:   bin/classes/cs2340/android/Activities/LoginActivity.class
+#	modified:   bin/classes/cs2340/android/Activities/RegisterActivity.class
+#	modified:   bin/classes/cs2340/android/Activities/SucessActivity.class
+#	modified:   gen/cs2340/andriod/cs_2340_water_s_warriors/R.java
+#	modified:   res/layout/activity_register.xml
+#	modified:   res/values/strings.xml
+#	modified:   src/cs2340/android/Views/AddAccountPageView.java
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	bin/classes/cs2340/android/Activities/AddAcountActivity.class
+#	e5p30esd.4zn.txt
+#	res/layout/activity_add_acount.xml
+#	res/menu/add_acount.xml
+#	src/cs2340/android/Activities/AddAcountActivity.java
+
