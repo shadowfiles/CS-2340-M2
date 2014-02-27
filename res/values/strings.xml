@@ -20,5 +20,6 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="cancel_text">Cancel</string>
     <string name="title_activity_add_acount">AddAcountActivity</string>
+    <string name="title_activity_user_page">UserPageActivity</string>
 
 </resources>

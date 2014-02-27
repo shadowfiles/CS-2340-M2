@@ -43,6 +43,10 @@
             android:name="cs2340.android.Activities.AddAcountActivity"
             android:label="@string/title_activity_add_acount" >
         </activity>
+        <activity
+            android:name="cs2340.android.Activities.UserPageActivity"
+            android:label="@string/title_activity_user_page" >
+        </activity>
     </application>
 
 </manifest>
