@@ -1,14 +1,14 @@
 package cs2340.android.Presenters;
 
-import cs2340.android.Model.Model;
+import cs2340.android.Model.ListModel;
 import cs2340.android.Views.RegisterPageView;
 
 public class RegPagePresenter implements PresenterInterface {
 
 	private RegisterPageView view;
-	private Model model;
+	private ListModel model;
 	
-	public RegPagePresenter (Model m, RegisterPageView v) {
+	public RegPagePresenter (ListModel m, RegisterPageView v) {
 		view = v;
 		model = m;
 		view.attemptRegisterCallback(this);

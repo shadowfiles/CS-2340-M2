@@ -1,15 +1,15 @@
 package cs2340.android.Presenters;
 
-import cs2340.android.Model.Model;
+import cs2340.android.Model.ListModel;
 import cs2340.android.Views.LoginPageView;
 
 public class LoginPagePresenter implements PresenterInterface {
 
 	private LoginPageView view;
-	private Model model;
+	private ListModel model;
 	private int counter = 0;
 	
-	public LoginPagePresenter (Model m, LoginPageView v) {
+	public LoginPagePresenter (ListModel m, LoginPageView v) {
 		view = v;
 		model = m;
 		view.attemptLoginCallback(this);

@@ -3,7 +3,7 @@ package cs2340.android.Model;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class UserList implements Model {
+public class UserList implements ListModel {
 
 	private static UserList INSTANCE = new UserList();
 	private ArrayList<User> Users;
@@ -36,11 +36,14 @@ public class UserList implements Model {
 	public Collection<User> getUsers() {
 		return Users;
 	}
-
-	@Override
-	public void addAccount() {
-		// TODO Auto-generated method stub
-		
+	
+	public User getUser(String user, String pass) {
+		for (User u : Users) {
+			if(u.getUsername().equals(user) && u.getPassword().equals(pass)) {
+					return u;
+			}
+		}
+		return null; 
 	}
 
 }

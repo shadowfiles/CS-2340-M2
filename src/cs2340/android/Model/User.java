@@ -1,9 +1,13 @@
 package cs2340.android.Model;
 
-public class User {
+import java.util.ArrayList;
+import java.util.Collection;
 
+public class User implements UserModel{
+	
 	private String username;
 	private String password;
+	private Collection<Account> Accounts = new ArrayList<Account>();
 	
 	public User(String username, String password) {
 		this.username = username;
@@ -17,5 +21,10 @@ public class User {
 	public String getUsername() {
 		return username;
 	}
-	//add other user stuffs
+	
+	public void addAccount(String name, String displayName, 
+					double balance, double intrest) {
+		Accounts.add(new Account(name, displayName, balance, intrest));
+	}
+	//add other user stuff
 }
