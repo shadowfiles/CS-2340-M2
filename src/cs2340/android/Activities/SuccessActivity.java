@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
-public class SucessActivity extends Activity {
+public class SuccessActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
