@@ -67,7 +67,7 @@ public class LoginActivity extends Activity implements LoginPageView{
 
 	@Override
 	public void goToSuccess() {
-		Intent intent = new Intent(LoginActivity.this, SucessActivity.class);
+		Intent intent = new Intent(LoginActivity.this, SuccessActivity.class);
 		startActivity(intent);		
 	}
 

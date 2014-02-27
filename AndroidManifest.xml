@@ -30,7 +30,7 @@
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.SucessActivity"
+            android:name="cs2340.android.Activities.SuccessActivity"
             android:label="@string/title_activity_sucess" >
         </activity>
         <activity
