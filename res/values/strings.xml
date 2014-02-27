@@ -19,5 +19,6 @@
     <string name="title_activity_register">RegisterActivity</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="cancel_text">Cancel</string>
+    <string name="title_activity_add_acount">AddAcountActivity</string>
 
 </resources>

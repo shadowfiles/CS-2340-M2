@@ -17,7 +17,7 @@ public interface AddAccountPageView {
 	double getInterest();
 	
 	//sets listener using presenter
-	void attemptAddAccountCallback(PresenterInterface lsnr);
+	void attemptAddAccountCallback(PresenterInterface listener);
 	void goToUserPage();
 	
 	//onClick listener (must set these on buttons that 
