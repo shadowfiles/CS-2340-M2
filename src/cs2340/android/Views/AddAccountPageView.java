@@ -13,8 +13,8 @@ public interface AddAccountPageView {
 	//returns specified variable (will be in a EditText [made in the layout])
 	String getFullName();
 	String getDisplayName();
-	String getBalance();
-	String getIntrest();
+	double getBalance();
+	double getInterest();
 	
 	//sets listener using presenter
 	void attemptAddAccountCallback(PresenterInterface lsnr);
