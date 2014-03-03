@@ -11,6 +11,7 @@ import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Presenters.UserPagePresenter;
 import cs2340.android.Views.UserPageView;
+import android.media.audiofx.AcousticEchoCanceler;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -69,6 +70,10 @@ public class UserPageActivity extends Activity implements UserPageView{
 	public void logoutButton(View view) {
 		listener.onClickTwo();
 	}
+	
+	public void accountButton(View view) {
+		presenter.onClickGOTO();
+	}
 
 	@Override
 	public void goToAddAccount(UserModel theUser) {
@@ -80,6 +85,12 @@ public class UserPageActivity extends Activity implements UserPageView{
 	@Override
 	public void goToIntro() {
 		Intent intent = new Intent(UserPageActivity.this, FullscreenActivity.class);
+		startActivity(intent);
+	}
+	
+	@Override
+	public void goToAccount() {
+		Intent intent = new Intent(UserPageActivity.this, AccountActivity.class);
 		startActivity(intent);
 	}
 

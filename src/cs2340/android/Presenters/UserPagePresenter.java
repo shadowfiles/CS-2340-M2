@@ -23,4 +23,8 @@ public class UserPagePresenter implements ListenerPresenterInterface {
 		//CODE TO MAKE IT SO THAT WHEN YOU PRESS BACK YOU CAN NOT RETURN HERE
 		view.goToIntro();
 	}
+	
+	public void onClickGOTO() {
+		view.goToAccount();
+	}
 }

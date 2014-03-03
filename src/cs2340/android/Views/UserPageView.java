@@ -22,6 +22,7 @@ public interface UserPageView {
 	void goToAddAccount(UserModel theUser);
 	//DO LATER void logoutAndReturnToIntro();
 	void goToIntro();
+	void goToAccount();
 
 
 }

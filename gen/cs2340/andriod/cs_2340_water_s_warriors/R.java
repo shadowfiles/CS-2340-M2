@@ -37,46 +37,48 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int money=0x7f020001;
     }
     public static final class id {
-        public static final int LinearLayout2=0x7f09000b;
-        public static final int PassRegOne=0x7f090012;
-        public static final int PassRegTwo=0x7f090013;
-        public static final int Register=0x7f090008;
-        public static final int Registration_Page=0x7f090010;
-        public static final int RelativeLayout1=0x7f090006;
-        public static final int Username_Reg=0x7f090011;
+        public static final int LinearLayout2=0x7f09000d;
+        public static final int PassRegOne=0x7f090013;
+        public static final int PassRegTwo=0x7f090014;
+        public static final int Register=0x7f09000a;
+        public static final int Registration_Page=0x7f090011;
+        public static final int RelativeLayout1=0x7f090008;
+        public static final int Username_Reg=0x7f090012;
         public static final int account1=0x7f090018;
         public static final int action_settings=0x7f090019;
         public static final int addAccount_user_button=0x7f090016;
-        public static final int balanceAddAccount=0x7f090004;
-        public static final int button1=0x7f09000f;
-        public static final int button2=0x7f090014;
-        public static final int cancelAddAccount=0x7f090001;
-        public static final int displayNameAddAccount=0x7f090002;
-        public static final int feedback_string=0x7f090007;
-        public static final int fullNameAddAccount=0x7f090000;
-        public static final int imageView1=0x7f09000a;
-        public static final int interestAddAccount=0x7f090005;
-        public static final int login=0x7f090009;
-        public static final int login_button=0x7f09000e;
+        public static final int balanceAddAccount=0x7f090006;
+        public static final int button1=0x7f090000;
+        public static final int button2=0x7f090001;
+        public static final int cancelAddAccount=0x7f090003;
+        public static final int displayNameAddAccount=0x7f090004;
+        public static final int feedback_string=0x7f090009;
+        public static final int fullNameAddAccount=0x7f090002;
+        public static final int imageView1=0x7f09000c;
+        public static final int interestAddAccount=0x7f090007;
+        public static final int login=0x7f09000b;
+        public static final int login_button=0x7f090010;
         public static final int logout_user_button=0x7f090017;
-        public static final int password_input=0x7f09000d;
-        public static final int submitAddAccount=0x7f090003;
+        public static final int password_input=0x7f09000f;
+        public static final int submitAddAccount=0x7f090005;
         public static final int tableRow1=0x7f090015;
-        public static final int username_input=0x7f09000c;
+        public static final int username_input=0x7f09000e;
     }
     public static final class layout {
-        public static final int activity_add_acount=0x7f030000;
-        public static final int activity_fullscreen=0x7f030001;
-        public static final int activity_login=0x7f030002;
-        public static final int activity_register=0x7f030003;
-        public static final int activity_sucess=0x7f030004;
-        public static final int activity_user_page=0x7f030005;
+        public static final int activity_account=0x7f030000;
+        public static final int activity_add_acount=0x7f030001;
+        public static final int activity_fullscreen=0x7f030002;
+        public static final int activity_login=0x7f030003;
+        public static final int activity_register=0x7f030004;
+        public static final int activity_sucess=0x7f030005;
+        public static final int activity_user_page=0x7f030006;
     }
     public static final class menu {
-        public static final int add_acount=0x7f080000;
-        public static final int login=0x7f080001;
-        public static final int sucess=0x7f080002;
-        public static final int user_page=0x7f080003;
+        public static final int account=0x7f080000;
+        public static final int add_acount=0x7f080001;
+        public static final int login=0x7f080002;
+        public static final int sucess=0x7f080003;
+        public static final int user_page=0x7f080004;
     }
     public static final class string {
         public static final int action_settings=0x7f060007;
@@ -94,9 +96,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int hello_world=0x7f060008;
         public static final int login_button=0x7f060001;
         public static final int logout_text=0x7f060014;
+        public static final int make_transaction=0x7f06001a;
         public static final int money_pic_decription=0x7f06000b;
         public static final int password_text=0x7f060005;
         public static final int register_button=0x7f060003;
+        public static final int title_activity_account=0x7f060019;
         public static final int title_activity_add_acount=0x7f060012;
         public static final int title_activity_login=0x7f060009;
         public static final int title_activity_register=0x7f06000f;

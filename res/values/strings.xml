@@ -26,5 +26,7 @@
     <string name="beck_button">Back</string>
     <string name="go_to_text">Go To</string>
     <string name="create_please_text">Create an account</string>
+    <string name="title_activity_account">Account</string>
+    <string name="make_transaction">Make Transaction</string>
 
 </resources>
