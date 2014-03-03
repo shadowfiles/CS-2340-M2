@@ -38,15 +38,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
         public static final int LinearLayout2=0x7f09000b;
-        public static final int PassRegOne=0x7f090011;
-        public static final int PassRegTwo=0x7f090012;
+        public static final int PassRegOne=0x7f090012;
+        public static final int PassRegTwo=0x7f090013;
         public static final int Register=0x7f090008;
-        public static final int Registration_Page=0x7f09000f;
+        public static final int Registration_Page=0x7f090010;
         public static final int RelativeLayout1=0x7f090006;
-        public static final int Username_Reg=0x7f090010;
-        public static final int action_settings=0x7f090015;
+        public static final int Username_Reg=0x7f090011;
+        public static final int account1=0x7f090018;
+        public static final int action_settings=0x7f090019;
+        public static final int addAccount_user_button=0x7f090016;
         public static final int balanceAddAccount=0x7f090004;
-        public static final int button2=0x7f090013;
+        public static final int button1=0x7f09000f;
+        public static final int button2=0x7f090014;
         public static final int cancelAddAccount=0x7f090001;
         public static final int displayNameAddAccount=0x7f090002;
         public static final int feedback_string=0x7f090007;
@@ -55,9 +58,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int interestAddAccount=0x7f090005;
         public static final int login=0x7f090009;
         public static final int login_button=0x7f09000e;
+        public static final int logout_user_button=0x7f090017;
         public static final int password_input=0x7f09000d;
         public static final int submitAddAccount=0x7f090003;
-        public static final int tableRow1=0x7f090014;
+        public static final int tableRow1=0x7f090015;
         public static final int username_input=0x7f09000c;
     }
     public static final class layout {
@@ -76,15 +80,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class string {
         public static final int action_settings=0x7f060007;
+        public static final int add_account=0x7f060015;
         public static final int app_name=0x7f060000;
+        public static final int beck_button=0x7f060016;
         public static final int blank=0x7f06000a;
         public static final int cancel_text=0x7f060011;
         public static final int confirm_password=0x7f060010;
+        public static final int create_please_text=0x7f060018;
         public static final int dummy_button=0x7f06000d;
         public static final int dummy_content=0x7f06000e;
         public static final int front_message=0x7f060002;
+        public static final int go_to_text=0x7f060017;
         public static final int hello_world=0x7f060008;
         public static final int login_button=0x7f060001;
+        public static final int logout_text=0x7f060014;
         public static final int money_pic_decription=0x7f06000b;
         public static final int password_text=0x7f060005;
         public static final int register_button=0x7f060003;

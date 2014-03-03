@@ -17,14 +17,14 @@ public class UserList implements ListModel {
 		return INSTANCE;
 	}
 	
-	public boolean goodPass(String user, String pass) {
+	public User goodPass(String user, String pass) {
 
 		for (User u : Users) {
 			if(u.getUsername().equals(user) && u.getPassword().equals(pass)) {
-					return true;
+					return u;
 			}
 		} 
-		return false;
+		return null;
 	}
 
 	public void addUser(String user, String passone, String passtwo) {

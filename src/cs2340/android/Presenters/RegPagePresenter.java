@@ -3,7 +3,7 @@ package cs2340.android.Presenters;
 import cs2340.android.Model.ListModel;
 import cs2340.android.Views.RegisterPageView;
 
-public class RegPagePresenter implements PresenterInterface {
+public class RegPagePresenter implements ListenerPresenterInterface {
 
 	private RegisterPageView view;
 	private ListModel model;

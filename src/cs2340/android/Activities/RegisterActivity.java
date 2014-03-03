@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 import cs2340.android.Model.UserList;
-import cs2340.android.Presenters.PresenterInterface;
+import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Presenters.RegPagePresenter;
 import cs2340.android.Views.RegisterPageView;
 
@@ -20,7 +20,7 @@ import cs2340.android.Views.RegisterPageView;
  */
 public class RegisterActivity extends Activity implements RegisterPageView {
 
-	private PresenterInterface listener;
+	private ListenerPresenterInterface listener;
 	RegPagePresenter presenter;
 	EditText username;
 	EditText passOne;
@@ -72,7 +72,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
 	}
 
 	@Override
-	public void attemptRegisterCallback(PresenterInterface lsnr) {
+	public void attemptRegisterCallback(ListenerPresenterInterface lsnr) {
 		listener = lsnr;
 	}
 

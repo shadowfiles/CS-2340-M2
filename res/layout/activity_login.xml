@@ -56,6 +56,13 @@
 
     </RelativeLayout>
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+        android:onClick="backToIntro"
+        android:text="@string/beck_button" />
+
     <TextView
         android:id="@+id/feedback_string"
         android:layout_width="wrap_content"

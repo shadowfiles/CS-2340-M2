@@ -2,7 +2,7 @@ package cs2340.android.Presenters;
 
 import cs2340.android.Views.IntroPageView;
 
-public class IntroPagePresenter implements PresenterInterface {
+public class IntroPagePresenter implements ListenerPresenterInterface {
 
 	private IntroPageView view;
 	

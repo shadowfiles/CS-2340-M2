@@ -21,5 +21,10 @@
     <string name="cancel_text">Cancel</string>
     <string name="title_activity_add_acount">AddAcountActivity</string>
     <string name="title_activity_user_page">UserPageActivity</string>
+    <string name="logout_text">Logout</string>
+    <string name="add_account">Add Account</string>
+    <string name="beck_button">Back</string>
+    <string name="go_to_text">Go To</string>
+    <string name="create_please_text">Create an account</string>
 
 </resources>

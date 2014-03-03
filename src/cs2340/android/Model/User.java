@@ -1,13 +1,17 @@
 package cs2340.android.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class User implements UserModel{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements UserModel, Serializable{
 	
 	private String username;
 	private String password;
-	private Collection<Account> Accounts = new ArrayList<Account>();
+	private ArrayList<Account> Accounts = new ArrayList<Account>();
 	
 	public User(String username, String password) {
 		this.username = username;
@@ -24,7 +28,13 @@ public class User implements UserModel{
 	
 	public void addAccount(String name, String displayName, 
 					double balance, double intrest) {
-		Accounts.add(new Account(name, displayName, balance, intrest));
+		Accounts.add(new Account(name, displayName, balance, intrest, this));
+	}
+	
+	public ArrayList<Account> getAccounts() {
+		return Accounts;
 	}
 	//add other user stuff
+
+	
 }

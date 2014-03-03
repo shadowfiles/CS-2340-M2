@@ -1,21 +1,26 @@
 package cs2340.android.Activities;
 
+import java.io.Serializable;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import cs2340.android.Model.User;
 import cs2340.android.Model.UserList;
+import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.LoginPagePresenter;
-import cs2340.android.Presenters.PresenterInterface;
+import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Views.LoginPageView;
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 
 public class LoginActivity extends Activity implements LoginPageView{
 
-	private PresenterInterface listener;
+	private ListenerPresenterInterface listener;
 	LoginPagePresenter presenter;
 	EditText usernameField;
 	EditText passwordField;
@@ -44,6 +49,10 @@ public class LoginActivity extends Activity implements LoginPageView{
 		listener.onClickOne();
 	}
 	
+	public void backToIntro(View v) {
+		listener.onClickTwo();
+	}
+	
 	@Override
 	public String getUsername() {
 		return usernameField.getText().toString();
@@ -61,16 +70,19 @@ public class LoginActivity extends Activity implements LoginPageView{
 	}
 
 	@Override
-	public void attemptLoginCallback(PresenterInterface lsnr) {
+	public void attemptLoginCallback(ListenerPresenterInterface lsnr) {
 		listener = lsnr;
 	}
 
 	@Override
-	public void goToSuccess() {
-		Intent intent = new Intent(LoginActivity.this, SuccessActivity.class);
+	public void goToSuccess(UserModel passedObject) {
+		Intent intent = new Intent(LoginActivity.this, UserPageActivity.class);
+		intent.putExtra("theUser", (Serializable)passedObject);
 		startActivity(intent);		
 	}
-
 	
-	
+	public void goToIntro() {
+		Intent intent = new Intent(LoginActivity.this, FullscreenActivity.class);
+		startActivity(intent);	
+	}
 }

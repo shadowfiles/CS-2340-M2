@@ -1,6 +1,7 @@
 package cs2340.android.Views;
 
-import cs2340.android.Presenters.PresenterInterface;
+import cs2340.android.Model.UserModel;
+import cs2340.android.Presenters.ListenerPresenterInterface;
 
 public interface AddAccountPageView {
 	
@@ -17,13 +18,13 @@ public interface AddAccountPageView {
 	double getInterest();
 	
 	//sets listener using presenter
-	void attemptAddAccountCallback(PresenterInterface listener);
-	void goToUserPage();
+	void attemptAddAccountCallback(ListenerPresenterInterface listener);
+	void goToUserPage(UserModel model);
 	
 	//onClick listener (must set these on buttons that 
 	//you want to relate to them). 
-	void createButton();	//onClickTwo
-	void backButton();		//onClickOne
+	//void createButton();	//onClickTwo
+	//void backButton();		//onClickOne
 	
 	//Just here for later. Not necessary to implement 
 	//unless you are feeling ambitious. 

@@ -19,7 +19,7 @@ package cs2340.android.Presenters;
 
 
 
-public interface PresenterInterface {
+public interface ListenerPresenterInterface {
 	void onClickOne();
 	void onClickTwo();
 }

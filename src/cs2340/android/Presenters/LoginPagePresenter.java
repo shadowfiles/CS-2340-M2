@@ -3,7 +3,7 @@ package cs2340.android.Presenters;
 import cs2340.android.Model.ListModel;
 import cs2340.android.Views.LoginPageView;
 
-public class LoginPagePresenter implements PresenterInterface {
+public class LoginPagePresenter implements ListenerPresenterInterface {
 
 	private LoginPageView view;
 	private ListModel model;
@@ -18,8 +18,8 @@ public class LoginPagePresenter implements PresenterInterface {
 	@Override
 	public void onClickOne() {
 		counter++;
-		if (model.goodPass(view.getUsername(), view.getPassword()) == true) {
-			view.goToSuccess();
+		if (model.goodPass(view.getUsername(), view.getPassword()) != null) {
+			view.goToSuccess(model.getUser(view.getUsername(), view.getPassword()));
 		} else {
 			if (counter == 1) {
 				view.setErrorMessage("Incorrect login info, please try again.");
@@ -36,6 +36,8 @@ public class LoginPagePresenter implements PresenterInterface {
 	}
 
 	@Override
-	public void onClickTwo() {}
+	public void onClickTwo() {
+		view.goToIntro();
+	}
 
 }
