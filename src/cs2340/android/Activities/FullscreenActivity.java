@@ -25,7 +25,7 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 	}
 	 
 	public void goLoginPage(View view){
-		listener.onClickOne();
+		presenter.onClickOne();
 	}
 	
 	public void tranferPageLogin() {
@@ -34,7 +34,7 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 	}
 	
 	public void goRegisterPage(View view) {
-		listener.onClickTwo();
+		presenter.onClickTwo();
 	}
 	
 	public void transferPageReg() {
