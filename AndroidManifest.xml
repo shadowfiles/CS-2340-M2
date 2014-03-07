@@ -55,6 +55,10 @@
             android:name="cs2340.android.Activities.AccountActivity"
             android:label="@string/title_activity_account" >
         </activity>
+        <activity
+            android:name="cs2340.android.Activities.TransactionActivity"
+            android:label="@string/title_activity_transaction" >
+        </activity>
     </application>
 
 </manifest>

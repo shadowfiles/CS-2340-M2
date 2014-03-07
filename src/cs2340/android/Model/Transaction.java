@@ -12,7 +12,6 @@ public class Transaction {
 	private String comment;
 	private final UUID transactionID;
 
-	// enum for enforcement to be used to classify this transaction
 	public enum TransactionType {WITHDRAW, DEPOSIT}
 	
 	/**

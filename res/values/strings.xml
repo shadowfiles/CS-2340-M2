@@ -28,5 +28,6 @@
     <string name="create_please_text">Create an account</string>
     <string name="title_activity_account">Account</string>
     <string name="make_transaction">Make Transaction</string>
+    <string name="title_activity_transaction">TransactionActivity</string>
 
 </resources>
