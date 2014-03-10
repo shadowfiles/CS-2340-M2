@@ -27,23 +27,16 @@
         android:onClick="logoutButton"
         android:text="@string/logout_text" />
 
-    <TextView
-        android:id="@+id/account1"
+    <LinearLayout
+        android:id="@+id/account_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/addAccount_user_button"
+        android:layout_alignLeft="@+id/addAccount_user_button"
+        android:layout_alignRight="@+id/addAccount_user_button"
         android:layout_below="@+id/logout_user_button"
-        android:layout_toLeftOf="@+id/logout_user_button"
-        android:text="@string/create_please_text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/account1"
-        android:layout_below="@+id/account1"
-        android:onClick="accountButton"
-        android:text="@string/go_to_text" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -8,4 +8,5 @@ public interface UserModel  {
 	 String getUsername();
 	 void addAccount(String name, String displayName, double balance, double intrest);
 	 Collection<Account> getAccounts();
+	 Account getAccount(String name);
 }

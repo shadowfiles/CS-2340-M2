@@ -2,23 +2,21 @@ package cs2340.android.Presenters;
 
 import cs2340.android.Views.IntroPageView;
 
-public class IntroPagePresenter implements ListenerPresenterInterface {
+public class IntroPagePresenter {
 
 	private IntroPageView view;
 	
 	public IntroPagePresenter(IntroPageView v) {
 		view = v;
-		view.attemptIntroCallback(this);
+		//view.attemptIntroCallback(this);
 	}
 
-	@Override
-	public void onClickOne() {
+	public void onClickLogin() {
 		view.tranferPageLogin();
 		
 	}
 
-	@Override
-	public void onClickTwo() {
+	public void onClickReg() {
 		view.transferPageReg();
 	}
 

@@ -14,12 +14,10 @@ import android.widget.EditText;
 import cs2340.android.Model.UserList;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.AddAccountPresenter;
-import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Views.AddAccountPageView;
 
 public class AddAcountActivity extends Activity implements AddAccountPageView {
 	
-	private ListenerPresenterInterface listener;
 	private AddAccountPresenter presenter;
 	private EditText fullName;
 	private EditText displayName;
@@ -61,10 +59,6 @@ public class AddAcountActivity extends Activity implements AddAccountPageView {
 		return Double.parseDouble(interest.getText().toString());
 	}
 
-	public void attemptAddAccountCallback(ListenerPresenterInterface listener) {
-		this.listener = listener;
-	}
-
 	public void goToUserPage(UserModel theUser) {
 		Intent intent = new Intent(AddAcountActivity.this, UserPageActivity.class);
 		intent.putExtra("theUser", (Serializable) theUser);
@@ -72,11 +66,11 @@ public class AddAcountActivity extends Activity implements AddAccountPageView {
 	}
 
 	public void createButton(View view) {
-		listener.onClickTwo();
+		presenter.onClickCreate();
 	}
 
 	public void backButton(View view) {
-		listener.onClickOne();
+		presenter.onClickBack();
 	}
 
 }

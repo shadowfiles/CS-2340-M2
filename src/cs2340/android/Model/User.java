@@ -31,6 +31,15 @@ public class User implements UserModel, Serializable{
 		Accounts.add(new Account(name, displayName, balance, intrest, this));
 	}
 	
+	public Account getAccount(String name) {
+		for(Account a: Accounts) {
+			if (a.getName().equals(name)) {
+				return a;
+			}				
+		}
+		return null;
+	}
+	
 	public ArrayList<Account> getAccounts() {
 		return Accounts;
 	}

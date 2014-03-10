@@ -1,31 +1,30 @@
 package cs2340.android.Activities;
 
 import java.io.Serializable;
-import java.util.Collection;
 
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 
 import cs2340.android.Activities.UserPageActivity;
 import cs2340.android.Model.Account;
+import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.UserModel;
-import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Presenters.UserPagePresenter;
 import cs2340.android.Views.UserPageView;
-import android.media.audiofx.AcousticEchoCanceler;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 public class UserPageActivity extends Activity implements UserPageView{
 
-	private ListenerPresenterInterface listener;
-	private UserPagePresenter presenter;
-	private TextView accountdisplay1;
-	
-	
+	private UserPagePresenter presenter ;
+	private LinearLayout accountlist;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,22 +32,8 @@ public class UserPageActivity extends Activity implements UserPageView{
 		setContentView(R.layout.activity_user_page);
 		
 		presenter = new UserPagePresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), this);
-		
-		//PLEASE FIX THIS SHIT
-		UserModel user = (UserModel) getIntent().getExtras().getSerializable("theUser");
-		
-		accountdisplay1 = (TextView) findViewById(R.id.account1);
-
-		Collection<Account> acnts = user.getAccounts();
-		
-		for (Account a: acnts) {
-			if (a == null){
-				break;
-			}
-			accountdisplay1.setText(a.getDisplayName() + " -- $" + a.getBalance());
-		}
-		
-		//DOWN TO HERE
+		accountlist = (LinearLayout) findViewById(R.id.account_list);
+		presenter.drawAccounts();
 	}
 
 	@Override
@@ -58,21 +43,26 @@ public class UserPageActivity extends Activity implements UserPageView{
 	}
 	
 	@Override
-	public void attemptUserCallback(ListenerPresenterInterface lsnr) {
-		listener = lsnr;
+	public void drawAccount(String name, double balance) {
+		final Button button = new Button(this);
+		button.setText(name);
+		button.setOnClickListener(new OnClickListener()  {
+			
+			@Override
+			public void onClick(View v) {
+				presenter.onClickAccount(button.getText().toString());
+			}
+		});
+		accountlist.addView(button, 0);
 	}
-
+	
 	public void addAccountButton(View view) {
-		listener.onClickOne();
+		presenter.onClickAddAccount();
 	}
 
 	
 	public void logoutButton(View view) {
-		listener.onClickTwo();
-	}
-	
-	public void accountButton(View view) {
-		presenter.onClickGOTO();
+		presenter.onClickLogout();
 	}
 
 	@Override
@@ -89,8 +79,9 @@ public class UserPageActivity extends Activity implements UserPageView{
 	}
 	
 	@Override
-	public void goToAccount() {
+	public void goToAccount(AccountModel account) {
 		Intent intent = new Intent(UserPageActivity.this, AccountActivity.class);
+		intent.putExtra("theAccount",(Serializable)account);
 		startActivity(intent);
 	}
 

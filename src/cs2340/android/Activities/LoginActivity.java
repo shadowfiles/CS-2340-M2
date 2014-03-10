@@ -14,13 +14,11 @@ import cs2340.android.Model.User;
 import cs2340.android.Model.UserList;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.LoginPagePresenter;
-import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Views.LoginPageView;
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 
 public class LoginActivity extends Activity implements LoginPageView{
 
-	private ListenerPresenterInterface listener;
 	LoginPagePresenter presenter;
 	EditText usernameField;
 	EditText passwordField;
@@ -46,11 +44,11 @@ public class LoginActivity extends Activity implements LoginPageView{
 	}
 
 	public void attemptLogin(View v) {
-		listener.onClickOne();
+		presenter.onClickLogin();
 	}
 	
 	public void backToIntro(View v) {
-		listener.onClickTwo();
+		presenter.onClickBack();
 	}
 	
 	@Override
@@ -70,11 +68,6 @@ public class LoginActivity extends Activity implements LoginPageView{
 	}
 
 	@Override
-	public void attemptLoginCallback(ListenerPresenterInterface lsnr) {
-		listener = lsnr;
-	}
-
-	@Override
 	public void goToSuccess(UserModel passedObject) {
 		Intent intent = new Intent(LoginActivity.this, UserPageActivity.class);
 		intent.putExtra("theUser", (Serializable)passedObject);
@@ -85,4 +78,5 @@ public class LoginActivity extends Activity implements LoginPageView{
 		Intent intent = new Intent(LoginActivity.this, FullscreenActivity.class);
 		startActivity(intent);	
 	}
+
 }

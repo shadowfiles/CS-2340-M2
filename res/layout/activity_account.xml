@@ -8,22 +8,33 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AccountActivity" >
 
-    <Button
-        android:id="@+id/button1"
+    <TextView
+        android:id="@+id/amount_in_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="@string/make_transaction" />
+        android:layout_alignParentTop="true"
+        android:text="@string/blank"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/account_submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignRight="@+id/button1"
+        android:layout_alignLeft="@+id/account_back_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="goBack"
         android:text="@string/beck_button" />
+
+    <Button
+        android:id="@+id/account_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/account_submit_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="makeTransaction"
+        android:text="@string/make_transaction" />
 
 </RelativeLayout>

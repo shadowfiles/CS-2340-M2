@@ -6,13 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import cs2340.android.Presenters.IntroPagePresenter;
-import cs2340.android.Presenters.ListenerPresenterInterface;
 import cs2340.android.Views.IntroPageView;
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 
 public class FullscreenActivity extends Activity implements IntroPageView{
 	
-	ListenerPresenterInterface listener;
 	IntroPagePresenter presenter;
 	
 	
@@ -25,7 +23,7 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 	}
 	 
 	public void goLoginPage(View view){
-		presenter.onClickOne();
+		presenter.onClickLogin();
 	}
 	
 	public void tranferPageLogin() {
@@ -34,7 +32,7 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 	}
 	
 	public void goRegisterPage(View view) {
-		presenter.onClickTwo();
+		presenter.onClickReg();
 	}
 	
 	public void transferPageReg() {
@@ -42,8 +40,4 @@ public class FullscreenActivity extends Activity implements IntroPageView{
 		startActivity(intent);
 	}
 
-	@Override
-	public void attemptIntroCallback(ListenerPresenterInterface lsn) {
-		listener = lsn;
-	}
 }

@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/radio_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".TransactionActivity" >
+
+    <Button
+        android:id="@+id/account_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/beck_button" 
+        android:onClick="goBack"/>
+
+    <Button
+        android:id="@+id/account_submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/account_back_button"
+        android:layout_alignLeft="@+id/account_back_button"
+        android:layout_alignRight="@+id/account_back_button"
+        android:text="@string/submit_text" 
+        android:onClick="makeTransaction"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/account_submit_button"
+        android:layout_alignRight="@+id/account_submit_button" >
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/transaction_amount_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_acc_bal"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/account_submit_button"
+        android:ems="10"
+        android:hint="@string/amount"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/transaction_source_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/transaction_amount_field"
+        android:layout_alignRight="@+id/transaction_amount_field"
+        android:layout_below="@+id/transaction_amount_field"
+        android:ems="10"
+        android:hint="@string/source" />
+
+    <EditText
+        android:id="@+id/transaction_date_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/transaction_source_field"
+        android:layout_alignRight="@+id/transaction_source_field"
+        android:layout_below="@+id/transaction_source_field"
+        android:ems="10"
+        android:hint="@string/date"
+        android:inputType="date" />
+
+    <TextView
+        android:id="@+id/user_acc_bal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/account_submit_button"
+        android:layout_below="@+id/transaction_date_field"
+        android:text="@string/transation_type"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RadioButton
+        android:id="@+id/deposit_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/account_submit_button"
+        android:layout_below="@+id/user_acc_bal"
+        android:text="@string/deposit" />
+
+    <RadioButton
+        android:id="@+id/withdraw_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/account_submit_button"
+        android:layout_below="@+id/deposit_radio"
+        android:text="@string/withdrawal" />
+
+</RelativeLayout>

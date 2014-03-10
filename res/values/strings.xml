@@ -28,5 +28,13 @@
     <string name="create_please_text">Create an account</string>
     <string name="title_activity_account">Account</string>
     <string name="make_transaction">Make Transaction</string>
+    <string name="title_activity_transaction">TransactionActivity</string>
+    <string name="submit_text">Submit</string>
+    <string name="transation_type">Transaction Type</string>
+    <string name="amount">Amount</string>
+    <string name="source">Source</string>
+    <string name="date">Date</string>
+    <string name="deposit">Deposit</string>
+    <string name="withdrawal">"Withdrawal "</string>
 
 </resources>

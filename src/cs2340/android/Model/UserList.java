@@ -10,21 +10,21 @@ public class UserList implements ListModel {
 
 	private UserList() {
 		Users = new ArrayList<User>();
-		Users.add(new User ("admin", "pass123"));
+		Users.add(new User ("2", "2"));
 	}
 
 	public static UserList getInstance() {
 		return INSTANCE;
 	}
 	
-	public User goodPass(String user, String pass) {
+	public boolean goodPass(String user, String pass) {
 
 		for (User u : Users) {
 			if(u.getUsername().equals(user) && u.getPassword().equals(pass)) {
-					return u;
+					return true;
 			}
 		} 
-		return null;
+		return false;
 	}
 
 	public void addUser(String user, String passone, String passtwo) {

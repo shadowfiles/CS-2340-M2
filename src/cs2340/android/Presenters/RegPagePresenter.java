@@ -3,7 +3,7 @@ package cs2340.android.Presenters;
 import cs2340.android.Model.ListModel;
 import cs2340.android.Views.RegisterPageView;
 
-public class RegPagePresenter implements ListenerPresenterInterface {
+public class RegPagePresenter {
 
 	private RegisterPageView view;
 	private ListModel model;
@@ -11,20 +11,16 @@ public class RegPagePresenter implements ListenerPresenterInterface {
 	public RegPagePresenter (ListModel m, RegisterPageView v) {
 		view = v;
 		model = m;
-		view.attemptRegisterCallback(this);
 	}
 	
 
-	@Override
-	public void onClickOne() {
+	public void onClickReg() {
 		model.addUser(view.getUsername(), view.getPassOne(), view.getPassTwo());
 		view.goToIntro();
 	}
 
 
-	@Override
-	public void onClickTwo() {
-		//view.clearInfo();
+	public void onClickBack() {
 		view.goToIntro();		
 	}
 	

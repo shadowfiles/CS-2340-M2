@@ -14,7 +14,7 @@ public class Account implements AccountModel, Serializable {
 	private double balance;
 	private double intrest;
 	private User owner;
-	private Collection<Transaction> transactions = new ArrayList<Transaction>();
+	private Collection<TransactionInterface> transactions = new ArrayList<TransactionInterface>();
 	
 	public Account(String name, String displayName, double balance,
 			double intrest, User owner) {
@@ -48,5 +48,22 @@ public class Account implements AccountModel, Serializable {
 	@Override
 	public String getDisplayName() {
 		return displayName;
+	}
+
+	@Override
+	public void makeWithdrawl(String dateMade, String currentDate, 
+			String source, double amount, Account account) {
+		transactions.add(new Withdrawl(dateMade, currentDate, source, amount, this));
+	}
+
+	@Override
+	public void makeDeposit(String dateMade, String currentDate, String source,
+			double amount, Account account) {
+		transactions.add(new Deposit(dateMade, currentDate, source, amount, this));		
+	}
+	
+	@Override
+	public void changeBalance(double amount) {
+		balance += amount;
 	}
 }

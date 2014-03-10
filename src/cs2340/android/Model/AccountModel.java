@@ -7,4 +7,10 @@ public interface AccountModel {
 	double getBalance();
 	double getIntrest();
 	String getDisplayName();
+	void changeBalance(double amount);
+	void makeWithdrawl(String dateMade, String currentDate, String source,
+			double amount, Account account);
+	void makeDeposit(String dateMade, String currentDate, String source,
+			double amount, Account account);
+
 }

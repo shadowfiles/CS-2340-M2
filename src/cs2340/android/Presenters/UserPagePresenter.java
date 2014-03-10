@@ -1,30 +1,36 @@
 package cs2340.android.Presenters;
+import cs2340.android.Model.Account;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Views.UserPageView;
 
-public class UserPagePresenter implements ListenerPresenterInterface {
+public class UserPagePresenter {
 	
 	private UserPageView view;
 	private UserModel model;
 	
+	
 	public UserPagePresenter (UserModel m, UserPageView v) {
 		view = v;
-		model = m;
-		view.attemptUserCallback(this);
+		model = m;		
+	}
+	
+	public void drawAccounts() {
+		for (Account a: model.getAccounts()) {
+			if(a == null) break;
+			view.drawAccount(a.getName(), a.getBalance());
+		}
 	}
 
-	@Override
-	public void onClickOne() {
-		view.goToAddAccount(model); //TODO get account
+	
+	public void onClickAddAccount() {
+		view.goToAddAccount(model);
 	}
-
-	@Override
-	public void onClickTwo() {
-		//CODE TO MAKE IT SO THAT WHEN YOU PRESS BACK YOU CAN NOT RETURN HERE
+	
+	public void onClickLogout() {
 		view.goToIntro();
 	}
 	
-	public void onClickGOTO() {
-		view.goToAccount();
+	public void onClickAccount(String name) {
+		view.goToAccount(model.getAccount(name));
 	}
 }
