@@ -4,9 +4,11 @@ import java.util.Collection;
 
 public interface UserModel  {
 	 
-	 String getPassword();
+	 int getPassword();
 	 String getUsername();
 	 void addAccount(String name, String displayName, double balance, double intrest);
-	 Collection<Account> getAccounts();
-	 Account getAccount(String name);
+	 Collection<AccountModel> getAccounts();
+	 AccountModel getAccount(String name);
+	 String GetWritable();
+	 Collection<String> getAccountWriteables();
 }

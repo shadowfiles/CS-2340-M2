@@ -1,6 +1,7 @@
 package cs2340.android.Activities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 
@@ -21,17 +22,18 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-public class UserPageActivity extends Activity implements UserPageView{
+public class UserPageActivity extends Activity implements UserPageView {
 
-	private UserPagePresenter presenter ;
+	private UserPagePresenter presenter;
 	private LinearLayout accountlist;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_page);
-		
-		presenter = new UserPagePresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), this);
+
+		presenter = new UserPagePresenter((UserModel) getIntent().getExtras()
+				.getSerializable("theUser"), this);
 		accountlist = (LinearLayout) findViewById(R.id.account_list);
 		presenter.drawAccounts();
 	}
@@ -41,47 +43,51 @@ public class UserPageActivity extends Activity implements UserPageView{
 		getMenuInflater().inflate(R.menu.user_page, menu);
 		return true;
 	}
-	
+
 	@Override
-	public void drawAccount(String name, double balance) {
-		final Button button = new Button(this);
-		button.setText(name);
-		button.setOnClickListener(new OnClickListener()  {
-			
-			@Override
-			public void onClick(View v) {
-				presenter.onClickAccount(button.getText().toString());
-			}
-		});
-		accountlist.addView(button, 0);
+	public void drawAccounts(Collection<String> writable) {
+		for (String s : writable) {
+			final Button button = new Button(this);
+			button.setText(s);
+			button.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					presenter.onClickAccount(button.getText().toString());
+				}
+			});
+			accountlist.addView(button, 0);
+		}
 	}
-	
+
 	public void addAccountButton(View view) {
 		presenter.onClickAddAccount();
 	}
 
-	
 	public void logoutButton(View view) {
 		presenter.onClickLogout();
 	}
 
 	@Override
 	public void goToAddAccount(UserModel theUser) {
-		Intent intent = new Intent(UserPageActivity.this, AddAcountActivity.class);
+		Intent intent = new Intent(UserPageActivity.this,
+				AddAcountActivity.class);
 		intent.putExtra("theUser", (Serializable) theUser);
 		startActivity(intent);
 	}
 
+	//DELETE VIEW ON GOT TO INTRO
 	@Override
 	public void goToIntro() {
-		Intent intent = new Intent(UserPageActivity.this, FullscreenActivity.class);
+		Intent intent = new Intent(UserPageActivity.this,
+				FullscreenActivity.class);
 		startActivity(intent);
 	}
-	
+
 	@Override
 	public void goToAccount(AccountModel account) {
 		Intent intent = new Intent(UserPageActivity.this, AccountActivity.class);
-		intent.putExtra("theAccount",(Serializable)account);
+		intent.putExtra("theAccount", (Serializable) account);
 		startActivity(intent);
 	}
 

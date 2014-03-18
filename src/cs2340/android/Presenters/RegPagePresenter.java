@@ -13,7 +13,7 @@ public class RegPagePresenter {
 		model = m;
 	}
 	
-
+	//SUPPORT ERROR MESSAGE
 	public void onClickReg() {
 		model.addUser(view.getUsername(), view.getPassOne(), view.getPassTwo());
 		view.goToIntro();

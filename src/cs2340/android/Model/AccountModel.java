@@ -1,5 +1,6 @@
 package cs2340.android.Model;
 
+
 public interface AccountModel {
 
 	User getOwner();
@@ -12,5 +13,5 @@ public interface AccountModel {
 			double amount, Account account);
 	void makeDeposit(String dateMade, String currentDate, String source,
 			double amount, Account account);
-
+	String getWritable();
 }

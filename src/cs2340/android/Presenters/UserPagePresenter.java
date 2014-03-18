@@ -1,5 +1,6 @@
 package cs2340.android.Presenters;
 import cs2340.android.Model.Account;
+import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Views.UserPageView;
 
@@ -11,14 +12,13 @@ public class UserPagePresenter {
 	
 	public UserPagePresenter (UserModel m, UserPageView v) {
 		view = v;
-		model = m;		
+		model = m;	
+		
+		//code?
 	}
 	
 	public void drawAccounts() {
-		for (Account a: model.getAccounts()) {
-			if(a == null) break;
-			view.drawAccount(a.getName(), a.getBalance());
-		}
+		view.drawAccounts(model.getAccountWriteables());
 	}
 
 	

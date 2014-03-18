@@ -54,16 +54,24 @@ public class Account implements AccountModel, Serializable {
 	public void makeWithdrawl(String dateMade, String currentDate, 
 			String source, double amount, Account account) {
 		transactions.add(new Withdrawl(dateMade, currentDate, source, amount, this));
+		//balance manipulation in Withdraw
 	}
 
 	@Override
 	public void makeDeposit(String dateMade, String currentDate, String source,
 			double amount, Account account) {
-		transactions.add(new Deposit(dateMade, currentDate, source, amount, this));		
+		transactions.add(new Deposit(dateMade, currentDate, source, amount, this));	
+		//balance manipulation in Deposit
 	}
 	
 	@Override
 	public void changeBalance(double amount) {
 		balance += amount;
 	}
+
+	@Override
+	public String getWritable() {
+		return displayName + ", " + balance;
+	}
+	
 }
