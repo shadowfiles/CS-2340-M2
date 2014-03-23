@@ -37,6 +37,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int money=0x7f020001;
     }
     public static final class id {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a2095b34a50a043a082734626db958a9a807da5e
         public static final int LinearLayout2=0x7f09000f;
         public static final int PassRegOne=0x7f090015;
         public static final int PassRegTwo=0x7f090016;
@@ -47,6 +51,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int account_list=0x7f090028;
         public static final int action_settings=0x7f090029;
         public static final int addAccount_user_button=0x7f090026;
+<<<<<<< HEAD
         public static final int amount_in_account=0x7f090002;
         public static final int back_to_userpage=0x7f090000;
         public static final int balanceAddAccount=0x7f090008;
@@ -79,6 +84,78 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int user_acc_bal=0x7f090021;
         public static final int username_input=0x7f090010;
         public static final int withdraw_radio=0x7f090025;
+=======
+        public static final int amount_in_account=0x7f090002;
+        public static final int back_to_userpage=0x7f090000;
+        public static final int balanceAddAccount=0x7f090008;
+        public static final int cancelAddAccount=0x7f090005;
+        public static final int create_spending_report_button=0x7f090003;
+        public static final int deposit_radio=0x7f090024;
+        public static final int displayNameAddAccount=0x7f090006;
+        public static final int end_date_picker_spending_report=0x7f09001a;
+        public static final int feedback_string=0x7f09000b;
+        public static final int fullNameAddAccount=0x7f090004;
+        public static final int imageView1=0x7f09000e;
+        public static final int interestAddAccount=0x7f090009;
+        public static final int login=0x7f09000d;
+        public static final int login_button=0x7f090012;
+        public static final int logout_user_button=0x7f090027;
+        public static final int make_transaction=0x7f090001;
+        public static final int password_input=0x7f090011;
+        public static final int radioGroup=0x7f09001f;
+        public static final int radio_group=0x7f09001e;
+        public static final int spending_report_back=0x7f090018;
+        public static final int spending_report_submit=0x7f090019;
+        public static final int start_data_picker_spending_report=0x7f09001d;
+        public static final int submitAddAccount=0x7f090007;
+        public static final int tableRow1=0x7f090017;
+        public static final int textView1=0x7f09001b;
+        public static final int textView2=0x7f09001c;
+        public static final int transaction_amount_field=0x7f090020;
+        public static final int transaction_date_field=0x7f090023;
+        public static final int transaction_source_field=0x7f090022;
+        public static final int user_acc_bal=0x7f090021;
+        public static final int username_input=0x7f090010;
+        public static final int withdraw_radio=0x7f090025;
+=======
+        public static final int LinearLayout2=0x7f09000e;
+        public static final int PassRegOne=0x7f090014;
+        public static final int PassRegTwo=0x7f090015;
+        public static final int Register=0x7f09000b;
+        public static final int Registration_Page=0x7f090012;
+        public static final int RelativeLayout1=0x7f090009;
+        public static final int Username_Reg=0x7f090013;
+        public static final int account_list=0x7f090022;
+        public static final int action_settings=0x7f090023;
+        public static final int addAccount_user_button=0x7f090020;
+        public static final int amount_in_account=0x7f090002;
+        public static final int back_to_userpage=0x7f090000;
+        public static final int balanceAddAccount=0x7f090007;
+        public static final int cancelAddAccount=0x7f090004;
+        public static final int deposit_radio=0x7f09001d;
+        public static final int displayNameAddAccount=0x7f090005;
+        public static final int feedback_string=0x7f09000a;
+        public static final int fullNameAddAccount=0x7f090003;
+        public static final int imageView1=0x7f09000d;
+        public static final int interestAddAccount=0x7f090008;
+        public static final int login=0x7f09000c;
+        public static final int login_button=0x7f090011;
+        public static final int logout_user_button=0x7f090021;
+        public static final int make_transaction=0x7f090001;
+        public static final int password_input=0x7f090010;
+        public static final int radioGroup=0x7f090018;
+        public static final int radio_group=0x7f090017;
+        public static final int submitAddAccount=0x7f090006;
+        public static final int tableRow1=0x7f090016;
+        public static final int title=0x7f09001f;
+        public static final int transaction_amount_field=0x7f09001a;
+        public static final int transaction_date_field=0x7f09001b;
+        public static final int transaction_source_field=0x7f090019;
+        public static final int user_acc_bal=0x7f09001c;
+        public static final int username_input=0x7f09000f;
+        public static final int withdraw_radio=0x7f09001e;
+>>>>>>> 6ecca9cba94a70ea575ffc5e0556b56f0179a13b
+>>>>>>> a2095b34a50a043a082734626db958a9a807da5e
     }
     public static final class layout {
         public static final int activity_account=0x7f030000;
@@ -86,12 +163,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_fullscreen=0x7f030002;
         public static final int activity_login=0x7f030003;
         public static final int activity_register=0x7f030004;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a2095b34a50a043a082734626db958a9a807da5e
         public static final int activity_spending_report=0x7f030005;
         public static final int activity_spending_report_parameters=0x7f030006;
         public static final int activity_spending_report_parameters_=0x7f030007;
         public static final int activity_sucess=0x7f030008;
         public static final int activity_transaction=0x7f030009;
         public static final int activity_user_page=0x7f03000a;
+<<<<<<< HEAD
+=======
+=======
+        public static final int activity_success=0x7f030005;
+        public static final int activity_transaction=0x7f030006;
+        public static final int activity_user_page=0x7f030007;
+>>>>>>> 6ecca9cba94a70ea575ffc5e0556b56f0179a13b
+>>>>>>> a2095b34a50a043a082734626db958a9a807da5e
     }
     public static final class menu {
         public static final int account=0x7f080000;
