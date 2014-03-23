@@ -12,18 +12,18 @@ public class Account implements AccountModel, Serializable {
 	private String displayName;
 	private String name;
 	private double balance;
-	private double intrest;
+	private double interest;
 	private User owner;
 	private Collection<TransactionInterface> transactions = new ArrayList<TransactionInterface>();
 	
 	public Account(String name, String displayName, double balance,
-			double intrest, User owner) {
+			double interest, User owner) {
 		
 		this.owner = owner;
 		this.displayName = displayName;
 		this.name = name;
 		this.balance = balance;
-		this.intrest = intrest;
+		this.interest = interest;
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class Account implements AccountModel, Serializable {
 
 	@Override
 	public double getIntrest() {
-		return intrest;
+		return interest;
 	}
 
 	@Override
