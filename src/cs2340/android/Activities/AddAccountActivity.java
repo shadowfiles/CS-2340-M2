@@ -16,7 +16,7 @@ import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.AddAccountPresenter;
 import cs2340.android.Views.AddAccountPageView;
 
-public class AddAcountActivity extends Activity implements AddAccountPageView {
+public class AddAccountActivity extends Activity implements AddAccountPageView {
 	
 	private AddAccountPresenter presenter;
 	private EditText fullName;
@@ -60,7 +60,7 @@ public class AddAcountActivity extends Activity implements AddAccountPageView {
 	}
 
 	public void goToUserPage(UserModel theUser) {
-		Intent intent = new Intent(AddAcountActivity.this, UserPageActivity.class);
+		Intent intent = new Intent(AddAccountActivity.this, UserPageActivity.class);
 		intent.putExtra("theUser", (Serializable) theUser);
 		startActivity(intent);
 	}

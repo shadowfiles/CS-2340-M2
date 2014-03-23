@@ -71,7 +71,7 @@ public class UserPageActivity extends Activity implements UserPageView {
 	@Override
 	public void goToAddAccount(UserModel theUser) {
 		Intent intent = new Intent(UserPageActivity.this,
-				AddAcountActivity.class);
+				AddAccountActivity.class);
 		intent.putExtra("theUser", (Serializable) theUser);
 		startActivity(intent);
 	}
