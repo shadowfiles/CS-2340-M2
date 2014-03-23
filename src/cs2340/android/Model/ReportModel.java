@@ -1,29 +1,22 @@
 package cs2340.android.Model;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import android.util.Pair;
+import java.util.Collection;
 
 public class ReportModel {
 	
-	private List<Pair<String,Double>> listOfSpendings = new ArrayList<Pair<String,Double>>();
-	private Date start;
-	private Date end;
+	private Collection<TransactionInterface> transactions = new ArrayList<TransactionInterface>();
 	private double totalSpending = 0;
 
-    public ReportModel(List<Pair<String,Double>> listOfSpendings, Date start, Date end){
-    	this.listOfSpendings = listOfSpendings;
-    	this.start = start;
-    	this.end = end;
+    public ReportModel(Collection<TransactionInterface> transactions){
+    	this.transactions = transactions;
     }
     
     public String toString(){
-    	String report = "Spending Category Report" + start.toString() + end.toString() + "\n";
-    	for (Pair<String, Double> category : listOfSpendings) {
-            report = report + "Category: " + category.first + " Spending: " + category.second.toString() + "\n"; 
-            totalSpending = totalSpending + category.second;
+    	String report = "Spending Category Report" + "\n";
+    	for (TransactionInterface category : transactions) {
+            report = report + "Category: " + category.getSource() + " Spending: " + category.getAmount() + "\n"; 
+            totalSpending = totalSpending + category.getAmount();
         }
     	report = report + "Total Category Spending: " + totalSpending;
     	return report;
