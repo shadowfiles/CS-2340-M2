@@ -1,10 +1,14 @@
+
 package cs2340.android.Persistence;
 
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
+/*
 public class DatabaseHelper extends SQLiteOpenHelper {
+
+	
 	// Logcat tag
     private static final String LOG = "DatabaseHelper";
  
@@ -35,4 +39,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // create new tables
         onCreate(db);
     }
+    
 }
+*/

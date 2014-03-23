@@ -23,7 +23,7 @@ public class AccountPresenter {
 	}
 	
 	public void goToCreateSpendingReport() {
-		view.goToCreateSpendingReport();
+		view.goToCreateSpendingReport(model);
 	}
 	
 	public void back() {
