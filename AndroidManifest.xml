@@ -48,16 +48,24 @@
             android:label="@string/title_activity_user_page" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.UserPageActivity"
-            android:label="@string/title_activity_user_page" >
-        </activity>
-        <activity
             android:name="cs2340.android.Activities.AccountActivity"
             android:label="@string/title_activity_account" >
         </activity>
         <activity
             android:name="cs2340.android.Activities.TransactionActivity"
             android:label="@string/title_activity_transaction" >
+        </activity>
+        <activity
+            android:name="cs2340.android.Activities.SpendingReportParametersActivity"
+            android:label="@string/title_activity_transaction" >
+        </activity>
+        <activity
+            android:name="cs2340.andriod.cs_2340_water_s_warriors.SpendingReport"
+            android:label="@string/title_activity_spending_report" >
+        </activity>
+        <activity
+            android:name="cs2340.andriod.cs_2340_water_s_warriors.SpendingReportParameters"
+            android:label="@string/title_activity_spending_report_parameters" >
         </activity>
     </application>
 

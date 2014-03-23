@@ -18,16 +18,6 @@
         android:onClick="goBack"
         android:text="@string/beck_button" />
 
-    <Button
-        android:id="@+id/make_transaction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/back_to_userpage"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="makeTransaction"
-        android:text="@string/make_transaction" />
-
     <TextView
         android:id="@+id/amount_in_account"
         android:layout_width="wrap_content"
@@ -37,5 +27,25 @@
         android:layout_marginTop="28dp"
         android:text="@string/blank"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/create_spending_report_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/back_to_userpage"
+        android:layout_alignLeft="@+id/back_to_userpage"
+        android:layout_alignRight="@+id/back_to_userpage"
+        android:onClick="createSpendingReport"
+        android:text="Create Spending Report" />
+
+    <Button
+        android:id="@+id/make_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/create_spending_report_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:onClick="makeTransaction"
+        android:text="@string/make_transaction" />
 
 </RelativeLayout>

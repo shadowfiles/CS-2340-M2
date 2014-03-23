@@ -48,6 +48,10 @@ public class AccountActivity extends Activity implements AccountPageView{
 		presenter.back();
 	}
 	
+	public void createSpendingReport(View view) {
+		presenter.goToCreateSpendingReport();
+	}
+	
 	public void setamount(String balance) {
 		amount.setText(balance);
 	}
@@ -55,14 +59,19 @@ public class AccountActivity extends Activity implements AccountPageView{
 	@Override
 	public void goToTransaction(AccountModel account) {
 		Intent intent = new Intent(this, TransactionActivity.class);
-		intent.putExtra("theAccount",(Serializable)account);
+		intent.putExtra("theAccount", (Serializable)account);
+		startActivity(intent);		
+	}
+	
+	public void goToCreateSpendingReport() {
+		Intent intent = new Intent(this, SpendingReportParametersActivity.class);
 		startActivity(intent);		
 	}
 
 	@Override
 	public void goBack(UserModel user) {
 		Intent intent = new Intent(this, UserPageActivity.class);
-		intent.putExtra("theUser",(Serializable)user);
+		intent.putExtra("theUser", (Serializable)user);
 		startActivity(intent);		
 	}
 
