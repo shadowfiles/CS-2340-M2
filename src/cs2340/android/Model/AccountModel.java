@@ -1,5 +1,7 @@
 package cs2340.android.Model;
 
+import java.util.Collection;
+
 
 public interface AccountModel {
 
@@ -14,4 +16,5 @@ public interface AccountModel {
 	void makeDeposit(String dateMade, String currentDate, String source,
 			double amount, Account account);
 	String getWritable();
+	Collection<TransactionInterface> getTransactions();
 }

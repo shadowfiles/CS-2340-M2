@@ -38,5 +38,6 @@
     <string name="withdrawal">"Withdrawal "</string>
     <string name="title_activity_spending_report">SpendingReport</string>
     <string name="title_activity_spending_report_parameters">SpendingReportParameters</string>
+    <string name="title_activity_report">ReportActivity</string>
 
 </resources>
