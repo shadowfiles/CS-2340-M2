@@ -29,4 +29,9 @@ public class AccountPresenter {
 	public void back() {
 		view.goBack(model.getOwner());
 	}
+
+	public void drawTransactions() {
+		view.drawTransations(model.getTransactionWritables());
+		
+	}
 }

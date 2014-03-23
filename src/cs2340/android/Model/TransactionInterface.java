@@ -6,4 +6,5 @@ public interface TransactionInterface {
 	public String getCurrentDate();
 	public String getSource();
 	public double getAmount();
+	public String getWritable();
 }

@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TransactionActivity" >
-    
+
     <Button
         android:id="@+id/make_transaction"
         android:layout_width="wrap_content"
@@ -38,6 +38,20 @@
     </RadioGroup>
 
     <EditText
+        android:id="@+id/transaction_amount_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_acc_bal"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/back_to_userpage"
+        android:ems="10"
+        android:hint="@string/amount"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
         android:id="@+id/transaction_source_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,23 +61,13 @@
         android:ems="10"
         android:hint="@string/source" />
 
-    <EditText
-        android:id="@+id/transaction_date_field"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/transaction_source_field"
-        android:layout_alignRight="@+id/transaction_source_field"
-        android:layout_below="@+id/transaction_source_field"
-        android:ems="10"
-        android:hint="@string/date"
-        android:inputType="date" />
-
     <TextView
         android:id="@+id/user_acc_bal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/back_to_userpage"
-        android:layout_below="@+id/transaction_date_field"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_below="@+id/transaction_source_field"
         android:text="@string/transation_type"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -72,6 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/back_to_userpage"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/user_acc_bal"
         android:text="@string/deposit" />
 
@@ -81,29 +86,28 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/back_to_userpage"
         android:layout_below="@+id/deposit_radio"
+        android:layout_toLeftOf="@+id/radioGroup"
         android:text="@string/withdrawal" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/transaction_amount_field"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="14dp"
-        android:text="@string/make_transaction"
+        android:layout_alignLeft="@+id/withdraw_radio"
+        android:layout_alignRight="@+id/transaction_date_field"
+        android:layout_below="@+id/withdraw_radio"
+        android:text="@string/date_of_transaction"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
-        android:id="@+id/transaction_amount_field"
+    <DatePicker
+        android:id="@+id/transaction_date_field"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/user_acc_bal"
-        android:layout_below="@+id/title"
-        android:ems="10"
-        android:hint="@string/amount"
-        android:inputType="number" >
-
-        <requestFocus />
-    </EditText>
+        android:layout_height="130dp"
+        android:layout_above="@+id/back_to_userpage"
+        android:layout_alignLeft="@+id/back_to_userpage"
+        android:layout_alignRight="@+id/radioGroup"
+        android:layout_below="@+id/textView1"
+        android:calendarViewShown="false"
+        android:spinnersShown="true" />
 
 </RelativeLayout>

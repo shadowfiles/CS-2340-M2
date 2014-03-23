@@ -1,6 +1,8 @@
 package cs2340.android.Model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Withdrawl implements TransactionInterface, Serializable{
 
@@ -26,13 +28,17 @@ public class Withdrawl implements TransactionInterface, Serializable{
 			double amount, Account account) {
 
 		this.dateMade = dateMade;
-		this.currentDate = currentDate;
+		this.currentDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
 		this.source = source;
 		this.amount = -amount;
 		this.account = account;
 		
 		account.changeBalance(-amount);
 
+	}
+	@Override
+	public String getWritable() {
+		return dateMade + ": " + source + ", " + amount;
 	}
 	
 }

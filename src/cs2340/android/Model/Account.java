@@ -1,8 +1,10 @@
 package cs2340.android.Model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -22,8 +24,9 @@ public class Account implements AccountModel, Serializable {
 		this.owner = owner;
 		this.displayName = displayName;
 		this.name = name;
-		this.balance = balance;
+		this.balance = 0;
 		this.interest = interest;
+		this.makeDeposit(new SimpleDateFormat("MM/dd/yyyy").format(new Date()), null, "Account Created", balance, this);
 	}
 
 	@Override
@@ -73,5 +76,17 @@ public class Account implements AccountModel, Serializable {
 	public String getWritable() {
 		return name;
 	}
+
+	@Override
+	public Collection<String> getTransactionWritables() {
+		Collection<String> writeables = new ArrayList<String>();
+		for (TransactionInterface t : transactions) {
+			writeables.add(t.getWritable());
+		}
+		return writeables;
+	}
 	
+	public Collection<TransactionInterface> getTransactions() {
+		return transactions;
+	}
 }
