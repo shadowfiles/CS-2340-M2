@@ -71,7 +71,7 @@ public class Account implements AccountModel, Serializable {
 
 	@Override
 	public String getWritable() {
-		return displayName + ", " + balance;
+		return displayName;
 	}
 	
 }

@@ -44,12 +44,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int Registration_Page=0x7f090012;
         public static final int RelativeLayout1=0x7f090009;
         public static final int Username_Reg=0x7f090013;
-        public static final int account_back_button=0x7f090002;
         public static final int account_list=0x7f090021;
-        public static final int account_submit_button=0x7f090001;
         public static final int action_settings=0x7f090022;
         public static final int addAccount_user_button=0x7f09001f;
-        public static final int amount_in_account=0x7f090000;
+        public static final int amount_in_account=0x7f090002;
+        public static final int back_to_userpage=0x7f090000;
         public static final int balanceAddAccount=0x7f090007;
         public static final int cancelAddAccount=0x7f090004;
         public static final int deposit_radio=0x7f09001d;
@@ -61,6 +60,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int login=0x7f09000c;
         public static final int login_button=0x7f090011;
         public static final int logout_user_button=0x7f090020;
+        public static final int make_transaction=0x7f090001;
         public static final int password_input=0x7f090010;
         public static final int radioGroup=0x7f090018;
         public static final int radio_group=0x7f090017;

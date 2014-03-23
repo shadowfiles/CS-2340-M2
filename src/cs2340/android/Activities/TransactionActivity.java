@@ -28,7 +28,7 @@ public class TransactionActivity extends Activity implements TransactionPageView
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_account);
+		setContentView(R.layout.activity_transaction);
 		
 		presenter = new TransactionPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), this);
 		amount = (EditText) findViewById(R.id.transaction_amount_field);

@@ -10,7 +10,7 @@
     tools:context=".TransactionActivity" >
 
     <Button
-        android:id="@+id/account_back_button"
+        android:id="@+id/make_transaction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -20,12 +20,12 @@
         android:onClick="goBack"/>
 
     <Button
-        android:id="@+id/account_submit_button"
+        android:id="@+id/back_to_userpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/account_back_button"
-        android:layout_alignLeft="@+id/account_back_button"
-        android:layout_alignRight="@+id/account_back_button"
+        android:layout_above="@+id/make_transaction"
+        android:layout_alignLeft="@+id/make_transaction"
+        android:layout_alignRight="@+id/make_transaction"
         android:text="@string/submit_text" 
         android:onClick="makeTransaction"/>
 
@@ -33,8 +33,8 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/account_submit_button"
-        android:layout_alignRight="@+id/account_submit_button" >
+        android:layout_above="@+id/back_to_userpage"
+        android:layout_alignRight="@+id/back_to_userpage" >
     </RadioGroup>
 
     <EditText
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/user_acc_bal"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/account_submit_button"
+        android:layout_alignRight="@+id/back_to_userpage"
         android:ems="10"
         android:hint="@string/amount"
         android:inputType="number" >
@@ -76,7 +76,7 @@
         android:id="@+id/user_acc_bal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/account_submit_button"
+        android:layout_alignLeft="@+id/back_to_userpage"
         android:layout_below="@+id/transaction_date_field"
         android:text="@string/transation_type"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -85,7 +85,7 @@
         android:id="@+id/deposit_radio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/account_submit_button"
+        android:layout_alignLeft="@+id/back_to_userpage"
         android:layout_below="@+id/user_acc_bal"
         android:text="@string/deposit" />
 
@@ -93,7 +93,7 @@
         android:id="@+id/withdraw_radio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/account_submit_button"
+        android:layout_alignLeft="@+id/back_to_userpage"
         android:layout_below="@+id/deposit_radio"
         android:text="@string/withdrawal" />
 

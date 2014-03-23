@@ -14,7 +14,8 @@ public class AccountPresenter {
 	}
 	
 	public void setbalance() {
-		view.setamount("" + model.getBalance());
+		double amount = model.getBalance();
+		view.setamount("" + amount);
 	}
 	
 	public void goToTransaction() {

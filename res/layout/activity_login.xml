@@ -57,7 +57,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/account_back_button"
+        android:id="@+id/make_transaction"
         android:layout_width="285dp"
         android:layout_height="wrap_content"
         android:onClick="backToIntro"

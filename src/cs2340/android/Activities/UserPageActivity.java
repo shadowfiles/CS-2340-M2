@@ -52,7 +52,7 @@ public class UserPageActivity extends Activity implements UserPageView {
 			button.setOnClickListener(new OnClickListener() {
 
 				@Override
-				public void onClick(View v) {
+				public void onClick(View view) {
 					presenter.onClickAccount(button.getText().toString());
 				}
 			});
