@@ -22,6 +22,10 @@ public class AccountPresenter {
 		view.goToTransaction(model);
 	}
 	
+	public void goToCreateSpendingReport() {
+		view.goToCreateSpendingReport();
+	}
+	
 	public void back() {
 		view.goBack(model.getOwner());
 	}
