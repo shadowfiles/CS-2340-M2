@@ -29,13 +29,42 @@
         android:text="@string/make_transaction" />
 
     <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/account_balance_"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/amount_in_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/make_transaction"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_toRightOf="@+id/textView1"
         android:text="@string/blank"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:text="@string/recent_activity"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/transaction_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/make_transaction"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/make_transaction"
+        android:layout_below="@+id/textView2"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+   
 </RelativeLayout>

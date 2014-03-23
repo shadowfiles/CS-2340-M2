@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ public class TransactionActivity extends Activity implements TransactionPageView
 
 	EditText amount;
 	EditText source;
-	EditText date;
+	DatePicker date;
 	RadioButton deposit;
 	RadioButton withdrawl;	
 	TransactionPresenter presenter;
@@ -33,7 +34,7 @@ public class TransactionActivity extends Activity implements TransactionPageView
 		presenter = new TransactionPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), this);
 		amount = (EditText) findViewById(R.id.transaction_amount_field);
 		source = (EditText) findViewById(R.id.transaction_source_field);
-		date = (EditText) findViewById(R.id.transaction_date_field);
+		date = (DatePicker) findViewById(R.id.transaction_date_field);
 		deposit = (RadioButton) findViewById(R.id.deposit_radio);
 		withdrawl = (RadioButton) findViewById(R.id.withdraw_radio);
 		
@@ -67,7 +68,7 @@ public class TransactionActivity extends Activity implements TransactionPageView
 
 	@Override
 	public String getDate() {
-		return date.getText().toString();
+		return (date.getMonth()+1) + "/" + date.getDayOfMonth() + "/" + date.getYear();
 	}
 
 	@Override
