@@ -17,4 +17,5 @@ public interface AccountModel {
 			double amount, Account account);
 	String getWritable();
 	Collection<String> getTransactionWritables();
+	Collection<TransactionInterface> getTransactions();
 }

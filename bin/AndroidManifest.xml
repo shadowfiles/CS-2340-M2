@@ -67,6 +67,10 @@
             android:name="cs2340.andriod.cs_2340_water_s_warriors.SpendingReportParameters"
             android:label="@string/title_activity_spending_report_parameters" >
         </activity>
+        <activity
+            android:name="cs2340.andriod.cs_2340_water_s_warriors.ReportActivity"
+            android:label="@string/title_activity_report" >
+        </activity>
     </application>
 
 </manifest>

@@ -42,5 +42,6 @@
     <string name="account_balance_">"Balance: "</string>
     <string name="account_balance">"Balance: "</string>
     <string name="recent_activity">Recent Activity</string>
+    <string name="title_activity_report">ReportActivity</string>
 
 </resources>

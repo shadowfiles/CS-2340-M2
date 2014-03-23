@@ -89,4 +89,5 @@ public class Account implements AccountModel, Serializable {
 	public Collection<TransactionInterface> getTransactions() {
 		return transactions;
 	}
+	
 }
