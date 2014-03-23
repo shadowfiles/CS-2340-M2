@@ -13,11 +13,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  
     // Database Name
     private static final String DATABASE_NAME = "moneyapp";
-    
-    // Table Names
-    private static final String TABLE_USER = "users";
-    private static final String TABLE_ACCOUNT = "accounts";
-    private static final String TABLE_TRANSACTION = "transactions";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -25,45 +20,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // creating required tables
-        db.execSQL("CREATE TABLE IF NOT EXISTS `" + TABLE_USER + "` ("
-        		+ "`id` int(10) unsigned NOT NULL AUTO_INCREMENT,"
-        		+ "`username` varchar(100) NOT NULL,"
-        		+ "`password` tinytext NOT NULL,"
-        		+ "`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,"
-        		+ "PRIMARY KEY (`id`),"
-        		+ "UNIQUE KEY `username` (`username`)"
-        		+ ")"
-        		+ " ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `" + TABLE_TRANSACTION + "` ("
-        		+ "`id` int(10) unsigned NOT NULL AUTO_INCREMENT,"
-        		+ "`account_id` int(10) unsigned NOT NULL,"
-        		+ "`amount` int(10) unsigned NOT NULL,"
-        		+ "`source` tinytext NOT NULL,"
-        		+ "`date` int(10) unsigned NOT NULL,"
-        		+ "`is_deposit` tinyint(1) NOT NULL,"
-        		+ "`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,"
-        		+ "PRIMARY KEY (`id`)"
-        		+ ")"
-        		+ " ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
-        db.execSQL("CREATE TABLE IF NOT EXISTS `" + TABLE_ACCOUNT + ""
-        		+ "` (`id` int(10) unsigned NOT NULL AUTO_INCREMENT,"
-        		+ "`display_name` tinytext NOT NULL,"
-        		+ "`name` tinytext NOT NULL,"
-        		+ "`balance` int(11) NOT NULL,"
-        		+ "`interest` int(11) NOT NULL,"
-        		+ " `user_id` int(10) unsigned NOT NULL,"
-        		+ "`created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,"
-        		+ "PRIMARY KEY (`id`)"
-        		+ ")"
-        		+ " ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;");
+    	UserTableHelper.onCreate(db);
+    	AccountTableHelper.onCreate(db);
+    	TransactionTableHelper.onCreate(db);
     }
     
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACCOUNT);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRANSACTION);
+    	// delete old tables
+        UserTableHelper.onUpgrade(db, oldVersion, newVersion);
+        AccountTableHelper.onUpgrade(db, oldVersion, newVersion);
+        TransactionTableHelper.onUpgrade(db, oldVersion, newVersion);
  
         // create new tables
         onCreate(db);
