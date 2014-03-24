@@ -20,17 +20,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     
     @Override
     public void onCreate(SQLiteDatabase db) {
-    	UserTableHelper.onCreate(db);
-    	AccountTableHelper.onCreate(db);
-    	TransactionTableHelper.onCreate(db);
+    	UserDataSource.onCreate(db);
+    	AccountDataSource.onCreate(db);
+    	TransactionDataSource.onCreate(db);
     }
     
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     	// delete old tables
-        UserTableHelper.onUpgrade(db, oldVersion, newVersion);
-        AccountTableHelper.onUpgrade(db, oldVersion, newVersion);
-        TransactionTableHelper.onUpgrade(db, oldVersion, newVersion);
+        UserDataSource.onUpgrade(db, oldVersion, newVersion);
+        AccountDataSource.onUpgrade(db, oldVersion, newVersion);
+        TransactionDataSource.onUpgrade(db, oldVersion, newVersion);
  
         // create new tables
         onCreate(db);
