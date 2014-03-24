@@ -60,7 +60,7 @@
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
-            android:name="cs2340.andriod.cs_2340_water_s_warriors.SpendingReport"
+            android:name="cs2340.android.cs_2340_water_s_warriors.SpendingReport"
             android:label="@string/title_activity_spending_report" >
         </activity>
         <activity
@@ -68,7 +68,7 @@
             android:label="@string/title_activity_spending_report_parameters" >
         </activity>
         <activity
-            android:name="cs2340.andriod.cs_2340_water_s_warriors.ReportActivity"
+            android:name="cs2340.android.Activities.ReportActivity"
             android:label="@string/title_activity_report" >
         </activity>
     </application>

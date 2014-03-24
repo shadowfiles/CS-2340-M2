@@ -1,5 +1,6 @@
 package cs2340.android.Activities;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.io.Serializable;
@@ -23,10 +24,11 @@ import android.widget.TextView;
 public class ReportActivity extends Activity implements ReportModel {
 
 	ReportPresenter presenter;
-	private Collection<TransactionInterface> transactions;
+	TextView reportview;
+	private Collection<TransactionInterface> transactions = new ArrayList<TransactionInterface>();
 	private String start;
 	private String end;
-	private String report;
+	private String report = "";
 
     @Override
     public String toString(){
@@ -38,7 +40,7 @@ public class ReportActivity extends Activity implements ReportModel {
     	for (TransactionInterface transaction : transactions) {
             String date = transaction.getDateMade();
             if(compareDates(date,start)>=0 && compareDates(date,end)<=0 ){ //between the date range
-            	reportByAccount = reportByAccount + " Spending: " + transaction.getAmount() + "Source: " + transaction.getSource() + "\n"; 
+            	reportByAccount = reportByAccount + " Spending: " + transaction.getAmount() + " Source: " + transaction.getSource() + "\n"; 
             	totalSpending = totalSpending + transaction.getAmount();
             }
         }
@@ -69,16 +71,22 @@ public class ReportActivity extends Activity implements ReportModel {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report);
-	    TextView validReport = (TextView) findViewById(R.layout.activity_report);
-	    validReport.setText(report);
+	    reportview = (TextView) findViewById(R.id.report);
 	    UserModel user = (UserModel)getIntent().getExtras().getSerializable("theUser");
 	    Collection<AccountModel> accounts = user.getAccounts();
-	    for(AccountModel account:accounts){
-	    	transactions.addAll(account.getTransactions());
-	    	report = report + "Transaction Made by: " + account.getDisplayName() + "\n" +toString();
-	    }
 	    start = getIntent().getExtras().getString("startDate");
 	    end = getIntent().getExtras().getString("endDate");
+	    for(AccountModel account: accounts){
+	    	if(account.getTransactions()!=null){
+	    		transactions=account.getTransactions();
+	    		report = report + "Transaction Made by: " + account.getDisplayName() + "\n" +toString() + "\n";
+	    	}
+	    }
+	    //TextView validReport = (TextView) findViewById(R.layout.activity_report);
+		//validReport.setText(report);
+		
+	    reportview.setText(report);
+
 	}
 
 	@Override
