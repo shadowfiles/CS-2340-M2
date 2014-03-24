@@ -6,10 +6,7 @@ import cs2340.andriod.cs_2340_water_s_warriors.R;
 import cs2340.andriod.cs_2340_water_s_warriors.R.layout;
 import cs2340.andriod.cs_2340_water_s_warriors.R.menu;
 import cs2340.android.Model.AccountModel;
-<<<<<<< HEAD
 import cs2340.android.Model.UserModel;
-=======
->>>>>>> a2095b34a50a043a082734626db958a9a807da5e
 import cs2340.android.Presenters.AccountPresenter;
 import cs2340.android.Presenters.SpendingReportParametersPresenter;
 import cs2340.android.Views.SpendingReportParametersView;
@@ -31,11 +28,7 @@ public class SpendingReportParametersActivity extends Activity implements Spendi
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spending_report_parameters);
 		
-<<<<<<< HEAD
-		presenter = new SpendingReportParametersPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), (UserModel) getIntent().getExtras().getSerializable("theUser"), this);
-=======
 		presenter = new SpendingReportParametersPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), this);
->>>>>>> a2095b34a50a043a082734626db958a9a807da5e
 		startDatePicker = (DatePicker)findViewById(R.id.start_data_picker_spending_report);
 		endDatePicker = (DatePicker)findViewById(R.id.end_date_picker_spending_report);
 	}
@@ -64,19 +57,11 @@ public class SpendingReportParametersActivity extends Activity implements Spendi
 		startActivity(intent);			
 	}
 
-<<<<<<< HEAD
 	public void goToReport(UserModel user) {
 		String startDate = getDate(startDatePicker);
 		String endDate = getDate(endDatePicker);
 		Intent intent = new Intent(this, ReportActivity.class);
 		intent.putExtra("theUser", (Serializable)user);
-=======
-	public void goToReport(AccountModel account) {
-		String startDate = getDate(startDatePicker);
-		String endDate = getDate(endDatePicker);
-		Intent intent = new Intent(this, ReportActivity.class);
-		intent.putExtra("theAccount", (Serializable)account);
->>>>>>> a2095b34a50a043a082734626db958a9a807da5e
 		intent.putExtra("startDate", startDate);
 		intent.putExtra("endDate", endDate);
 		startActivity(intent);

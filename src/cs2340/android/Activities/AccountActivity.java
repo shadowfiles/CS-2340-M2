@@ -63,8 +63,9 @@ public class AccountActivity extends Activity implements AccountPageView{
 		startActivity(intent);		
 	}
 	
-	public void goToCreateSpendingReport() {
+	public void goToCreateSpendingReport(AccountModel account) {
 		Intent intent = new Intent(this, SpendingReportParametersActivity.class);
+		intent.putExtra("theAccount", (Serializable)account);
 		startActivity(intent);		
 	}
 

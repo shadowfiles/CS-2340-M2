@@ -73,5 +73,10 @@ public class Account implements AccountModel, Serializable {
 	public String getWritable() {
 		return name;
 	}
+
+	@Override
+	public Collection<TransactionInterface> getTransactions() {
+		return transactions;
+	}
 	
 }
