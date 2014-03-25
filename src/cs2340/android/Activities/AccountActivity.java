@@ -55,10 +55,6 @@ public class AccountActivity extends Activity implements AccountPageView{
 		presenter.back();
 	}
 	
-	public void createSpendingReport(View view) {
-		presenter.goToCreateSpendingReport();
-	}
-	
 	public void setamount(String balance) {
 		amount.setText(balance);
 	}
@@ -66,12 +62,6 @@ public class AccountActivity extends Activity implements AccountPageView{
 	@Override
 	public void goToTransaction(AccountModel account) {
 		Intent intent = new Intent(this, TransactionActivity.class);
-		intent.putExtra("theAccount", (Serializable)account);
-		startActivity(intent);		
-	}
-	
-	public void goToCreateSpendingReport(AccountModel account) {
-		Intent intent = new Intent(this, SpendingReportParametersActivity.class);
 		intent.putExtra("theAccount", (Serializable)account);
 		startActivity(intent);		
 	}

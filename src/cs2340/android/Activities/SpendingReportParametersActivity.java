@@ -6,6 +6,7 @@ import cs2340.andriod.cs_2340_water_s_warriors.R;
 import cs2340.andriod.cs_2340_water_s_warriors.R.layout;
 import cs2340.andriod.cs_2340_water_s_warriors.R.menu;
 import cs2340.android.Model.AccountModel;
+import cs2340.android.Model.ReportModel;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.AccountPresenter;
 import cs2340.android.Presenters.SpendingReportParametersPresenter;
@@ -28,7 +29,7 @@ public class SpendingReportParametersActivity extends Activity implements Spendi
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_spending_report_parameters);
 		
-		presenter = new SpendingReportParametersPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), this);
+		presenter = new SpendingReportParametersPresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), this);
 		startDatePicker = (DatePicker)findViewById(R.id.start_data_picker_spending_report);
 		endDatePicker = (DatePicker)findViewById(R.id.end_date_picker_spending_report);
 	}
@@ -43,6 +44,14 @@ public class SpendingReportParametersActivity extends Activity implements Spendi
 		return "" + (1+datePicker.getMonth()) + "/" + datePicker.getDayOfMonth() + "/" + datePicker.getYear();
 	}
 	
+	public String getStartDate() {
+		return getDate(startDatePicker);
+	}
+	
+	public String getEndDate() {
+		return getDate(endDatePicker);
+	}
+	
 	public void goToReport(View view) {
 		presenter.goToReport();
 	}
@@ -51,19 +60,16 @@ public class SpendingReportParametersActivity extends Activity implements Spendi
 		presenter.back();
 	}
 	
-	public void goToAccount(AccountModel account) {
-		Intent intent = new Intent(this, AccountActivity.class);
-		intent.putExtra("theAccount",(Serializable)account);
+	public void goToUserPage(UserModel user) {
+		Intent intent = new Intent(this, UserPageActivity.class);
+		intent.putExtra("theUser",(Serializable)user);
 		startActivity(intent);			
 	}
 
-	public void goToReport(UserModel user) {
-		String startDate = getDate(startDatePicker);
-		String endDate = getDate(endDatePicker);
+	@Override
+	public void goToReport(ReportModel report) {
 		Intent intent = new Intent(this, ReportActivity.class);
-		intent.putExtra("theUser", (Serializable)user);
-		intent.putExtra("startDate", startDate);
-		intent.putExtra("endDate", endDate);
+		intent.putExtra("theReport", (Serializable)report);
 		startActivity(intent);
 	}
 

@@ -63,6 +63,10 @@ public class UserPageActivity extends Activity implements UserPageView {
 	public void addAccountButton(View view) {
 		presenter.onClickAddAccount();
 	}
+	
+	public void createSpendingReport(View view) {
+		presenter.goToCreateSpendingReport();
+	}
 
 	public void logoutButton(View view) {
 		presenter.onClickLogout();
@@ -84,6 +88,12 @@ public class UserPageActivity extends Activity implements UserPageView {
 		startActivity(intent);
 	}
 
+	public void goToCreateSpendingReport(UserModel user) {
+		Intent intent = new Intent(this, SpendingReportParametersActivity.class);
+		intent.putExtra("theUser", (Serializable)user);
+		startActivity(intent);		
+	}
+	
 	@Override
 	public void goToAccount(AccountModel account) {
 		Intent intent = new Intent(UserPageActivity.this, AccountActivity.class);

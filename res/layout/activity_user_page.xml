@@ -9,16 +9,6 @@
     tools:context=".UserPageActivity" >
 
     <Button
-        android:id="@+id/addAccount_user_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:onClick="addAccountButton"
-        android:text="@string/add_account" />
-
-    <Button
         android:id="@+id/logout_user_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,12 +21,28 @@
         android:id="@+id/account_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/addAccount_user_button"
-        android:layout_alignLeft="@+id/addAccount_user_button"
-        android:layout_alignRight="@+id/addAccount_user_button"
         android:layout_below="@+id/logout_user_button"
         android:orientation="vertical" >
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/create_spending_report_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/account_list"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/logout_user_button"
+        android:text="@string/create_spending_report"
+        android:onClick="createSpendingReport" />
+
+    <Button
+        android:id="@+id/addAccount_user_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/create_spending_report_button"
+        android:layout_alignLeft="@+id/create_spending_report_button"
+        android:layout_alignRight="@+id/create_spending_report_button"
+        android:onClick="addAccountButton"
+        android:text="@string/add_account" />
 
 </RelativeLayout>

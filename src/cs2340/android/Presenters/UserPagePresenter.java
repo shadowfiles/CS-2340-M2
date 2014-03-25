@@ -21,6 +21,10 @@ public class UserPagePresenter {
 		view.drawAccounts(model.getAccountWriteables());
 	}
 
+
+	public void goToCreateSpendingReport() {
+		view.goToCreateSpendingReport(model);
+	}
 	
 	public void onClickAddAccount() {
 		view.goToAddAccount(model);

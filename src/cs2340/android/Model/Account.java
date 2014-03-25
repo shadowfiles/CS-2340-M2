@@ -16,7 +16,7 @@ public class Account implements AccountModel, Serializable {
 	private double balance;
 	private double interest;
 	private User owner;
-	private Collection<TransactionInterface> transactions = new ArrayList<TransactionInterface>();
+	private Collection<TransactionAbstract> transactions = new ArrayList<TransactionAbstract>();
 	
 	public Account(String name, String displayName, double balance,
 			double interest, User owner) {
@@ -80,13 +80,13 @@ public class Account implements AccountModel, Serializable {
 	@Override
 	public Collection<String> getTransactionWritables() {
 		Collection<String> writeables = new ArrayList<String>();
-		for (TransactionInterface t : transactions) {
+		for (TransactionAbstract t : transactions) {
 			writeables.add(t.getWritable());
 		}
 		return writeables;
 	}
 	
-	public Collection<TransactionInterface> getTransactions() {
+	public Collection<TransactionAbstract> getTransactions() {
 		return transactions;
 	}
 	
