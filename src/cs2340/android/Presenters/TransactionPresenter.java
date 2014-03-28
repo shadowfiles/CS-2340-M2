@@ -18,11 +18,11 @@ public class TransactionPresenter {
 			//error message
 		} //FIX DATE
 		else if (view.withdrawlRadioSet()) {
-			model.makeWithdrawl(view.getDate(), view.getDate(), view.getSource(),
+			model.makeWithdrawl(view.getDate(), view.getDate(), view.getCatagory(),
 					view.getAmount(), null);
 			view.goToAccount(model);
 		} else if (view.depositlRadioSet()) {
-			model.makeDeposit(view.getDate(), view.getDate(), view.getSource(),
+			model.makeDeposit(view.getDate(), view.getDate(), view.getCatagory(),
 					view.getAmount(), null);
 			view.goToAccount(model);
 		} else {

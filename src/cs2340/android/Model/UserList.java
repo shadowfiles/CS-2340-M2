@@ -6,7 +6,6 @@ import java.util.Hashtable;
 
 public class UserList implements ListModel {
 
-	//hashmap vs hashtable?
 	private static UserList INSTANCE = new UserList();
 	private HashMap<Integer, UserModel> Users;
 

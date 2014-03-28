@@ -12,6 +12,6 @@ public interface UserPageView {
 	void goToIntro();
 	void goToAccount(AccountModel account);
 	void drawAccounts(Collection<String> writable);
-
+	void goToCreateSpendingReport(UserModel user);
 
 }

@@ -11,4 +11,5 @@ public interface UserModel  {
 	 AccountModel getAccount(String name);
 	 String GetWritable();
 	 Collection<String> getAccountWriteables();
+	 ReportModel getReport(String dateStart, String dateEnd);
 }

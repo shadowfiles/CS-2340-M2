@@ -1,6 +1,7 @@
 package cs2340.android.Activities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 import cs2340.andriod.cs_2340_water_s_warriors.R.layout;
@@ -14,13 +15,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AccountActivity extends Activity implements AccountPageView{
 
 	AccountPresenter presenter;
 	private TextView amount;
+	private LinearLayout transactionlist;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +34,10 @@ public class AccountActivity extends Activity implements AccountPageView{
 	
 		presenter = new AccountPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), this);
 		amount = (TextView) findViewById(R.id.amount_in_account);
+		transactionlist = (LinearLayout) findViewById(R.id.transaction_activity);
 		
 		presenter.setbalance();
+		presenter.drawTransactions();
 	}
 
 	@Override
@@ -48,10 +55,6 @@ public class AccountActivity extends Activity implements AccountPageView{
 		presenter.back();
 	}
 	
-	public void createSpendingReport(View view) {
-		presenter.goToCreateSpendingReport();
-	}
-	
 	public void setamount(String balance) {
 		amount.setText(balance);
 	}
@@ -62,18 +65,20 @@ public class AccountActivity extends Activity implements AccountPageView{
 		intent.putExtra("theAccount", (Serializable)account);
 		startActivity(intent);		
 	}
-	
-	public void goToCreateSpendingReport(AccountModel account) {
-		Intent intent = new Intent(this, SpendingReportParametersActivity.class);
-		intent.putExtra("theAccount", (Serializable)account);
-		startActivity(intent);		
-	}
 
 	@Override
 	public void goBack(UserModel user) {
 		Intent intent = new Intent(this, UserPageActivity.class);
 		intent.putExtra("theUser", (Serializable)user);
 		startActivity(intent);		
+	}
+
+	public void drawTransations(Collection<String> writable) {
+		for (String s : writable) {
+			final TextView text = new TextView(this);
+			text.setText(s);
+			transactionlist.addView(text, 0);
+		}
 	}
 
 }

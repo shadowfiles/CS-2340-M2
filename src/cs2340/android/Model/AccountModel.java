@@ -16,5 +16,6 @@ public interface AccountModel {
 	void makeDeposit(String dateMade, String currentDate, String source,
 			double amount, Account account);
 	String getWritable();
-	Collection<TransactionInterface> getTransactions();
+	Collection<String> getTransactionWritables();
+	Collection<TransactionAbstract> getTransactions();
 }

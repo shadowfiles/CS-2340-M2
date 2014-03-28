@@ -38,6 +38,16 @@
     <string name="withdrawal">"Withdrawal "</string>
     <string name="title_activity_spending_report">SpendingReport</string>
     <string name="title_activity_spending_report_parameters">SpendingReportParameters</string>
+    <string name="date_of_transaction">Date of Transaction</string>
+    <string name="account_balance_">"Balance: "</string>
+    <string name="account_balance">"Balance: "</string>
+    <string name="recent_activity">Recent Activity</string>
     <string name="title_activity_report">ReportActivity</string>
+    <string name="catagory">Catagory</string>
+    <string name="clothing">Clothing</string>
+    <string name="food">Food</string>
+    <string name="other">Other</string>
+    <string name="Report_Summary">Report Summary</string>
+    <string name="create_spending_report">Create Spending Report</string>
 
 </resources>

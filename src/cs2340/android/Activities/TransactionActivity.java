@@ -1,14 +1,18 @@
 package cs2340.android.Activities;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import cs2340.andriod.cs_2340_water_s_warriors.R;
 import cs2340.android.Model.AccountModel;
@@ -19,8 +23,9 @@ import cs2340.android.Views.TransactionPageView;
 public class TransactionActivity extends Activity implements TransactionPageView {
 
 	EditText amount;
-	EditText source;
-	EditText date;
+	EditText other;
+	RadioGroup catagory;
+	DatePicker date;
 	RadioButton deposit;
 	RadioButton withdrawl;	
 	TransactionPresenter presenter;
@@ -32,10 +37,11 @@ public class TransactionActivity extends Activity implements TransactionPageView
 		
 		presenter = new TransactionPresenter((AccountModel) getIntent().getExtras().getSerializable("theAccount"), this);
 		amount = (EditText) findViewById(R.id.transaction_amount_field);
-		source = (EditText) findViewById(R.id.transaction_source_field);
-		date = (EditText) findViewById(R.id.transaction_date_field);
+		catagory = (RadioGroup) findViewById(R.id.catagory_selector);
+		date = (DatePicker) findViewById(R.id.transaction_date_field);
 		deposit = (RadioButton) findViewById(R.id.deposit_radio);
 		withdrawl = (RadioButton) findViewById(R.id.withdraw_radio);
+		other = (EditText) findViewById(R.id.other);
 		
 		
 	}
@@ -61,13 +67,17 @@ public class TransactionActivity extends Activity implements TransactionPageView
 	}
 
 	@Override
-	public String getSource() {
-		return source.getText().toString();
+	public String getCatagory() {
+		String ret = ((RadioButton) findViewById(catagory.getCheckedRadioButtonId())).getText().toString();
+		if (ret.equals("Other")) {
+			ret = other.getText().toString();
+		}
+		return ret;
 	}
 
 	@Override
 	public String getDate() {
-		return date.getText().toString();
+		return (date.getMonth()+1) + "/" + date.getDayOfMonth() + "/" + date.getYear();
 	}
 
 	@Override
@@ -85,6 +95,11 @@ public class TransactionActivity extends Activity implements TransactionPageView
 		Intent intent = new Intent(this, AccountActivity.class);
 		intent.putExtra("theAccount",(Serializable)acount);
 		startActivity(intent);			
+	}
+
+	@Override
+	public void setExpandableViewValues(Collection<String> catagories) {
+
 	}
 	
 }

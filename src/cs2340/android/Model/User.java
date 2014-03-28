@@ -61,5 +61,10 @@ public class User implements UserModel, Serializable{
 		return username;
 	}
 
+	@Override
+	public ReportModel getReport(String dateStart, String dateEnd) {
+		return new SpendingCategoryReport(this, dateStart, dateEnd);
+	}
+
 	//add other user stuff?
 }

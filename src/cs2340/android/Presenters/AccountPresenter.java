@@ -22,11 +22,13 @@ public class AccountPresenter {
 		view.goToTransaction(model);
 	}
 	
-	public void goToCreateSpendingReport() {
-		view.goToCreateSpendingReport(model);
-	}
 	
 	public void back() {
 		view.goBack(model.getOwner());
+	}
+
+	public void drawTransactions() {
+		view.drawTransations(model.getTransactionWritables());
+		
 	}
 }

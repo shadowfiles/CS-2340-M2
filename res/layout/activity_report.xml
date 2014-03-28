@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/report_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,13 +10,13 @@
     tools:context=".ReportActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/create_spending_report_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:onClick="goBack"
-       	android:text="Back" />
+        android:text="Back" />
 
     <TextView
         android:id="@+id/textView1"
@@ -23,6 +24,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Report Summary" />
-    
+        android:text="@string/Report_Summary" />
+
+    <ScrollView
+        android:id="@+id/scroll_report"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/create_spending_report_button"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignRight="@+id/create_spending_report_button"
+        android:layout_below="@+id/textView1" >
+
+        <LinearLayout
+            android:id="@+id/Report_Holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>
