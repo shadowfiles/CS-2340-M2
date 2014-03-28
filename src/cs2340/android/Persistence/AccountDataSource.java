@@ -1,6 +1,7 @@
 package cs2340.android.Persistence;
 
 import android.database.sqlite.SQLiteDatabase;
+import android.content.Context;
 
 public class AccountDataSource {
 	private static final String TABLE = "accounts";

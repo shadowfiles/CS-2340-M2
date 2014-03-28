@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
-/*
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
 	
@@ -41,4 +41,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
 }
-*/
+
