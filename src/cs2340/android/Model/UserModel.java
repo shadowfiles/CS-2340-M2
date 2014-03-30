@@ -6,6 +6,7 @@ public interface UserModel  {
 	 
 	 int getPassword();
 	 String getUsername();
+	 boolean verifyPassword(String password);
 	 void addAccount(String name, String displayName, double balance, double intrest);
 	 Collection<AccountModel> getAccounts();
 	 AccountModel getAccount(String name);

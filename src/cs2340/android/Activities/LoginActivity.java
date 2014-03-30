@@ -15,7 +15,7 @@ import cs2340.android.Model.UserList;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.LoginPagePresenter;
 import cs2340.android.Views.LoginPageView;
-import cs2340.andriod.cs_2340_water_s_warriors.R;
+import cs2340.android.R;
 
 public class LoginActivity extends Activity implements LoginPageView{
 

@@ -1,14 +1,14 @@
 package cs2340.android.Persistence;
 
 import android.database.sqlite.SQLiteDatabase;
-import android.content.Context;
+import android.database.Cursor;
+import android.content.ContentValues;
 
-public class AccountDataSource {
+public class AccountDataSource extends DataSource {
 	private static final String TABLE = "accounts";
-	private DatabaseHelper dbHelper;
 
-	public AccountDataSource(Context context) {
-		dbHelper = new DatabaseHelper(context);
+	public AccountDataSource() {
+		super();
 	}
 	
 	public static void onCreate(SQLiteDatabase db) {

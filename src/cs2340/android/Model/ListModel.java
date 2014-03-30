@@ -6,7 +6,6 @@ public interface ListModel {
 	
 	boolean goodPass(final String user, final String pass);
 	void addUser(final String name, final String passone, final String passtwo);
-	Collection<UserModel> getUsers();
-	UserModel getUser(String user, String pass);
-	
+	UserModel getUser(String user);
+
 }

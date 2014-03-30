@@ -13,13 +13,28 @@ import android.os.Parcelable;
 public class User implements UserModel, Serializable{
 	
 	//HASH THE PASSWORD
+	private long id;
 	private String username;
 	private int password;
 	private ArrayList<AccountModel> Accounts = new ArrayList<AccountModel>();
 	
+	public User(long id, String username, int password) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+	
 	public User(String username, String password) {
 		this.username = username;
 		this.password = password.hashCode();
+	}
+	
+	public boolean verifyPassword(String pass) {
+		return pass.hashCode() == this.password;
+	}
+	
+	public long getId() {
+		return id;
 	}
 	
 	public int getPassword() {
@@ -31,8 +46,8 @@ public class User implements UserModel, Serializable{
 	}
 	
 	public void addAccount(String name, String displayName, 
-					double balance, double intrest) {
-		Accounts.add(new Account(name, displayName, balance, intrest, this));
+					double balance, double interest) {
+		Accounts.add(new Account(name, displayName, balance, interest, this));
 	}
 	
 	public AccountModel getAccount(String name) {

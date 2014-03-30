@@ -14,7 +14,7 @@ import android.widget.ExpandableListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import cs2340.andriod.cs_2340_water_s_warriors.R;
+import cs2340.android.R;
 import cs2340.android.Model.AccountModel;
 import cs2340.android.Presenters.AccountPresenter;
 import cs2340.android.Presenters.TransactionPresenter;

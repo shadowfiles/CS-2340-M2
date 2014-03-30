@@ -7,12 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import cs2340.android.Presenters.IntroPagePresenter;
 import cs2340.android.Views.IntroPageView;
-import cs2340.andriod.cs_2340_water_s_warriors.R;
+import cs2340.android.R;
 
 public class FullscreenActivity extends Activity implements IntroPageView{
 	
 	IntroPagePresenter presenter;
-	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

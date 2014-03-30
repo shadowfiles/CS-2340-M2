@@ -2,8 +2,12 @@ package cs2340.android.Persistence;
 
 import android.database.sqlite.SQLiteDatabase;
 
-public class TransactionDataSource {
+public class TransactionDataSource extends DataSource {
 	private static final String TABLE = "transactions";
+	
+	public TransactionDataSource() {
+		super();
+	}
 
 	public static void onCreate(SQLiteDatabase db) {
 		db.execSQL("CREATE TABLE IF NOT EXISTS `" + TABLE + "` ("

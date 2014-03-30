@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
  
     // Database Name
-    private static final String DATABASE_NAME = "moneyapp";
+    private static final String DATABASE_NAME = "moneyapp.db";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -25,16 +25,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
     	UserDataSource.onCreate(db);
-    	AccountDataSource.onCreate(db);
-    	TransactionDataSource.onCreate(db);
+    	//AccountDataSource.onCreate(db);
+    	//TransactionDataSource.onCreate(db);
     }
     
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     	// delete old tables
         UserDataSource.onUpgrade(db, oldVersion, newVersion);
-        AccountDataSource.onUpgrade(db, oldVersion, newVersion);
-        TransactionDataSource.onUpgrade(db, oldVersion, newVersion);
+        //AccountDataSource.onUpgrade(db, oldVersion, newVersion);
+        //TransactionDataSource.onUpgrade(db, oldVersion, newVersion);
  
         // create new tables
         onCreate(db);

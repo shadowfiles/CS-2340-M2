@@ -2,9 +2,9 @@ package cs2340.android.Activities;
 
 import java.io.Serializable;
 
-import cs2340.andriod.cs_2340_water_s_warriors.R;
-import cs2340.andriod.cs_2340_water_s_warriors.R.layout;
-import cs2340.andriod.cs_2340_water_s_warriors.R.menu;
+import cs2340.android.R;
+import cs2340.android.R.layout;
+import cs2340.android.R.menu;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;

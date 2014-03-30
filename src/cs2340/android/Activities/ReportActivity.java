@@ -8,7 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
-import cs2340.andriod.cs_2340_water_s_warriors.R;
+import cs2340.android.R;
 import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.ReportModel;
 import cs2340.android.Model.TransactionAbstract;
