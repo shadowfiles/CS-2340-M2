@@ -8,23 +8,25 @@ import java.util.Hashtable;
 
 import android.content.Context;
 
-public class UserList implements ListModel {
+public class UserList implements UserListModel {
 
-	private static UserList INSTANCE = new UserList();
+	private static UserList INSTANCE;
 	private HashMap<String, UserModel> Users;
 	private UserDataSource dataSource;
 
 	//ask
-	private UserList() {
+	private UserList(Context c) {
 		//Users.put("admin".hashCode(), new User("admin", "pass123"));
-		dataSource = new UserDataSource();
+		dataSource = new UserDataSource(c);
 		Users = dataSource.getAllUsers();
 	}
 
-	public static UserList getInstance() {
+	public static UserList getInstance(Context c) {
+		if (INSTANCE == null) {
+			INSTANCE = new UserList(c);
+		}
 		return INSTANCE;
 	}
-
 	
 	//INTERFACE METHODS
 	public UserModel getUser(String username) {

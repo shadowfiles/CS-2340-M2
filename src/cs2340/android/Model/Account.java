@@ -11,16 +11,19 @@ import android.os.Parcelable;
 
 public class Account implements AccountModel, Serializable {
 
+	private static final long serialVersionUID = 1;
+	private long id;
 	private String displayName;
 	private String name;
 	private double balance;
 	private double interest;
-	private User owner;
+	private UserModel owner;
 	private Collection<TransactionAbstract> transactions = new ArrayList<TransactionAbstract>();
 	
-	public Account(String name, String displayName, double balance,
-			double interest, User owner) {
+	public Account(long id, String name, String displayName, double balance,
+			double interest, UserModel owner) {
 		
+		this.id = id;
 		this.owner = owner;
 		this.displayName = displayName;
 		this.name = name;
@@ -30,7 +33,7 @@ public class Account implements AccountModel, Serializable {
 	}
 
 	@Override
-	public User getOwner() {
+	public UserModel getOwner() {
 		return owner;
 	}
 	

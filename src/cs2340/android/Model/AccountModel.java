@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public interface AccountModel {
 
-	User getOwner();
+	UserModel getOwner();
 	String getName();
 	double getBalance();
 	double getIntrest();

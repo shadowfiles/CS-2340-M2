@@ -7,7 +7,9 @@ public interface UserModel  {
 	 int getPassword();
 	 String getUsername();
 	 boolean verifyPassword(String password);
-	 void addAccount(String name, String displayName, double balance, double intrest);
+	 void addAccounts(Collection<AccountModel> accounts);
+	 void addAccount(AccountModel account);
+	 long getId();
 	 Collection<AccountModel> getAccounts();
 	 AccountModel getAccount(String name);
 	 String GetWritable();

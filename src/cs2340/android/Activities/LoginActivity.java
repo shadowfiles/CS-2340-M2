@@ -29,7 +29,7 @@ public class LoginActivity extends Activity implements LoginPageView{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 		
-		presenter = new LoginPagePresenter(UserList.getInstance(), this);
+		presenter = new LoginPagePresenter(UserList.getInstance(getApplicationContext()), this);
 		
 		usernameField = (EditText) findViewById(R.id.username_input);
 		passwordField = (EditText) findViewById(R.id.password_input);

@@ -12,9 +12,7 @@ public class UserPagePresenter {
 	
 	public UserPagePresenter (UserModel m, UserPageView v) {
 		view = v;
-		model = m;	
-		
-		//code?
+		model = m;
 	}
 	
 	public void drawAccounts() {

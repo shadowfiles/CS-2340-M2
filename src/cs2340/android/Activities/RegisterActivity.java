@@ -29,7 +29,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register);
 
-		presenter = new RegPagePresenter(UserList.getInstance(), this);
+		presenter = new RegPagePresenter(UserList.getInstance(getApplicationContext()), this);
 		
 		username = (EditText) findViewById(cs2340.android.R.id.Username_Reg);
 		passOne = (EditText) findViewById(R.id.PassRegOne);

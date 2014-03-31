@@ -13,6 +13,7 @@ import android.util.Log;
 
 public class SpendingCategoryReport implements ReportModel, Serializable {
 
+	private static final long serialVersionUID = 1; 
 	UserModel theUser;
 	String startDate;
 	String endDate;

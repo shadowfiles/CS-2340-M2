@@ -15,6 +15,7 @@ import cs2340.android.Model.UserList;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.AddAccountPresenter;
 import cs2340.android.Views.AddAccountPageView;
+import cs2340.android.Persistence.AccountDataSource;
 
 public class AddAccountActivity extends Activity implements AddAccountPageView {
 	
@@ -29,7 +30,8 @@ public class AddAccountActivity extends Activity implements AddAccountPageView {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_acount);
 		
-		presenter = new AddAccountPresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), this);
+		presenter = new AddAccountPresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), 
+						this, new AccountDataSource(this));
 		//display accounts
 		
 		fullName = (EditText)findViewById(R.id.fullNameAddAccount);

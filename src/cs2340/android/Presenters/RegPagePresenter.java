@@ -1,14 +1,14 @@
 package cs2340.android.Presenters;
 
-import cs2340.android.Model.ListModel;
+import cs2340.android.Model.UserListModel;
 import cs2340.android.Views.RegisterPageView;
 
 public class RegPagePresenter {
 
 	private RegisterPageView view;
-	private ListModel model;
+	private UserListModel model;
 	
-	public RegPagePresenter (ListModel m, RegisterPageView v) {
+	public RegPagePresenter (UserListModel m, RegisterPageView v) {
 		view = v;
 		model = m;
 	}

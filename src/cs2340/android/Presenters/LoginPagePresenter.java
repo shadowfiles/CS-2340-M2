@@ -1,15 +1,15 @@
 package cs2340.android.Presenters;
 
-import cs2340.android.Model.ListModel;
+import cs2340.android.Model.UserListModel;
 import cs2340.android.Views.LoginPageView;
 
 public class LoginPagePresenter {
 
 	private LoginPageView view;
-	private ListModel model;
+	private UserListModel model;
 	private int counter = 0;
 	
-	public LoginPagePresenter (ListModel m, LoginPageView v) {
+	public LoginPagePresenter (UserListModel m, LoginPageView v) {
 		view = v;
 		model = m;
 	}

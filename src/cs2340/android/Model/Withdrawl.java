@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class Withdrawl extends TransactionAbstract implements Serializable{
 
+	private static final long serialVersionUID = 1; 
 	private String dateMade;
 	private String currentDate;
 	private String catagory;

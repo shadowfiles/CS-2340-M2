@@ -3,30 +3,25 @@ package cs2340.android.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.jar.Attributes.Name;
-
-import org.apache.http.impl.conn.Wire;
-
-import android.os.Parcel;
-import android.os.Parcelable;
 
 public class User implements UserModel, Serializable{
 	
 	//HASH THE PASSWORD
+	private static final long serialVersionUID = 1; 
 	private long id;
 	private String username;
 	private int password;
-	private ArrayList<AccountModel> Accounts = new ArrayList<AccountModel>();
+	private Collection<AccountModel> Accounts;
 	
-	public User(long id, String username, int password) {
+	public User(long id, String username, int password, Collection<AccountModel> accounts) {
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.Accounts = accounts;
 	}
 	
-	public User(String username, String password) {
-		this.username = username;
-		this.password = password.hashCode();
+	public User(long id, String username, int password) {
+		this(id, username, password, null);
 	}
 	
 	public boolean verifyPassword(String pass) {
@@ -45,13 +40,16 @@ public class User implements UserModel, Serializable{
 		return username;
 	}
 	
-	public void addAccount(String name, String displayName, 
-					double balance, double interest) {
-		Accounts.add(new Account(name, displayName, balance, interest, this));
+	public void addAccounts(Collection<AccountModel> accounts) {
+		getAccounts().addAll(accounts);
+	}
+	
+	public void addAccount(AccountModel account) {
+		getAccounts().add(account);
 	}
 	
 	public AccountModel getAccount(String name) {
-		for(AccountModel a: Accounts) {
+		for(AccountModel a: getAccounts()) {
 			if (a.getName().equals(name)) {
 				return a;
 			}				
@@ -60,12 +58,15 @@ public class User implements UserModel, Serializable{
 	}
 	
 	public Collection<AccountModel> getAccounts() {
+		if (Accounts == null) {
+			Accounts = new ArrayList<AccountModel>();
+		}
 		return Accounts;
 	}
 	
 	public Collection<String> getAccountWriteables() {
 		Collection<String> writeables = new ArrayList<String>();
-		for (AccountModel a : Accounts) {
+		for (AccountModel a : getAccounts()) {
 			writeables.add(a.getWritable());
 		}
 		return writeables;
@@ -79,6 +80,11 @@ public class User implements UserModel, Serializable{
 	@Override
 	public ReportModel getReport(String dateStart, String dateEnd) {
 		return new SpendingCategoryReport(this, dateStart, dateEnd);
+	}
+	
+	@Override
+	public int hashCode() {
+		return (int)getId();
 	}
 
 	//add other user stuff?

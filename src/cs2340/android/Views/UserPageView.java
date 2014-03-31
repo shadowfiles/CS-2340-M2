@@ -6,8 +6,7 @@ import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.UserModel;
 
 public interface UserPageView {
-	
-	
+
 	void goToAddAccount(UserModel theUser);
 	void goToIntro();
 	void goToAccount(AccountModel account);
