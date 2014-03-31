@@ -31,7 +31,7 @@ public class AddAccountActivity extends Activity implements AddAccountPageView {
 		setContentView(R.layout.activity_add_acount);
 		
 		presenter = new AddAccountPresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), 
-						this, new AccountDataSource(this));
+						UserList.getInstance(this), this);
 		//display accounts
 		
 		fullName = (EditText)findViewById(R.id.fullNameAddAccount);

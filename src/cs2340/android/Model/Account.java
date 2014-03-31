@@ -47,7 +47,7 @@ public class Account implements AccountModel, Serializable {
 	}
 
 	@Override
-	public double getIntrest() {
+	public double getInterest() {
 		return interest;
 	}
 
@@ -59,7 +59,7 @@ public class Account implements AccountModel, Serializable {
 	@Override
 	public void makeWithdrawl(String dateMade, String currentDate, 
 			String source, double amount, Account account) {
-		transactions.add(new Withdrawl(dateMade, currentDate, source, amount, this));
+		transactions.add(new Withdrawal(dateMade, currentDate, source, amount, this));
 		//balance manipulation in Withdraw
 	}
 

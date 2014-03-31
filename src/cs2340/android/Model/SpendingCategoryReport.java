@@ -42,13 +42,13 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
 				// this could be error (how to check if t is a withdrawal?)
 				if (goodDate(t.getDateMade(), startDate, endDate)) {
 					if (t.getAmount() < 0) {
-						if (!report.containsKey(t.getCatagory())) {
-							report.put(t.getCatagory(), -t.getAmount());
+						if (!report.containsKey(t.getCategory())) {
+							report.put(t.getCategory(), -t.getAmount());
 						} else {
-							double currentVal = report.get(t.getCatagory());
-							report.remove(t.getCatagory());
+							double currentVal = report.get(t.getCategory());
+							report.remove(t.getCategory());
 							currentVal -= t.getAmount();
-							report.put(t.getCatagory(), currentVal);
+							report.put(t.getCategory(), currentVal);
 						}
 					}
 				}

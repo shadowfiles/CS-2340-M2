@@ -8,7 +8,7 @@ public interface AccountModel {
 	UserModel getOwner();
 	String getName();
 	double getBalance();
-	double getIntrest();
+	double getInterest();
 	String getDisplayName();
 	void changeBalance(double amount);
 	void makeWithdrawl(String dateMade, String currentDate, String source,

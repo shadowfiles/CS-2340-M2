@@ -3,8 +3,14 @@ package cs2340.android.Persistence;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import cs2340.android.Model.TransactionAbstract;
+import cs2340.android.Model.Deposit;
+import cs2340.android.Model.Withdrawal;
+
 public class TransactionDataSource extends DataSource {
 	private static final String TABLE = "transactions";
+	private static String[] allColumns = {"_id", "account_id", "amount",
+		"source", "data", "is_deposit"};
 	
 	public TransactionDataSource(Context c) {
 		super(c);
@@ -16,7 +22,7 @@ public class TransactionDataSource extends DataSource {
         		+ "account_id integer not null, "
         		+ "amount integer not null, "
         		+ "source text not null, "
-        		+ "date integer not null, "
+        		+ "date text not null, "
         		+ "is_deposit integer(1) not null"
         		+ ");"
         		);
