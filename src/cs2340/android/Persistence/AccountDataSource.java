@@ -1,5 +1,8 @@
 package cs2340.android.Persistence;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
@@ -8,6 +11,7 @@ import android.content.ContentValues;
 import java.util.Collection;
 import java.util.ArrayList;
 
+import cs2340.android.Model.TransactionAbstract;
 import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.Account;
 import cs2340.android.Model.UserModel;
@@ -16,14 +20,36 @@ public class AccountDataSource extends DataSource {
 	private static final String TABLE = "accounts";
 	private static String[] allColumns = {"_id", "full_name", "account_name", 
 		"balance", "interest", "user_id"};
+	private static TransactionDataSource transactionDataSource;
 
 	public AccountDataSource(Context c) {
 		super(c);
+		if (transactionDataSource == null) {
+			transactionDataSource = new TransactionDataSource(c);
+		}
+	}
+	
+	public TransactionAbstract createTransaction(String date, String source, 
+			double amount, AccountModel account, boolean isDeposit) {
+		TransactionAbstract t = transactionDataSource.createTransaction(date, source, amount, 
+				account, isDeposit);
+		account.addTransaction(t);
+		changeBalance(account, t.getAmount());
+		return t;
+	}
+	
+	public AccountModel changeBalance(AccountModel account, double amount) {
+		account.changeBalance(amount);
+		open();
+		ContentValues values = new ContentValues();
+		values.put("balance", doubleToInt(account.getBalance()));
+		database.update(TABLE, values, "_id = " + account.getId(), null);
+		close();
+		return account;
 	}
 	
 	public AccountModel createAccount(String fullName, String accountName,
 			double balance, double interest, UserModel owner) {
-		
 		open();
 		ContentValues values = new ContentValues();
 		values.put("full_name", fullName);
@@ -33,8 +59,14 @@ public class AccountDataSource extends DataSource {
 		values.put("user_id", owner.getId());
 		
 		long insertId = database.insert(TABLE, null, values);
+
+		AccountModel account = new Account(insertId, fullName, accountName, balance, interest, owner);
+		TransactionAbstract t = transactionDataSource.createTransaction(
+				new SimpleDateFormat("MM/dd/yyyy").format(new Date()), 
+				"Account Created", balance, account, true);
+		account.addTransaction(t);
 		close();
-		return new Account(insertId, fullName, accountName, balance, interest, owner);
+		return account;
 	}
 	
 	public Collection<AccountModel> getAccounts(UserModel user) {
@@ -70,6 +102,10 @@ public class AccountDataSource extends DataSource {
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
 			AccountModel a = getAccount(database, cursor, user);
+			
+			// Load the transactions into the account data
+			Collection<TransactionAbstract> t = transactionDataSource.getTransactions(a);
+			a.addTransactions(t);
 			accounts.add(a);
 			cursor.moveToNext();
 		}
@@ -84,13 +120,5 @@ public class AccountDataSource extends DataSource {
 		double interest = longToDouble(cursor.getLong(cursor.getColumnIndex("interest")));
 		long id = cursor.getLong(cursor.getColumnIndex("_id"));
 		return new Account(id, fullName, accountName, balance, interest, user);
-	}
-	
-	private static int doubleToInt(double d) {
-		return (int) d * 100;
-	}
-	
-	private static double longToDouble(long i) {
-		return ((double) i) / 100;
 	}
 }

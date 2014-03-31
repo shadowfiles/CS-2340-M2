@@ -67,7 +67,7 @@ public class TransactionActivity extends Activity implements TransactionPageView
 	}
 
 	@Override
-	public String getCatagory() {
+	public String getCategory() {
 		String ret = ((RadioButton) findViewById(catagory.getCheckedRadioButtonId())).getText().toString();
 		if (ret.equals("Other")) {
 			ret = other.getText().toString();
@@ -81,12 +81,12 @@ public class TransactionActivity extends Activity implements TransactionPageView
 	}
 
 	@Override
-	public boolean withdrawlRadioSet() {
+	public boolean withdrawalRadioSet() {
 		return withdrawl.isChecked();
 	}
 
 	@Override
-	public boolean depositlRadioSet() {
+	public boolean depositRadioSet() {
 		return deposit.isChecked();
 	}
 

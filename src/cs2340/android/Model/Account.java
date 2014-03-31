@@ -27,9 +27,14 @@ public class Account implements AccountModel, Serializable {
 		this.owner = owner;
 		this.displayName = displayName;
 		this.name = name;
-		this.balance = 0;
+		this.balance = balance;
 		this.interest = interest;
-		this.makeDeposit(new SimpleDateFormat("MM/dd/yyyy").format(new Date()), null, "Account Created", balance, this);
+		//this.makeDeposit(new SimpleDateFormat("MM/dd/yyyy").format(new Date()), null, "Account Created", balance, this);
+	}
+	
+	@Override
+	public long getId() {
+		return this.id;
 	}
 
 	@Override
@@ -37,6 +42,7 @@ public class Account implements AccountModel, Serializable {
 		return owner;
 	}
 	
+	@Override
 	public String getName(){
 		return name;
 	}
@@ -55,9 +61,19 @@ public class Account implements AccountModel, Serializable {
 	public String getDisplayName() {
 		return displayName;
 	}
-
+	
 	@Override
-	public void makeWithdrawl(String dateMade, String currentDate, 
+	public void addTransaction(TransactionAbstract t) {
+		transactions.add(t);
+	}
+	
+	@Override
+	public void addTransactions(Collection<TransactionAbstract> t) {
+		transactions.addAll(t);
+	}
+/*
+	@Override
+	public void makeWithdrawal(String dateMade, String currentDate, 
 			String source, double amount, Account account) {
 		transactions.add(new Withdrawal(dateMade, currentDate, source, amount, this));
 		//balance manipulation in Withdraw
@@ -69,7 +85,7 @@ public class Account implements AccountModel, Serializable {
 		transactions.add(new Deposit(dateMade, currentDate, source, amount, this));	
 		//balance manipulation in Deposit
 	}
-	
+*/
 	@Override
 	public void changeBalance(double amount) {
 		balance += amount;

@@ -5,10 +5,41 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Deposit extends TransactionAbstract implements Serializable{
-	private static final long serialVersionUID = 1; 
+	private static final long serialVersionUID = 1;
+	private long id;
+	private String dateMade;
+	private String currentDate;
+	private String category;
+	private double amount;
+	private AccountModel account;
 
-	public Deposit(String dateMade, String currentDate, String source,
-			double amount, Account account) {
-		super(dateMade, currentDate, source, amount, account);
+	public Deposit(long id, String dateMade, String source,
+			double amount, AccountModel account) {
+		this.id = id;
+		this.currentDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+		this.dateMade = dateMade;
+		this.category = source;
+		this.amount = amount;
+		this.account = account;
+	}
+	
+	public String getDateMade() {
+		return dateMade;
+	}
+
+	public String getCurrentDate() {
+		return currentDate;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public String getWritable() {
+		return dateMade + ": " + category + ", " + amount;
 	}
 }
