@@ -15,6 +15,7 @@ import cs2340.android.Views.RegisterPageView;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  * 
+ * @author Team 42
  * @see SystemUiHider
  */
 public class RegisterActivity extends Activity implements RegisterPageView {

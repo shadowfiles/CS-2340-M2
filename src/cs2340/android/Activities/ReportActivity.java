@@ -23,6 +23,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * The class constructs the page of the spending report. 
+ * @author Team 42
+ *
+ */
 public class ReportActivity extends Activity implements ReportView {
 
 	ReportPresenter presenter;

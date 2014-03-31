@@ -16,7 +16,11 @@ import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.LoginPagePresenter;
 import cs2340.android.Views.LoginPageView;
 import cs2340.android.R;
-
+/**
+ * The class constructs the screen for user to login. 
+ * @author Team 42
+ *
+ */
 public class LoginActivity extends Activity implements LoginPageView{
 
 	LoginPagePresenter presenter;

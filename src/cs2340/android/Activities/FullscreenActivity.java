@@ -9,6 +9,11 @@ import cs2340.android.Presenters.IntroPagePresenter;
 import cs2340.android.Views.IntroPageView;
 import cs2340.android.R;
 
+/**
+ * This class constructs the full screen(welcome screen) for the application.
+ * @author Team 42
+ *
+ */
 public class FullscreenActivity extends Activity implements IntroPageView{
 	
 	IntroPagePresenter presenter;

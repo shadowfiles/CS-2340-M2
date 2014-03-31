@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
+/**
+ * The class displays success message if the user logins successfully.
+ * @author Team 42
+ *
+ */
 public class SuccessActivity extends Activity {
 
 	@Override

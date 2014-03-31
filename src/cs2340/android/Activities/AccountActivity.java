@@ -21,6 +21,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ *
+ * This class describes the methods needed for the 
+ * activity of account page. 
+ * 
+ * @author Team 42
+ */
 public class AccountActivity extends Activity implements AccountPageView{
 
 	AccountPresenter presenter;

@@ -20,6 +20,11 @@ import cs2340.android.Presenters.AccountPresenter;
 import cs2340.android.Presenters.TransactionPresenter;
 import cs2340.android.Views.TransactionPageView;
 
+/**
+ * This class construct the process of transaction.
+ * @author Team 42
+ *
+ */
 public class TransactionActivity extends Activity implements TransactionPageView {
 
 	EditText amount;

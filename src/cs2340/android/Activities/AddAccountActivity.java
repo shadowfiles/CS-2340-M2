@@ -17,6 +17,11 @@ import cs2340.android.Presenters.AddAccountPresenter;
 import cs2340.android.Views.AddAccountPageView;
 import cs2340.android.Persistence.AccountDataSource;
 
+/**
+ * This class describes the methods neeed to add a new account for a user.
+ * 
+ * @author Team 42
+ */
 public class AddAccountActivity extends Activity implements AddAccountPageView {
 	
 	private AddAccountPresenter presenter;

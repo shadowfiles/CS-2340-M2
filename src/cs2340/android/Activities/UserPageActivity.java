@@ -21,7 +21,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
-
+/**
+ * This class display the detailed information of the user. 
+ * @author Team 42
+ *
+ */
 public class UserPageActivity extends Activity implements UserPageView {
 
 	private UserPagePresenter presenter;
