@@ -19,7 +19,6 @@ public class UserPagePresenter {
 		view.drawAccounts(model.getAccountWriteables());
 	}
 
-
 	public void goToCreateSpendingReport() {
 		view.goToCreateSpendingReport(model);
 	}

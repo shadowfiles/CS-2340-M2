@@ -22,7 +22,6 @@ public class AccountPresenter {
 		view.goToTransaction(model);
 	}
 	
-	
 	public void back() {
 		view.goBack(model.getOwner());
 	}

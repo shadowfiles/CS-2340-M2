@@ -28,8 +28,6 @@ public class TransactionPresenter {
 					view.getAmount(), model, isDeposit);
 			view.goToAccount(model);
 		} 
-		
-		
 	}
 	
 	public void back() {

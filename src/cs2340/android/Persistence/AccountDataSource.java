@@ -11,7 +11,7 @@ import android.content.ContentValues;
 import java.util.Collection;
 import java.util.ArrayList;
 
-import cs2340.android.Model.TransactionAbstract;
+import cs2340.android.Model.TransactionModel;
 import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.Account;
 import cs2340.android.Model.UserModel;
@@ -29,9 +29,9 @@ public class AccountDataSource extends DataSource {
 		}
 	}
 	
-	public TransactionAbstract createTransaction(String date, String source, 
+	public TransactionModel createTransaction(String date, String source, 
 			double amount, AccountModel account, boolean isDeposit) {
-		TransactionAbstract t = transactionDataSource.createTransaction(date, source, amount, 
+		TransactionModel t = transactionDataSource.createTransaction(date, source, amount, 
 				account, isDeposit);
 		account.addTransaction(t);
 		changeBalance(account, t.getAmount());
@@ -61,7 +61,7 @@ public class AccountDataSource extends DataSource {
 		long insertId = database.insert(TABLE, null, values);
 
 		AccountModel account = new Account(insertId, fullName, accountName, balance, interest, owner);
-		TransactionAbstract t = transactionDataSource.createTransaction(
+		TransactionModel t = transactionDataSource.createTransaction(
 				new SimpleDateFormat("MM/dd/yyyy").format(new Date()), 
 				"Account Created", balance, account, true);
 		account.addTransaction(t);
@@ -77,7 +77,10 @@ public class AccountDataSource extends DataSource {
 	}
 	
 	public AccountModel getAccount(Cursor cursor, UserModel owner) {
-		return getAccount(database, cursor, owner);
+		open();
+		AccountModel account =  getAccount(database, cursor, owner);
+		close();
+		return account;
 	}
 	
 	public static void onCreate(SQLiteDatabase db) {
@@ -104,7 +107,7 @@ public class AccountDataSource extends DataSource {
 			AccountModel a = getAccount(database, cursor, user);
 			
 			// Load the transactions into the account data
-			Collection<TransactionAbstract> t = transactionDataSource.getTransactions(a);
+			Collection<TransactionModel> t = transactionDataSource.getTransactions(a);
 			a.addTransactions(t);
 			accounts.add(a);
 			cursor.moveToNext();

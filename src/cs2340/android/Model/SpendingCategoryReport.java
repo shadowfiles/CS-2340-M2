@@ -37,8 +37,8 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
 	public void makeReport() {
 		Collection<AccountModel> accounts = theUser.getAccounts();
 		for (AccountModel a : accounts) {
-			Collection<TransactionAbstract> trans = a.getTransactions();
-			for (TransactionAbstract t : trans) {
+			Collection<TransactionModel> trans = a.getTransactions();
+			for (TransactionModel t : trans) {
 				// this could be error (how to check if t is a withdrawal?)
 				if (goodDate(t.getDateMade(), startDate, endDate)) {
 					if (t.getAmount() < 0) {

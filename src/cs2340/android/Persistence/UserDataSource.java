@@ -70,7 +70,6 @@ public class UserDataSource extends DataSource {
         		+ "unique(username) on conflict replace"
         		+ "); "
 				);
-		createUser(db, "admin", "pass123");
 	}
 
 	public static void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -84,7 +83,7 @@ public class UserDataSource extends DataSource {
 		
 		long insertId = database.insert(TABLE, null, values);
 		
-		return makeUser(insertId, username, password.hashCode());
+		return makeUser(database, insertId, username, password.hashCode());
 	}
 	
 	public static UserModel getUser(SQLiteDatabase database, long id) {
@@ -100,14 +99,13 @@ public class UserDataSource extends DataSource {
 		int password = (int) cursor.getLong(cursor.getColumnIndex("password"));
 		long id = cursor.getLong(cursor.getColumnIndex("_id"));
 		
-		return makeUser(id, username, password);
+		return makeUser(database, id, username, password);
 	}
 	
-	private static UserModel makeUser(long id, String username, int password) {
+	private static UserModel makeUser(SQLiteDatabase db, long id, String username, int password) {
 		UserModel user = new User(id, username, password);
-		Collection<AccountModel> accounts = accountDataSource.getAccounts(user);
+		Collection<AccountModel> accounts = AccountDataSource.getAccounts(db, user);
 		user.addAccounts(accounts);
-	
 		return user;
 	}
 	

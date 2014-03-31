@@ -12,15 +12,9 @@ public interface AccountModel {
 	double getInterest();
 	String getDisplayName();
 	void changeBalance(double amount);
-	void addTransaction(TransactionAbstract t);
-	void addTransactions(Collection<TransactionAbstract> t);
-	/*
-	void makeWithdrawl(String dateMade, String currentDate, String source,
-			double amount, Account account);
-	void makeDeposit(String dateMade, String currentDate, String source,
-			double amount, Account account);
-	*/
+	void addTransaction(TransactionModel t);
+	void addTransactions(Collection<TransactionModel> t);
 	String getWritable();
 	Collection<String> getTransactionWritables();
-	Collection<TransactionAbstract> getTransactions();
+	Collection<TransactionModel> getTransactions();
 }

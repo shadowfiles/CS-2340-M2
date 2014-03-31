@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Deposit extends TransactionAbstract implements Serializable{
+public class Deposit implements TransactionModel, Serializable{
 	private static final long serialVersionUID = 1;
 	private long id;
 	private String dateMade;

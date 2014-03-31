@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import cs2340.android.R;
 import cs2340.android.Model.AccountModel;
 import cs2340.android.Model.ReportModel;
-import cs2340.android.Model.TransactionAbstract;
+import cs2340.android.Model.TransactionModel;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Presenters.ReportPresenter;
 import cs2340.android.Views.ReportView;

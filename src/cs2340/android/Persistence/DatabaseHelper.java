@@ -17,9 +17,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  
     // Database Name
     private static final String DATABASE_NAME = "moneyapp.db";
+    
+    private static DatabaseHelper INSTANCE;
 
-    public DatabaseHelper(Context context) {
+    private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+    
+    public static DatabaseHelper getInstance(Context c) {
+    	if (INSTANCE == null) {
+    		INSTANCE = new DatabaseHelper(c);
+    	}
+    	return INSTANCE;
     }
     
     @Override
@@ -27,6 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     	UserDataSource.onCreate(db);
     	AccountDataSource.onCreate(db);
     	TransactionDataSource.onCreate(db);
+    	UserDataSource.createUser(db, "admin", "pass123");
     }
     
     @Override

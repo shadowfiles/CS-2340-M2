@@ -18,7 +18,7 @@ public class Account implements AccountModel, Serializable {
 	private double balance;
 	private double interest;
 	private UserModel owner;
-	private Collection<TransactionAbstract> transactions = new ArrayList<TransactionAbstract>();
+	private Collection<TransactionModel> transactions = new ArrayList<TransactionModel>();
 	
 	public Account(long id, String name, String displayName, double balance,
 			double interest, UserModel owner) {
@@ -29,7 +29,6 @@ public class Account implements AccountModel, Serializable {
 		this.name = name;
 		this.balance = balance;
 		this.interest = interest;
-		//this.makeDeposit(new SimpleDateFormat("MM/dd/yyyy").format(new Date()), null, "Account Created", balance, this);
 	}
 	
 	@Override
@@ -63,29 +62,15 @@ public class Account implements AccountModel, Serializable {
 	}
 	
 	@Override
-	public void addTransaction(TransactionAbstract t) {
+	public void addTransaction(TransactionModel t) {
 		transactions.add(t);
 	}
 	
 	@Override
-	public void addTransactions(Collection<TransactionAbstract> t) {
+	public void addTransactions(Collection<TransactionModel> t) {
 		transactions.addAll(t);
 	}
-/*
-	@Override
-	public void makeWithdrawal(String dateMade, String currentDate, 
-			String source, double amount, Account account) {
-		transactions.add(new Withdrawal(dateMade, currentDate, source, amount, this));
-		//balance manipulation in Withdraw
-	}
 
-	@Override
-	public void makeDeposit(String dateMade, String currentDate, String source,
-			double amount, Account account) {
-		transactions.add(new Deposit(dateMade, currentDate, source, amount, this));	
-		//balance manipulation in Deposit
-	}
-*/
 	@Override
 	public void changeBalance(double amount) {
 		balance += amount;
@@ -99,13 +84,13 @@ public class Account implements AccountModel, Serializable {
 	@Override
 	public Collection<String> getTransactionWritables() {
 		Collection<String> writeables = new ArrayList<String>();
-		for (TransactionAbstract t : transactions) {
+		for (TransactionModel t : transactions) {
 			writeables.add(t.getWritable());
 		}
 		return writeables;
 	}
 	
-	public Collection<TransactionAbstract> getTransactions() {
+	public Collection<TransactionModel> getTransactions() {
 		return transactions;
 	}
 	

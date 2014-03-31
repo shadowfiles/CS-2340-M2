@@ -9,7 +9,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import cs2340.android.Model.Account;
 import cs2340.android.Model.AccountModel;
-import cs2340.android.Model.TransactionAbstract;
+import cs2340.android.Model.TransactionModel;
 import cs2340.android.Model.Deposit;
 import cs2340.android.Model.UserModel;
 import cs2340.android.Model.Withdrawal;
@@ -23,7 +23,7 @@ public class TransactionDataSource extends DataSource {
 		super(c);
 	}
 	
-	public TransactionAbstract createTransaction(String date, String source, 
+	public TransactionModel createTransaction(String date, String source, 
 			double amount, AccountModel account, boolean isDeposit) {		
 		open();
 		ContentValues values = new ContentValues();
@@ -38,14 +38,14 @@ public class TransactionDataSource extends DataSource {
 		return makeTransaction(insertId, date, source, amount, account, isDeposit);
 	}
 
-	public Collection<TransactionAbstract> getTransactions(AccountModel account) {
+	public Collection<TransactionModel> getTransactions(AccountModel account) {
 		open();
-		Collection<TransactionAbstract> transactions = getTransactions(database, account);
+		Collection<TransactionModel> transactions = getTransactions(database, account);
 		close();
 		return transactions;
 	}
 	
-	public TransactionAbstract getTransaction(Cursor cursor, AccountModel owner) {
+	public TransactionModel getTransaction(Cursor cursor, AccountModel owner) {
 		return getTransaction(database, cursor, owner);
 	}
 	
@@ -65,15 +65,15 @@ public class TransactionDataSource extends DataSource {
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 	}
 	
-	public static Collection<TransactionAbstract> getTransactions(
+	public static Collection<TransactionModel> getTransactions(
 			SQLiteDatabase database, AccountModel account) {
-		Collection<TransactionAbstract> transactions = new ArrayList<TransactionAbstract>();
+		Collection<TransactionModel> transactions = new ArrayList<TransactionModel>();
 		Cursor cursor = database.query(TABLE, allColumns, 
 				"account_id = " + account.getId(), null, null, null, null);
 		
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {
-			TransactionAbstract t = getTransaction(database, cursor, account);
+			TransactionModel t = getTransaction(database, cursor, account);
 			transactions.add(t);
 			cursor.moveToNext();
 		}
@@ -81,7 +81,7 @@ public class TransactionDataSource extends DataSource {
 		return transactions;
 	}
 	
-	private static TransactionAbstract getTransaction(SQLiteDatabase database, 
+	private static TransactionModel getTransaction(SQLiteDatabase database, 
 			Cursor cursor, AccountModel account) {
 		long id = cursor.getLong(cursor.getColumnIndex("_id"));
 		String date = cursor.getString(cursor.getColumnIndex("date"));
@@ -92,9 +92,9 @@ public class TransactionDataSource extends DataSource {
 		return makeTransaction(id, date, source, amount, account, isDeposit);
 	}
 	
-	private static TransactionAbstract makeTransaction(long id, String date, String source, 
+	private static TransactionModel makeTransaction(long id, String date, String source, 
 			double amount, AccountModel account, boolean isDeposit) {
-		TransactionAbstract transaction = null;
+		TransactionModel transaction = null;
 		if (isDeposit) {
 			transaction = new Deposit(id, date, source, amount, account);
 		} else {
