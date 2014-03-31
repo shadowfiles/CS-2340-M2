@@ -43,11 +43,11 @@ public class UserList implements UserListModel {
 	
 	public UserModel createAccount(String fullName, String accountName,
 			double balance, double interest, UserModel owner) {
-			AccountModel account = accountDataSource.createAccount(fullName, accountName, 
-					balance, interest, owner);
-			UserModel user = getUser(owner.getUsername());
-			user.addAccount(account);
-			return user;
+		UserModel user = getUser(owner.getUsername());
+		AccountModel account = accountDataSource.createAccount(fullName, accountName, 
+				balance, interest, user);
+		user.addAccount(account);
+		return user;
 	}
 
 	public void addUser(String username, String passone, String passtwo) {

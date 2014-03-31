@@ -26,7 +26,6 @@ public class AddAccountPresenter {
 		//CHECK IF ACCOUNT NAME IS ALREADY USED
 		model = list.createAccount(view.getFullName(), view.getDisplayName(), 
 				view.getBalance(), view.getInterest(), model);
-		
 		view.goToUserPage(model);
 	}
 }

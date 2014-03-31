@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
+import cs2340.android.Model.UserList;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 
