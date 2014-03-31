@@ -1,0 +1,10 @@
+User Login
+Verify User
+Register user
+Make account
+Modify transactions
+Build report
+Save model
+Log History
+Display interface
+Retrieve password
