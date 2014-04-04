@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cs2340.android"
+    package="android.cs2340"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="cs2340.android.Activities.FullscreenActivity"
+            android:name="android.cs2340.Activities.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -25,50 +25,50 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cs2340.android.Activities.LoginActivity"
+            android:name="android.cs2340.Activities.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.SuccessActivity"
+            android:name="android.cs2340.Activities.SuccessActivity"
             android:label="@string/title_activity_sucess" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.RegisterActivity"
+            android:name="android.cs2340.Activities.RegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_register"
             android:theme="@style/FullscreenTheme" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.AddAccountActivity"
+            android:name="android.cs2340.Activities.AddAccountActivity"
             android:label="@string/title_activity_add_acount" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.UserPageActivity"
+            android:name="android.cs2340.Activities.UserPageActivity"
             android:label="@string/title_activity_user_page" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.AccountActivity"
+            android:name="android.cs2340.Activities.AccountActivity"
             android:label="@string/title_activity_account" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.TransactionActivity"
+            android:name="android.cs2340.Activities.TransactionActivity"
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.SpendingReportParametersActivity"
+            android:name="android.cs2340.Activities.SpendingReportParametersActivity"
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
-            android:name="cs2340.android.cs_2340_water_s_warriors.SpendingReport"
+            android:name="android.cs2340.SpendingReport"
             android:label="@string/title_activity_spending_report" >
         </activity>
         <activity
-            android:name="cs2340.andriod.cs_2340_water_s_warriors.SpendingReportParameters"
+            android:name="android.cs2340.SpendingReportParameters"
             android:label="@string/title_activity_spending_report_parameters" >
         </activity>
         <activity
-            android:name="cs2340.android.Activities.ReportActivity"
+            android:name="android.cs2340.Activities.ReportActivity"
             android:label="@string/title_activity_report" >
         </activity>
         
