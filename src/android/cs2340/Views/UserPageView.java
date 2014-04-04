@@ -7,10 +7,14 @@ import android.cs2340.Model.UserModel;
 
 public interface UserPageView {
 
-	void goToAddAccount(UserModel theUser);
-	void goToIntro();
-	void goToAccount(AccountModel account);
-	void drawAccounts(Collection<String> writable);
-	void goToCreateSpendingReport(UserModel user);
+    void goToAddAccount(UserModel theUser);
+
+    void goToIntro();
+
+    void goToAccount(AccountModel account);
+
+    void drawAccounts(Collection<String> writable);
+
+    void goToCreateSpendingReport(UserModel user);
 
 }

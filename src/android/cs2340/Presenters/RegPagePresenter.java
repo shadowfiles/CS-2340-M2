@@ -5,24 +5,22 @@ import android.cs2340.Views.RegisterPageView;
 
 public class RegPagePresenter {
 
-	private RegisterPageView view;
-	private UserListModel model;
-	
-	public RegPagePresenter (UserListModel m, RegisterPageView v) {
-		view = v;
-		model = m;
-	}
-	
-	//SUPPORT ERROR MESSAGE
-	public void onClickReg() {
-		model.addUser(view.getUsername(), view.getPassOne(), view.getPassTwo());
-		view.goToIntro();
-	}
+    private RegisterPageView view;
+    private UserListModel model;
 
+    public RegPagePresenter(UserListModel m, RegisterPageView v) {
+        view = v;
+        model = m;
+    }
 
-	public void onClickBack() {
-		view.goToIntro();		
-	}
-	
+    // SUPPORT ERROR MESSAGE
+    public void onClickReg() {
+        model.addUser(view.getUsername(), view.getPassOne(), view.getPassTwo());
+        view.goToIntro();
+    }
+
+    public void onClickBack() {
+        view.goToIntro();
+    }
 
 }

@@ -20,68 +20,67 @@ import android.cs2340.R;
  */
 public class RegisterActivity extends Activity implements RegisterPageView {
 
-	RegPagePresenter presenter;
-	EditText username;
-	EditText passOne;
-	EditText passTwo;
+    RegPagePresenter presenter;
+    EditText username;
+    EditText passOne;
+    EditText passTwo;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_register);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
 
-		presenter = new RegPagePresenter(UserList.getInstance(getApplicationContext()), this);
-		
-		username = (EditText) findViewById(android.cs2340.R.id.Username_Reg);
-		passOne = (EditText) findViewById(R.id.PassRegOne);
-		passTwo = (EditText) findViewById(R.id.PassRegTwo);
-	}
+        presenter = new RegPagePresenter(
+                UserList.getInstance(getApplicationContext()), this);
 
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.login, menu);
-		return true;
-	}
+        username = (EditText) findViewById(android.cs2340.R.id.Username_Reg);
+        passOne = (EditText) findViewById(R.id.PassRegOne);
+        passTwo = (EditText) findViewById(R.id.PassRegTwo);
+    }
 
-	public void registerUser(View view) {
-		presenter.onClickReg();
-	}
-	
-	public void cancelReg(View view) {
-		presenter.onClickBack();
-	}
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.login, menu);
+        return true;
+    }
 
-	public void clearInfo() {
-		username.setText("");
-		passOne.setText("");
-		passTwo.setText("");
-	}
-	
-	public String getUsername() {
-		return username.getText().toString();
-	}
-	
+    public void registerUser(View view) {
+        presenter.onClickReg();
+    }
 
-	public String getPassOne() {
-		return passOne.getText().toString();
-	}
+    public void cancelReg(View view) {
+        presenter.onClickBack();
+    }
 
-	public String getPassTwo() {
-		return passTwo.getText().toString();
-	}
+    public void clearInfo() {
+        username.setText("");
+        passOne.setText("");
+        passTwo.setText("");
+    }
 
+    public String getUsername() {
+        return username.getText().toString();
+    }
 
-	@Override
-	public void setInfoErrorMessage(String text) {
-		// TODO Auto-generated method stub
-		
-	}
+    public String getPassOne() {
+        return passOne.getText().toString();
+    }
 
-	@Override
-	public void goToIntro() {
-		Intent intent = new Intent(RegisterActivity.this, FullscreenActivity.class);
-		startActivity(intent);		
-	}
+    public String getPassTwo() {
+        return passTwo.getText().toString();
+    }
 
+    @Override
+    public void setInfoErrorMessage(String text) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void goToIntro() {
+        Intent intent = new Intent(RegisterActivity.this,
+                FullscreenActivity.class);
+        startActivity(intent);
+    }
 
 }

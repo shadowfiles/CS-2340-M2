@@ -5,9 +5,13 @@ import java.util.Date;
 
 public interface TransactionModel {
 
-	String getDateMade();
-	String getCurrentDate();
-	String getCategory();
-	double getAmount();
-	String getWritable();
+    String getDateMade();
+
+    String getCurrentDate();
+
+    String getCategory();
+
+    double getAmount();
+
+    String getWritable();
 }

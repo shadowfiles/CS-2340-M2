@@ -18,66 +18,75 @@ import android.view.View;
 import android.widget.EditText;
 
 /**
- * This class describes the methods neeed to add a new account for a user.
+ * This class describes the methods need to add a new account for a user.
  * 
  * @author Team 42
  */
 public class AddAccountActivity extends Activity implements AddAccountPageView {
-	
-	private AddAccountPresenter presenter;
-	private EditText fullName;
-	private EditText displayName;
-	private EditText balance;
-	private EditText interest;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_acount);
-		
-		presenter = new AddAccountPresenter((UserModel) getIntent().getExtras().getSerializable("theUser"), 
-						UserList.getInstance(this), this);
-		//display accounts
-		
-		fullName = (EditText)findViewById(R.id.fullNameAddAccount);
-		displayName = (EditText)findViewById(R.id.displayNameAddAccount);
-		balance = (EditText)findViewById(R.id.balanceAddAccount);
-		interest = (EditText)findViewById(R.id.interestAddAccount);
-	}
+    private AddAccountPresenter presenter;
+    private EditText fullName;
+    private EditText displayName;
+    private EditText balance;
+    private EditText interest;
 
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.add_acount, menu);
-		return true;
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_acount);
 
-	public String getFullName() {
-		return fullName.getText().toString();
-	}
+        presenter = new AddAccountPresenter((UserModel) getIntent().getExtras()
+                .getSerializable("theUser"), UserList.getInstance(this), this);
+        // display accounts
 
-	public String getDisplayName() {
-		return displayName.getText().toString();
-	}
+        fullName = (EditText) findViewById(R.id.fullNameAddAccount);
+        displayName = (EditText) findViewById(R.id.displayNameAddAccount);
+        balance = (EditText) findViewById(R.id.balanceAddAccount);
+        interest = (EditText) findViewById(R.id.interestAddAccount);
+    }
 
-	public double getBalance() {
-		return Double.parseDouble(balance.getText().toString());
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.add_acount, menu);
+        return true;
+    }
 
-	public double getInterest() {
-		return Double.parseDouble(interest.getText().toString());
-	}
+    @Override
+    public String getFullName() {
+        return fullName.getText().toString();
+    }
 
-	public void goToUserPage(UserModel theUser) {
-		Intent intent = new Intent(AddAccountActivity.this, UserPageActivity.class);
-		intent.putExtra("theUser", (Serializable) theUser);
-		startActivity(intent);
-	}
+    @Override
+    public String getDisplayName() {
+        return displayName.getText().toString();
+    }
 
-	public void createButton(View view) {
-		presenter.onClickCreate();
-	}
+    @Override
+    public double getBalance() {
+        return Double.parseDouble(balance.getText().toString());
+    }
 
-	public void backButton(View view) {
-		presenter.onClickBack();
-	}
+    @Override
+    public double getInterest() {
+        return Double.parseDouble(interest.getText().toString());
+    }
+
+    @Override
+    public void goToUserPage(UserModel theUser) {
+        Intent intent = new Intent(AddAccountActivity.this,
+                UserPageActivity.class);
+        intent.putExtra("theUser", (Serializable) theUser);
+        startActivity(intent);
+    }
+
+    @Override
+    public void createButton(View view) {
+        presenter.onClickCreate();
+    }
+
+    @Override
+    public void backButton(View view) {
+        presenter.onClickBack();
+    }
 
 }
