@@ -86,6 +86,4 @@ public class User implements UserModel, Serializable{
 	public int hashCode() {
 		return (int)getId();
 	}
-
-	//add other user stuff?
 }
