@@ -1,40 +1,73 @@
 package android.cs2340.Model;
 
 import java.io.Serializable;
-import java.security.cert.CollectionCertStoreParameters;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 
-import android.util.Log;
-
+/**
+ * Implementation of ReportModel.
+ * @author Team 42
+ *
+ */
 public class SpendingCategoryReport implements ReportModel, Serializable {
 
+    /**
+     * Android required serialization ID.
+     */
     private static final long serialVersionUID = 1;
+    
+    /**
+     * The owner of the accounts being reported on.
+     */
     UserModel theUser;
+    
+    /**
+     * Starting date for the reports. 
+     */
     String startDate;
+    
+    /**
+     * Ending date for the reports.
+     */
     String endDate;
+    
+    /**
+     * A Map of the report with transactions linked to spending. 
+     */
     HashMap<String, Double> report = new HashMap<String, Double>();
+    
+    /**
+     * The String form of the report.
+     */
     String writenReport = "";
 
+    @Override
     public UserModel getUser() {
         return theUser;
     }
 
-    public SpendingCategoryReport(UserModel user, String startDate,
-            String endDate) {
+    /**
+     * Constructor for the report.
+     * @param user The user who's requesting the report.
+     * @param theStartDate The starting date of the report.
+     * @param theEndDate
+     */
+    public SpendingCategoryReport(UserModel user, String theStartDate,
+            String theEndDate) {
         this.theUser = user;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.startDate = theStartDate;
+        this.endDate = theEndDate;
 
         makeReport();
     }
 
-    @Override
-    public void makeReport() {
+    /**
+     * Makes the report.
+     */
+    private void makeReport() {
         Collection<AccountModel> accounts = theUser.getAccounts();
         for (AccountModel a : accounts) {
             Collection<TransactionModel> trans = a.getTransactions();
@@ -73,16 +106,16 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
 
     // be weary
     @Override
-    public boolean goodDate(String transactionDate, String startDate,
-            String endDate) {
+    public boolean goodDate(String transactionDate, String theStartDate,
+            String theEndDate) {
 
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         Date transDate;
         try {
             transDate = sdf.parse(transactionDate);
 
-            Date start = sdf.parse(startDate);
-            Date end = sdf.parse(endDate);
+            Date start = sdf.parse(theStartDate);
+            Date end = sdf.parse(theEndDate);
             if (start.compareTo(transDate) <= 0
                     && end.compareTo(transDate) >= 0) {
                 return true;

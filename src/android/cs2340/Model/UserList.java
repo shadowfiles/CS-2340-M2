@@ -6,38 +6,68 @@ import android.content.Context;
 import android.cs2340.Persistence.AccountDataSource;
 import android.cs2340.Persistence.UserDataSource;
 
+/**
+ * List of all users in the application.
+ * @author Team 42
+ *
+ */
 public class UserList implements UserListModel {
 
-    private static UserList INSTANCE;
-    private HashMap<String, UserModel> Users;
+    /**
+     * Static instance variable for implementing Singleton.
+     */
+    private static UserList instance;
+    
+    /**
+     * A Map of the users, keying them by their username.
+     */
+    private HashMap<String, UserModel> users;
+    
+    /**
+     * Persistence for users. 
+     */
     private UserDataSource dataSource;
+    
+    /**
+     * Persistence for Accounts.
+     */
     private AccountDataSource accountDataSource;
 
-    // ask
+    /**
+     * Private constructor for UserList for Singleton. 
+     * @param c Android Context used to initialize UserList. 
+     */
     private UserList(Context c) {
         dataSource = new UserDataSource(c);
-        Users = dataSource.getAllUsers();
+        users = dataSource.getAllUsers();
         accountDataSource = new AccountDataSource(c);
     }
 
+    /**
+     * Gets the UserList instance object.
+     * @param c The Context used to construct the UserList.
+     * @return A single instance of UserList.
+     */
     public static UserList getInstance(Context c) {
-        if (INSTANCE == null) {
-            INSTANCE = new UserList(c);
+        if (instance == null) {
+            instance = new UserList(c);
         }
-        return INSTANCE;
+        return instance;
     }
 
-    // INTERFACE METHODS
+    @Override
     public UserModel getUser(String username) {
-        UserModel user = Users.get(username);
+        UserModel user = users.get(username);
         return user;
     }
 
+    @Override
     public boolean goodPass(String username, String pass) {
         UserModel user = getUser(username);
         return user != null && user.verifyPassword(pass);
     }
 
+    @Override
     public UserModel createAccount(String fullName, String accountName,
             double balance, double interest, UserModel owner) {
         UserModel user = getUser(owner.getUsername());
@@ -47,13 +77,14 @@ public class UserList implements UserListModel {
         return user;
     }
 
+    @Override
     public void addUser(String username, String passone, String passtwo) {
-        if (passone.equals(passtwo) && !Users.containsKey(username.hashCode())) {
+        if (passone.equals(passtwo) && !users.containsKey(username.hashCode())) {
             // Add the user to the database
             UserModel user = dataSource.createUser(username, passone);
 
             // Then put them in the UserList
-            Users.put(username, user);
+            users.put(username, user);
         }
         // ELSE RETURN ERROR
     }
