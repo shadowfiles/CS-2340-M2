@@ -4,26 +4,71 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * The object representation of a User's Account.
+ * @author Team 42
+ *
+ */
 public class Account implements AccountModel, Serializable {
 
+    /**
+     * Android required serial ID.
+     */
     private static final long serialVersionUID = 1;
+    
+    /**
+     * Unique database ID for a single account. 
+     */
     private long id;
+    
+    /**
+     * The display name for the account.
+     */
     private String displayName;
+    
+    /**
+     * The account name.
+     */
     private String name;
+    
+    /**
+     * The balance on the account.
+     */
     private double balance;
+    
+    /**
+     * The interest rate for the account.
+     */
     private double interest;
+    
+    /**
+     * A pointer to the owner of the account. 
+     */
     private UserModel owner;
+    
+    /**
+     * A list of all of the transactions on the account. 
+     */
     private Collection<TransactionModel> transactions = new ArrayList<TransactionModel>();
 
-    public Account(long id, String name, String displayName, double balance,
-            double interest, UserModel owner) {
+    /**
+     * Constructor for a new account.
+     * @param anId The unique id of the account.
+     * @param aName The account name.
+     * @param aDisplayName The display name.
+     * @param aBalance The balance.
+     * @param anInterest The interest rate.
+     * @param anOwner UserModel for the owner of the account.
+     */
+    public Account(long anId, String aName, String aDisplayName, double aBalance,
+            double anInterest, UserModel anOwner) {
 
-        this.id = id;
-        this.owner = owner;
-        this.displayName = displayName;
-        this.name = name;
-        this.balance = balance;
-        this.interest = interest;
+        this.id = anId;
+        this.owner = anOwner;
+        this.displayName = aDisplayName;
+        this.name = aName;
+        this.balance = aBalance;
+        this.interest = anInterest;
     }
 
     @Override
@@ -73,7 +118,7 @@ public class Account implements AccountModel, Serializable {
 
     @Override
     public String getWritable() {
-        return name;
+        return getName();
     }
 
     @Override
@@ -85,6 +130,7 @@ public class Account implements AccountModel, Serializable {
         return writeables;
     }
 
+    @Override
     public Collection<TransactionModel> getTransactions() {
         return transactions;
     }

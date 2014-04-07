@@ -1,5 +1,6 @@
 package android.cs2340.Views;
 
+
 public interface RegisterPageView {
 
     String getUsername();

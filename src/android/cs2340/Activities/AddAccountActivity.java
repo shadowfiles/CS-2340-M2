@@ -3,14 +3,11 @@ package android.cs2340.Activities;
 import java.io.Serializable;
 
 import android.cs2340.R;
-import android.cs2340.R.layout;
-import android.cs2340.R.menu;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Model.UserList;
 import android.cs2340.Model.UserModel;
-import android.cs2340.Persistence.AccountDataSource;
 import android.cs2340.Presenters.AddAccountPresenter;
 import android.cs2340.Views.AddAccountPageView;
 import android.view.Menu;
@@ -24,11 +21,35 @@ import android.widget.EditText;
  */
 public class AddAccountActivity extends Activity implements AddAccountPageView {
 
+    /**
+     * Presenter used by the view. 
+     */
     private AddAccountPresenter presenter;
+    
+    /**
+     * Entered full name of the account added.
+     */
     private EditText fullName;
+    
+    /**
+     * Entered display name of the account added. 
+     */
     private EditText displayName;
+    
+    /**
+     * Entered balance of the account added.
+     */
     private EditText balance;
+    
+    /**
+     * Entered interest of the account added. 
+     */
     private EditText interest;
+
+    /**
+     * Serializable ID for the User.
+     */
+    private static final String USER_SERIAL_ID = "theUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +57,7 @@ public class AddAccountActivity extends Activity implements AddAccountPageView {
         setContentView(R.layout.activity_add_acount);
 
         presenter = new AddAccountPresenter((UserModel) getIntent().getExtras()
-                .getSerializable("theUser"), UserList.getInstance(this), this);
+                .getSerializable(USER_SERIAL_ID), UserList.getInstance(this), this);
         // display accounts
 
         fullName = (EditText) findViewById(R.id.fullNameAddAccount);
@@ -75,16 +96,22 @@ public class AddAccountActivity extends Activity implements AddAccountPageView {
     public void goToUserPage(UserModel theUser) {
         Intent intent = new Intent(AddAccountActivity.this,
                 UserPageActivity.class);
-        intent.putExtra("theUser", (Serializable) theUser);
+        intent.putExtra(USER_SERIAL_ID, (Serializable) theUser);
         startActivity(intent);
     }
 
-    @Override
+    /**
+     * Hook for when the user clicks the button to create an account.
+     * @param view This view.
+     */
     public void createButton(View view) {
         presenter.onClickCreate();
     }
 
-    @Override
+    /**
+     * Hook for when the user clicks the back button.
+     * @param view This view.
+     */
     public void backButton(View view) {
         presenter.onClickBack();
     }

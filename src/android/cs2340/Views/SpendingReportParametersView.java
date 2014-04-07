@@ -1,6 +1,5 @@
 package android.cs2340.Views;
 
-import android.cs2340.Model.AccountModel;
 import android.cs2340.Model.ReportModel;
 import android.cs2340.Model.UserModel;
 

@@ -7,8 +7,6 @@ import android.cs2340.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.cs2340.Activities.UserPageActivity;
-import android.cs2340.Model.Account;
 import android.cs2340.Model.AccountModel;
 import android.cs2340.Model.UserModel;
 import android.cs2340.Presenters.UserPagePresenter;
@@ -18,8 +16,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 /**
  * This class display the detailed information of the user.
@@ -29,8 +25,20 @@ import android.widget.TextView;
  */
 public class UserPageActivity extends Activity implements UserPageView {
 
+    /**
+     * Presenter used by the View.
+     */
     private UserPagePresenter presenter;
+    
+    /**
+     * Layout for the accounts owned by the user.
+     */
     private LinearLayout accountlist;
+    
+    /**
+     * Serialization Id for UserModel.
+     */
+    private static final String USER_SERIAL_ID = "theUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +46,7 @@ public class UserPageActivity extends Activity implements UserPageView {
         setContentView(R.layout.activity_user_page);
 
         presenter = new UserPagePresenter((UserModel) getIntent().getExtras()
-                .getSerializable("theUser"), this);
+                .getSerializable(USER_SERIAL_ID), this);
         accountlist = (LinearLayout) findViewById(R.id.account_list);
         presenter.drawAccounts();
     }
@@ -65,14 +73,26 @@ public class UserPageActivity extends Activity implements UserPageView {
         }
     }
 
+    /**
+     * What happens when the user clicks the button to add an account. 
+     * @param view This view.
+     */
     public void addAccountButton(View view) {
         presenter.onClickAddAccount();
     }
 
+    /**
+     * Hook for when the user clicks the button to create a spending report.
+     * @param view This view.
+     */
     public void createSpendingReport(View view) {
         presenter.goToCreateSpendingReport();
     }
 
+    /**
+     * The hook for when the user clicks the logout button.
+     * @param view This view.
+     */
     public void logoutButton(View view) {
         presenter.onClickLogout();
     }
@@ -81,11 +101,10 @@ public class UserPageActivity extends Activity implements UserPageView {
     public void goToAddAccount(UserModel theUser) {
         Intent intent = new Intent(UserPageActivity.this,
                 AddAccountActivity.class);
-        intent.putExtra("theUser", (Serializable) theUser);
+        intent.putExtra(USER_SERIAL_ID, (Serializable) theUser);
         startActivity(intent);
     }
 
-    // DELETE VIEW ON GOT TO INTRO
     @Override
     public void goToIntro() {
         Intent intent = new Intent(UserPageActivity.this,
@@ -93,9 +112,10 @@ public class UserPageActivity extends Activity implements UserPageView {
         startActivity(intent);
     }
 
+    @Override
     public void goToCreateSpendingReport(UserModel user) {
         Intent intent = new Intent(this, SpendingReportParametersActivity.class);
-        intent.putExtra("theUser", (Serializable) user);
+        intent.putExtra(USER_SERIAL_ID, (Serializable) user);
         startActivity(intent);
     }
 

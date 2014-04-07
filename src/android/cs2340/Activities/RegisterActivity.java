@@ -20,9 +20,24 @@ import android.cs2340.R;
  */
 public class RegisterActivity extends Activity implements RegisterPageView {
 
+    /**
+     * The Presenter used by the view.
+     */
     RegPagePresenter presenter;
+    
+    /**
+     * The username entered by the user.
+     */
     EditText username;
+    
+    /**
+     * The first password entered by the user.
+     */
     EditText passOne;
+    
+    /**
+     * The second password entered by the user. 
+     */
     EditText passTwo;
 
     @Override
@@ -38,34 +53,47 @@ public class RegisterActivity extends Activity implements RegisterPageView {
         passTwo = (EditText) findViewById(R.id.PassRegTwo);
     }
 
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.login, menu);
         return true;
     }
 
+    /**
+     * Hook for when the user clicks the register button.
+     * @param view This view.
+     */
     public void registerUser(View view) {
         presenter.onClickReg();
     }
 
+    /**
+     * Hook for when the user clicks the cancel button.
+     * @param view This view. 
+     */
     public void cancelReg(View view) {
         presenter.onClickBack();
     }
 
+    @Override
     public void clearInfo() {
         username.setText("");
         passOne.setText("");
         passTwo.setText("");
     }
 
+    @Override
     public String getUsername() {
         return username.getText().toString();
     }
 
+    @Override
     public String getPassOne() {
         return passOne.getText().toString();
     }
 
+    @Override
     public String getPassTwo() {
         return passTwo.getText().toString();
     }
@@ -73,7 +101,6 @@ public class RegisterActivity extends Activity implements RegisterPageView {
     @Override
     public void setInfoErrorMessage(String text) {
         // TODO Auto-generated method stub
-
     }
 
     @Override

@@ -1,19 +1,12 @@
 package android.cs2340.Activities;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 import android.cs2340.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.cs2340.Model.AccountModel;
 import android.cs2340.Model.ReportModel;
-import android.cs2340.Model.TransactionModel;
 import android.cs2340.Model.UserModel;
 import android.cs2340.Presenters.ReportPresenter;
 import android.cs2340.Views.ReportView;
@@ -30,7 +23,14 @@ import android.widget.TextView;
  */
 public class ReportActivity extends Activity implements ReportView {
 
+    /**
+     * The Presenter used by the view.
+     */
     ReportPresenter presenter;
+    
+    /**
+     * The container showing the report. 
+     */
     LinearLayout reportHolder;
 
     @Override
@@ -42,7 +42,7 @@ public class ReportActivity extends Activity implements ReportView {
                 .getSerializable("theReport"), this);
         reportHolder = (LinearLayout) findViewById(R.id.Report_Holder);
 
-        presenter.drawWritenReport();
+        presenter.drawWrittenReport();
         // Collection<AccountModel> accounts = user.getAccounts();
         // start = getIntent().getExtras().getString("startDate");
         // end = getIntent().getExtras().getString("endDate");
@@ -66,17 +66,24 @@ public class ReportActivity extends Activity implements ReportView {
         getMenuInflater().inflate(R.menu.report, menu);
         return true;
     }
-
-    public void DrawReport(String writenReport) {
-        TextView WritenRep = new TextView(this);
-        WritenRep.setText(writenReport);
-        reportHolder.addView(WritenRep);
+    
+    @Override
+    public void drawReport(String writtenReport) {
+        TextView writtenRep = new TextView(this);
+        writtenRep.setText(writtenReport);
+        reportHolder.addView(writtenRep);
     }
 
+    /**
+     * Hook for when the user clicks the back button.
+     * Goes to UserPageActivity.
+     * @param view This view.
+     */
     public void goBack(View view) {
         presenter.back();
     }
 
+    @Override
     public void goToUserPage(UserModel user) {
         Intent intent = new Intent(this, UserPageActivity.class);
         intent.putExtra("theUser", (Serializable) user);

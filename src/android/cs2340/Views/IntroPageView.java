@@ -4,6 +4,6 @@ public interface IntroPageView {
 
     void transferPageReg();
 
-    void tranferPageLogin();
+    void transferPageLogin();
 
 }

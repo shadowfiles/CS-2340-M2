@@ -12,7 +12,7 @@ public class IntroPagePresenter {
     }
 
     public void onClickLogin() {
-        view.tranferPageLogin();
+        view.transferPageLogin();
 
     }
 

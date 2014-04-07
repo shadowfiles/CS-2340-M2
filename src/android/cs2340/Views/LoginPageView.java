@@ -1,6 +1,5 @@
 package android.cs2340.Views;
 
-import android.cs2340.Model.User;
 import android.cs2340.Model.UserModel;
 
 public interface LoginPageView {

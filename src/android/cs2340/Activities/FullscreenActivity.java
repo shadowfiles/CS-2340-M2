@@ -16,6 +16,9 @@ import android.cs2340.R;
  */
 public class FullscreenActivity extends Activity implements IntroPageView {
 
+    /**
+     * The Presenter used by the view. 
+     */
     IntroPagePresenter presenter;
 
     @Override
@@ -26,19 +29,31 @@ public class FullscreenActivity extends Activity implements IntroPageView {
         presenter = new IntroPagePresenter(this);
     }
 
+    /**
+     * Hook for when the user clicks to go to the login page.
+     * Goes to LoginPageActivity.
+     * @param view This view.
+     */
     public void goLoginPage(View view) {
         presenter.onClickLogin();
     }
 
-    public void tranferPageLogin() {
+    @Override
+    public void transferPageLogin() {
         Intent intent = new Intent(FullscreenActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Hook for when the user clicks the register page button.
+     * Goes to RegisterActivity.
+     * @param view This view.
+     */
     public void goRegisterPage(View view) {
         presenter.onClickReg();
     }
 
+    @Override
     public void transferPageReg() {
         Intent intent = new Intent(FullscreenActivity.this,
                 RegisterActivity.class);

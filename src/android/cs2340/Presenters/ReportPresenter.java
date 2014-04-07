@@ -18,7 +18,7 @@ public class ReportPresenter {
         view.goToUserPage(model.getUser());
     }
 
-    public void drawWritenReport() {
-        view.DrawReport(model.getWritenReport());
+    public void drawWrittenReport() {
+        view.drawReport(model.getWritenReport());
     }
 }

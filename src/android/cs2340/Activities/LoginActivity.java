@@ -4,13 +4,11 @@ import java.io.Serializable;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.cs2340.Model.User;
 import android.cs2340.Model.UserList;
 import android.cs2340.Model.UserModel;
 import android.cs2340.Presenters.LoginPagePresenter;
 import android.cs2340.Views.LoginPageView;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -25,9 +23,24 @@ import android.cs2340.R;
  */
 public class LoginActivity extends Activity implements LoginPageView {
 
+    /**
+     * The Presenter used by the view. 
+     */
     LoginPagePresenter presenter;
+    
+    /**
+     * The username entered by the user.  
+     */
     EditText usernameField;
+    
+    /**
+     * The password entered by the user. 
+     */
     EditText passwordField;
+    
+    /**
+     * The textbox for feedback shown to the user. 
+     */
     TextView feedback;
 
     @Override
@@ -50,10 +63,18 @@ public class LoginActivity extends Activity implements LoginPageView {
         return true;
     }
 
+    /**
+     * Hook for when the user clicks the login button.
+     * @param v This view.
+     */
     public void attemptLogin(View v) {
         presenter.onClickLogin();
     }
 
+    /**
+     * Hook for when the user clicks the back button. 
+     * @param v This view.
+     */
     public void backToIntro(View v) {
         presenter.onClickBack();
     }
@@ -81,6 +102,7 @@ public class LoginActivity extends Activity implements LoginPageView {
         startActivity(intent);
     }
 
+    @Override
     public void goToIntro() {
         Intent intent = new Intent(LoginActivity.this, FullscreenActivity.class);
         startActivity(intent);
