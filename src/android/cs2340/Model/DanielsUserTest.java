@@ -1,10 +1,12 @@
-package cs2340.android.Model;
+package android.cs2340.Model;
 
 import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.cs2340.Model.*;
 
 /**
  * 
@@ -35,7 +37,6 @@ public class DanielsUserTest {
 	public void testVariables() {
 		Assert.assertEquals("Wrong ID", 1, theUser.getId());
 		Assert.assertEquals("Wrong Name", "testUser", theUser.getUsername());
-		Assert.assertEquals("Wrong Pass", "testPass".hashCode(), theUser.getPassword());
 		Assert.assertEquals("Didn't make accountList Correct", new ArrayList<Account>(), theUser.getAccounts());
 
 	}
