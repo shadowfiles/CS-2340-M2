@@ -1,7 +1,5 @@
 package android.cs2340.Presenters;
 
-import android.cs2340.Model.Account;
-import android.cs2340.Model.AccountModel;
 import android.cs2340.Model.UserModel;
 import android.cs2340.Views.UserPageView;
 

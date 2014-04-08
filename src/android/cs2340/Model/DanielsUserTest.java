@@ -12,24 +12,25 @@ import android.cs2340.Model.*;
  * 
  * @author Daniel
  * @version 1.0
- *
+ * 
  */
-
 
 public class DanielsUserTest {
 	/**
-	 *The test Fixture
+	 * The test Fixture.
 	 */
 	User theUser;
+
 	/**
-	 * run before to set up theUser
+	 * run before to set up theUser.
+	 * 
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
 		theUser = new User(1, "testUser", "testPass".hashCode());
 	}
-	
+
 	/**
 	 * Test construction and getters
 	 */
@@ -37,10 +38,11 @@ public class DanielsUserTest {
 	public void testVariables() {
 		Assert.assertEquals("Wrong ID", 1, theUser.getId());
 		Assert.assertEquals("Wrong Name", "testUser", theUser.getUsername());
-		Assert.assertEquals("Didn't make accountList Correct", new ArrayList<Account>(), theUser.getAccounts());
+		Assert.assertEquals("Didn't make accountList Correct",
+				new ArrayList<Account>(), theUser.getAccounts());
 
 	}
-	
+
 	/**
 	 * Test creating User
 	 */
@@ -48,7 +50,7 @@ public class DanielsUserTest {
 	public void TestVerifyPass() {
 		Assert.assertEquals(true, theUser.verifyPassword("testPass"));
 	}
-	
+
 	/**
 	 * Test getAccount
 	 */
@@ -60,9 +62,17 @@ public class DanielsUserTest {
 		accountList.add(one);
 		accountList.add(two);
 		theUser = new User(1, "test", "test".hashCode(), accountList);
-		Assert.assertEquals("didnt get accounts right", accountList, theUser.getAccounts());
+		Assert.assertEquals("didnt get accounts right", accountList,
+				theUser.getAccounts());
 	}
-	
+
+	@Test
+	public void TestNullGetAccounts() {
+		System.out.println(theUser.getAccounts());
+		Assert.assertEquals("didnt return null", 0, theUser.getAccounts()
+				.size());
+	}
+
 	@Test
 	public void TestGetAccount() {
 		Account one = new Account(1, "testOne", "One", 100, 1, null);
@@ -71,11 +81,14 @@ public class DanielsUserTest {
 		accountList.add(one);
 		accountList.add(two);
 		theUser = new User(1, "test", "test".hashCode(), accountList);
-		Assert.assertEquals("didnt get accounts one", one, theUser.getAccount("testOne"));
-		Assert.assertEquals("didnt get accounts two", two, theUser.getAccount("testTwo"));
-		Assert.assertEquals("didnt get accounts null", null, theUser.getAccount("NOPE"));
+		Assert.assertEquals("didnt get accounts one", one,
+				theUser.getAccount("testOne"));
+		Assert.assertEquals("didnt get accounts two", two,
+				theUser.getAccount("testTwo"));
+		Assert.assertEquals("didnt get accounts null", null,
+				theUser.getAccount("NOPE"));
 	}
-	
+
 	/**
 	 * Test Account adding in group to empty set, and adding NUll
 	 */
@@ -85,14 +98,17 @@ public class DanielsUserTest {
 		ArrayList<AccountModel> accountList = new ArrayList<AccountModel>();
 		accountList.add(null);
 		theUser.addAccount(null);
-		Assert.assertEquals("Failed adding multiple accounts in group to empty User",accountList, theUser.getAccounts());
+		Assert.assertEquals(
+				"Failed adding multiple accounts in group to empty User",
+				accountList, theUser.getAccounts());
 		accountList.add(one);
 		theUser.addAccount(one);
-		Assert.assertEquals("Failed adding multiple accounts in group to empty User",accountList, theUser.getAccounts());
-		
+		Assert.assertEquals(
+				"Failed adding multiple accounts in group to empty User",
+				accountList, theUser.getAccounts());
 
 	}
-	
+
 	/**
 	 * Test Account adding in group to empty set
 	 */
@@ -104,9 +120,11 @@ public class DanielsUserTest {
 		accountList.add(one);
 		accountList.add(two);
 		theUser.addAccounts(accountList);
-		Assert.assertEquals("Failed adding multiple accounts in group to empty User",accountList, theUser.getAccounts());
+		Assert.assertEquals(
+				"Failed adding multiple accounts in group to empty User",
+				accountList, theUser.getAccounts());
 	}
-	
+
 	/**
 	 * Test Getting AccountWritabe ArrayList
 	 */
@@ -119,9 +137,10 @@ public class DanielsUserTest {
 		accountList.add(two.getWritable());
 		theUser.addAccount(one);
 		theUser.addAccount(two);
-		Assert.assertEquals("Failed Account Writable", accountList, theUser.getAccountWriteables());
+		Assert.assertEquals("Failed Account Writable", accountList,
+				theUser.getAccountWriteables());
 	}
-	
+
 	/**
 	 * Test writable
 	 */
@@ -130,7 +149,7 @@ public class DanielsUserTest {
 		Assert.assertEquals("Failed User Writable", 1, theUser.getId());
 
 	}
-	
-	//can not test report generation due giant string that is the Report
-	 
+
+	// can not test report generation due giant string that is the Report
+
 }
