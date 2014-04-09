@@ -2,6 +2,7 @@ package android.cs2340.Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Collection;
 
 /**
@@ -49,7 +50,7 @@ public class Account implements AccountModel, Serializable {
     /**
      * A list of all of the transactions on the account. 
      */
-    private Collection<TransactionModel> transactions = new ArrayList<TransactionModel>();
+    private Collection<TransactionModel> transactions = new HashSet<TransactionModel>();
 
     /**
      * Constructor for a new account.
@@ -103,12 +104,16 @@ public class Account implements AccountModel, Serializable {
 
     @Override
     public void addTransaction(TransactionModel t) {
-        transactions.add(t);
+        if (t != null) {
+            transactions.add(t);
+        }
     }
 
     @Override
     public void addTransactions(Collection<TransactionModel> t) {
-        transactions.addAll(t);
+        if (t != null) {
+            transactions.addAll(t);
+        }
     }
 
     @Override
