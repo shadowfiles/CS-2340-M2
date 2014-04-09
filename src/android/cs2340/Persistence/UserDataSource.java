@@ -14,7 +14,10 @@ import java.util.HashMap;
 
 public class UserDataSource extends DataSource {
     private static final String TABLE = "users";
-    private static String[] allColumns = { "_id", "username", "password" };
+    private static final String USERNAME_COLUMN = "username";
+    private static final String PASSWORD_COLUMN = "password";
+    
+    private static String[] allColumns = { ID_COLUMN, USERNAME_COLUMN, PASSWORD_COLUMN };
     private static AccountDataSource accountDataSource;
 
     public UserDataSource(Context c) {
@@ -65,9 +68,9 @@ public class UserDataSource extends DataSource {
 
     public static void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE + " ("
-                + "_id integer primary key autoincrement, "
-                + "username text not null, " + "password integer not null, "
-                + "unique(username) on conflict replace" + "); ");
+                + ID_COLUMN + " integer primary key autoincrement, "
+                + USERNAME_COLUMN + " text not null, " + PASSWORD_COLUMN + " integer not null, "
+                + "unique(" + USERNAME_COLUMN + ") on conflict replace" + "); ");
     }
 
     public static void onUpgrade(SQLiteDatabase db, int oldVersion,
@@ -78,8 +81,8 @@ public class UserDataSource extends DataSource {
     public static UserModel createUser(SQLiteDatabase database,
             String username, String password) {
         ContentValues values = new ContentValues();
-        values.put("username", username);
-        values.put("password", password.hashCode());
+        values.put(USERNAME_COLUMN, username);
+        values.put(PASSWORD_COLUMN, password.hashCode());
 
         long insertId = database.insert(TABLE, null, values);
 
@@ -87,7 +90,7 @@ public class UserDataSource extends DataSource {
     }
 
     public static UserModel getUser(SQLiteDatabase database, long id) {
-        Cursor cursor = database.query(TABLE, allColumns, "_id = " + id, null,
+        Cursor cursor = database.query(TABLE, allColumns, ID_COLUMN + " = " + id, null,
                 null, null, null);
         cursor.moveToFirst();
         UserModel user = getUser(database, cursor);
@@ -96,9 +99,9 @@ public class UserDataSource extends DataSource {
     }
 
     private static UserModel getUser(SQLiteDatabase database, Cursor cursor) {
-        String username = cursor.getString(cursor.getColumnIndex("username"));
-        int password = (int) cursor.getLong(cursor.getColumnIndex("password"));
-        long id = cursor.getLong(cursor.getColumnIndex("_id"));
+        String username = cursor.getString(cursor.getColumnIndex(USERNAME_COLUMN));
+        int password = (int) cursor.getLong(cursor.getColumnIndex(PASSWORD_COLUMN));
+        long id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
 
         return makeUser(database, id, username, password);
     }

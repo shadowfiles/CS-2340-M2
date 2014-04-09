@@ -5,19 +5,23 @@ import java.util.Collection;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.cs2340.Model.Account;
 import android.cs2340.Model.AccountModel;
 import android.cs2340.Model.Deposit;
 import android.cs2340.Model.TransactionModel;
-import android.cs2340.Model.UserModel;
 import android.cs2340.Model.Withdrawal;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class TransactionDataSource extends DataSource {
     private static final String TABLE = "transactions";
-    private static String[] allColumns = { "_id", "account_id", "amount",
-            "source", "date", "is_deposit" };
+    private static final String AMOUNT_COLUMN = "amount";
+    private static final String CATEGORY_COLUMN = "source";
+    private static final String DATE_COLUMN = "date";
+    private static final String DEPOSIT_COLUMN = "is_deposit";
+    
+    
+    private static String[] allColumns = { ID_COLUMN, ACCOUNT_ID_COLUMN, AMOUNT_COLUMN,
+        CATEGORY_COLUMN, DATE_COLUMN, DEPOSIT_COLUMN };
 
     public TransactionDataSource(Context c) {
         super(c);
@@ -27,11 +31,11 @@ public class TransactionDataSource extends DataSource {
             double amount, AccountModel account, boolean isDeposit) {
         open();
         ContentValues values = new ContentValues();
-        values.put("account_id", account.getId());
-        values.put("amount", doubleToInt(amount));
-        values.put("source", source);
-        values.put("date", date);
-        values.put("is_deposit", isDeposit);
+        values.put(ACCOUNT_ID_COLUMN, account.getId());
+        values.put(AMOUNT_COLUMN, doubleToInt(amount));
+        values.put(CATEGORY_COLUMN, source);
+        values.put(DATE_COLUMN, date);
+        values.put(DEPOSIT_COLUMN, isDeposit);
         long insertId = database.insert(TABLE, null, values);
         close();
 
@@ -53,10 +57,10 @@ public class TransactionDataSource extends DataSource {
 
     public static void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE + " ("
-                + "_id integer primary key autoincrement, "
-                + "account_id integer not null, " + "amount integer not null, "
-                + "source text not null, " + "date text not null, "
-                + "is_deposit integer(1) not null" + ");");
+                + ID_COLUMN + " integer primary key autoincrement, "
+                + ACCOUNT_ID_COLUMN + " integer not null, " + AMOUNT_COLUMN + " integer not null, "
+                + CATEGORY_COLUMN + " text not null, " + DATE_COLUMN + " text not null, "
+                + DEPOSIT_COLUMN + " integer(1) not null" + ");");
     }
 
     public static void onUpgrade(SQLiteDatabase db, int oldVersion,
@@ -67,7 +71,7 @@ public class TransactionDataSource extends DataSource {
     public static Collection<TransactionModel> getTransactions(
             SQLiteDatabase database, AccountModel account) {
         Collection<TransactionModel> transactions = new ArrayList<TransactionModel>();
-        Cursor cursor = database.query(TABLE, allColumns, "account_id = "
+        Cursor cursor = database.query(TABLE, allColumns, ACCOUNT_ID_COLUMN + " = "
                 + account.getId(), null, null, null, null);
 
         cursor.moveToFirst();
@@ -82,12 +86,12 @@ public class TransactionDataSource extends DataSource {
 
     private static TransactionModel getTransaction(SQLiteDatabase database,
             Cursor cursor, AccountModel account) {
-        long id = cursor.getLong(cursor.getColumnIndex("_id"));
-        String date = cursor.getString(cursor.getColumnIndex("date"));
-        String source = cursor.getString(cursor.getColumnIndex("source"));
+        long id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
+        String date = cursor.getString(cursor.getColumnIndex(DATE_COLUMN));
+        String source = cursor.getString(cursor.getColumnIndex(CATEGORY_COLUMN));
         double amount = longToDouble(cursor.getLong(cursor
-                .getColumnIndex("amount")));
-        boolean isDeposit = cursor.getLong(cursor.getColumnIndex("is_deposit")) > 0;
+                .getColumnIndex(AMOUNT_COLUMN)));
+        boolean isDeposit = cursor.getLong(cursor.getColumnIndex(DEPOSIT_COLUMN)) > 0;
 
         return makeTransaction(id, date, source, amount, account, isDeposit);
     }

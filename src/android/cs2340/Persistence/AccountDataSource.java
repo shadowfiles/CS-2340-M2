@@ -25,12 +25,16 @@ public class AccountDataSource extends DataSource {
      * Database table name for accounts.
      */
     private static final String TABLE = "accounts";
+    private static final String FULL_NAME_COLUMN = "full_name";
+    private static final String ACCOUNT_NAME_COLUMN = "account_name";
+    private static final String BALANCE_COLUMN = "balance";
+    private static final String INTEREST_COLUMN = "interest";
     
     /**
      * Array of all the columns in the database.
      */
-    private static String[] allColumns = { "_id", "full_name", "account_name",
-            "balance", "interest", "user_id" };
+    private static String[] allColumns = { ID_COLUMN, FULL_NAME_COLUMN, ACCOUNT_NAME_COLUMN,
+            BALANCE_COLUMN, INTEREST_COLUMN, USER_ID_COLUMN };
 
     /**
      * For interactions with the transactions database. 
@@ -76,8 +80,8 @@ public class AccountDataSource extends DataSource {
         account.changeBalance(amount);
         open();
         ContentValues values = new ContentValues();
-        values.put("balance", doubleToInt(account.getBalance()));
-        database.update(TABLE, values, "_id = " + account.getId(), null);
+        values.put(BALANCE_COLUMN, doubleToInt(account.getBalance()));
+        database.update(TABLE, values, ID_COLUMN + " = " + account.getId(), null);
         close();
         return account;
     }
@@ -95,11 +99,11 @@ public class AccountDataSource extends DataSource {
             double balance, double interest, UserModel owner) {
         open();
         ContentValues values = new ContentValues();
-        values.put("full_name", fullName);
-        values.put("account_name", accountName);
-        values.put("balance", doubleToInt(balance));
-        values.put("interest", doubleToInt(interest));
-        values.put("user_id", owner.getId());
+        values.put(FULL_NAME_COLUMN, fullName);
+        values.put(ACCOUNT_NAME_COLUMN, accountName);
+        values.put(BALANCE_COLUMN, doubleToInt(balance));
+        values.put(INTEREST_COLUMN, doubleToInt(interest));
+        values.put(USER_ID_COLUMN, owner.getId());
 
         long insertId = database.insert(TABLE, null, values);
 
@@ -113,7 +117,11 @@ public class AccountDataSource extends DataSource {
         return account;
     }
 
-    
+    /**
+     * Gets the accounts owned by a user. 
+     * @param user The user who owns the accounts. 
+     * @return A collection of the accounts found. 
+     */
     public Collection<AccountModel> getAccounts(UserModel user) {
         open();
         Collection<AccountModel> accounts = getAccounts(database, user);
@@ -121,31 +129,41 @@ public class AccountDataSource extends DataSource {
         return accounts;
     }
 
-    public AccountModel getAccount(Cursor cursor, UserModel owner) {
-        open();
-        AccountModel account = getAccount(database, cursor, owner);
-        close();
-        return account;
-    }
 
+    /**
+     * Static method for what happens when a SQLiteDatabase is created.  
+     * @param db the SQLiteDatabase being used. 
+     */
     public static void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE + " ("
-                + "_id integer primary key autoincrement, "
-                + "full_name text not null, " + "account_name text not null, "
-                + "balance integer not null, " + "interest integer not null, "
-                + "user_id integer not null" + ");");
+                + ID_COLUMN + " integer primary key autoincrement, "
+                + FULL_NAME_COLUMN + " text not null, " + ACCOUNT_NAME_COLUMN + " text not null, "
+                + BALANCE_COLUMN + " integer not null, " + INTEREST_COLUMN + " integer not null, "
+                + USER_ID_COLUMN + " integer not null" + ");");
     }
 
+    /**
+     * Static method for what happens when a SQLiteDatabase is upgraded, 
+     * @param db The SQLite database being upgraded. 
+     * @param oldVersion The old version of the database. 
+     * @param newVersion The new version of the database.
+     */
     public static void onUpgrade(SQLiteDatabase db, int oldVersion,
             int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE);
     }
 
+    /**
+     * Gets Accounts based on user statically.  
+     * @param database The database being searched. 
+     * @param user The user who owns the account. 
+     * @return The accounts found. 
+     */
     public static Collection<AccountModel> getAccounts(SQLiteDatabase database,
             UserModel user) {
         Collection<AccountModel> accounts = new ArrayList<AccountModel>();
         Cursor cursor = database.query(TABLE, allColumns,
-                "user_id = " + user.getId(), null, null, null, null);
+                USER_ID_COLUMN + " = " + user.getId(), null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -162,16 +180,23 @@ public class AccountDataSource extends DataSource {
         return accounts;
     }
 
+    /**
+     * Gets a single account based on a cursor statically. 
+     * @param database The database being searched. 
+     * @param cursor The cursor with account information. 
+     * @param user The user who owns the account. 
+     * @return The account retrieved. 
+     */
     private static AccountModel getAccount(SQLiteDatabase database,
             Cursor cursor, UserModel user) {
-        String fullName = cursor.getString(cursor.getColumnIndex("full_name"));
+        String fullName = cursor.getString(cursor.getColumnIndex(FULL_NAME_COLUMN));
         String accountName = cursor.getString(cursor
-                .getColumnIndex("account_name"));
+                .getColumnIndex(ACCOUNT_NAME_COLUMN));
         double balance = longToDouble(cursor.getLong(cursor
-                .getColumnIndex("balance")));
+                .getColumnIndex(BALANCE_COLUMN)));
         double interest = longToDouble(cursor.getLong(cursor
-                .getColumnIndex("interest")));
-        long id = cursor.getLong(cursor.getColumnIndex("_id"));
+                .getColumnIndex(INTEREST_COLUMN)));
+        long id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
         return new Account(id, fullName, accountName, balance, interest, user);
     }
 }

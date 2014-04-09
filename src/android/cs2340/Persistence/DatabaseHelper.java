@@ -4,28 +4,51 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 
+/**
+ * Helper for SQLite database.
+ * @author tiff
+ *
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    // Logcat tag
-    private static final String LOG = "DatabaseHelper";
+    /**
+     * Logcat tag for debugging.
+     */
+    public static final String LOG = "DatabaseHelper";
 
-    // Database Version
+    /**
+     * The version of the database. 
+     */
     private static final int DATABASE_VERSION = 1;
 
-    // Database Name
+    /**
+     * Name of the database.
+     */
     private static final String DATABASE_NAME = "moneyapp.db";
 
-    private static DatabaseHelper INSTANCE;
+    /**
+     * The instance of the helper.
+     */
+    private static DatabaseHelper instance;
 
+    /**
+     * Private constructor for the helper. 
+     * @param context The context the database is made in.
+     */
     private DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * Gets the instance of the database helper statically.
+     * @param c The context to get the database in. 
+     * @return The instance of the DatabaseHelper. 
+     */
     public static DatabaseHelper getInstance(Context c) {
-        if (INSTANCE == null) {
-            INSTANCE = new DatabaseHelper(c);
+        if (instance == null) {
+           instance = new DatabaseHelper(c);
         }
-        return INSTANCE;
+        return instance;
     }
 
     @Override
