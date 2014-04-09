@@ -3,7 +3,7 @@ package android.cs2340.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Model.UserList;
-import android.cs2340.Presenters.RegPagePresenter;
+import android.cs2340.Presenters.RegisterPagePresenter;
 import android.cs2340.Views.RegisterPageView;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,7 +23,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
     /**
      * The Presenter used by the view.
      */
-    RegPagePresenter presenter;
+    RegisterPagePresenter presenter;
     
     /**
      * The username entered by the user.
@@ -45,7 +45,7 @@ public class RegisterActivity extends Activity implements RegisterPageView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        presenter = new RegPagePresenter(
+        presenter = new RegisterPagePresenter(
                 UserList.getInstance(getApplicationContext()), this);
 
         username = (EditText) findViewById(android.cs2340.R.id.Username_Reg);

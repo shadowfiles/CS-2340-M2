@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @author tiff
  *
  */
-public class AccountDataSource extends DataSource {
+public class AccountDataSource extends AbstractDataSourceFactory {
     /**
      * Database table name for accounts.
      */
@@ -33,8 +33,8 @@ public class AccountDataSource extends DataSource {
     /**
      * Array of all the columns in the database.
      */
-    private static String[] allColumns = { ID_COLUMN, FULL_NAME_COLUMN, ACCOUNT_NAME_COLUMN,
-            BALANCE_COLUMN, INTEREST_COLUMN, USER_ID_COLUMN };
+    private static String[] allColumns = {ID_COLUMN, FULL_NAME_COLUMN, ACCOUNT_NAME_COLUMN,
+            BALANCE_COLUMN, INTEREST_COLUMN, USER_ID_COLUMN};
 
     /**
      * For interactions with the transactions database. 
@@ -59,7 +59,7 @@ public class AccountDataSource extends DataSource {
      * @param amount The amount of the transaction.
      * @param account The account of the transaction.
      * @param isDeposit Whether the transaction is a deposit.
-     * @return
+     * @return The Transaction created.
      */
     public TransactionModel createTransaction(String date, String source,
             double amount, AccountModel account, boolean isDeposit) {
