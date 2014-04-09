@@ -15,12 +15,32 @@ import android.cs2340.Model.UserModel;
 import java.util.Collection;
 import java.util.ArrayList;
 
+/**
+ * Place where the account data comes from.
+ * @author tiff
+ *
+ */
 public class AccountDataSource extends DataSource {
+    /**
+     * Database table name for accounts.
+     */
     private static final String TABLE = "accounts";
+    
+    /**
+     * Array of all the columns in the database.
+     */
     private static String[] allColumns = { "_id", "full_name", "account_name",
             "balance", "interest", "user_id" };
+
+    /**
+     * For interactions with the transactions database. 
+     */
     private static TransactionDataSource transactionDataSource;
 
+    /**
+     * Constructor for the data source.
+     * @param c The Android Context the data source is created in.
+     */
     public AccountDataSource(Context c) {
         super(c);
         if (transactionDataSource == null) {
@@ -28,6 +48,15 @@ public class AccountDataSource extends DataSource {
         }
     }
 
+    /**
+     * Creates a transaction and adds it to the account. 
+     * @param date The date of the transaction.
+     * @param source The category of the transaction.
+     * @param amount The amount of the transaction.
+     * @param account The account of the transaction.
+     * @param isDeposit Whether the transaction is a deposit.
+     * @return
+     */
     public TransactionModel createTransaction(String date, String source,
             double amount, AccountModel account, boolean isDeposit) {
         TransactionModel t = transactionDataSource.createTransaction(date,
@@ -37,6 +66,12 @@ public class AccountDataSource extends DataSource {
         return t;
     }
 
+    /**
+     * Update the balance of the account.
+     * @param account The account to update.
+     * @param amount The amount to change the balance by.
+     * @return The AccountModel for the new account with updated balance.
+     */
     public AccountModel changeBalance(AccountModel account, double amount) {
         account.changeBalance(amount);
         open();
@@ -47,6 +82,15 @@ public class AccountDataSource extends DataSource {
         return account;
     }
 
+    /**
+     * Creates a new account.
+     * @param fullName Full name of the new account. 
+     * @param accountName The account name of the new account.
+     * @param balance The balance of the new account.
+     * @param interest The interest of the new account.
+     * @param owner The owner of the new account. 
+     * @return The AccountModel created.
+     */
     public AccountModel createAccount(String fullName, String accountName,
             double balance, double interest, UserModel owner) {
         open();
@@ -69,6 +113,7 @@ public class AccountDataSource extends DataSource {
         return account;
     }
 
+    
     public Collection<AccountModel> getAccounts(UserModel user) {
         open();
         Collection<AccountModel> accounts = getAccounts(database, user);

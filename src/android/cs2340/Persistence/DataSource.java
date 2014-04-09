@@ -4,6 +4,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.content.Context;
 import android.database.SQLException;
 
+/**
+ * Parent class for the various DataSources.
+ * @author tiff
+ *
+ */
 public abstract class DataSource {
     protected DatabaseHelper dbHelper;
     protected SQLiteDatabase database;
