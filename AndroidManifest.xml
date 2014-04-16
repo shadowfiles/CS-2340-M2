@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="android.cs2340.Activities.FullscreenActivity"
+            android:name="android.cs2340.activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/FullscreenTheme" >
@@ -25,38 +25,38 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="android.cs2340.Activities.LoginActivity"
+            android:name="android.cs2340.activity.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.SuccessActivity"
+            android:name="android.cs2340.activity.SuccessActivity"
             android:label="@string/title_activity_sucess" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.RegisterActivity"
+            android:name="android.cs2340.activity.RegisterActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_register"
             android:theme="@style/FullscreenTheme" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.AddAccountActivity"
+            android:name="android.cs2340.activity.AddAccountActivity"
             android:label="@string/title_activity_add_acount" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.UserPageActivity"
+            android:name="android.cs2340.activity.UserPageActivity"
             android:label="@string/title_activity_user_page" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.AccountActivity"
+            android:name="android.cs2340.activity.AccountActivity"
             android:label="@string/title_activity_account" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.TransactionActivity"
+            android:name="android.cs2340.activity.TransactionActivity"
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.SpendingReportParametersActivity"
+            android:name="android.cs2340.activity.SpendingReportParametersActivity"
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
@@ -68,7 +68,7 @@
             android:label="@string/title_activity_spending_report_parameters" >
         </activity>
         <activity
-            android:name="android.cs2340.Activities.ReportActivity"
+            android:name="android.cs2340.activity.ReportActivity"
             android:label="@string/title_activity_report" >
         </activity>
         
