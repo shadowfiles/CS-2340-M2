@@ -14,7 +14,6 @@ import android.cs2340.R;
  * 
  */
 public class FullscreenActivity extends AbstractActivityFactory implements IntroPageView {
-
     /**
      * The Presenter used by the view. 
      */

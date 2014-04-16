@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.cs2340.R;
 
 /**
@@ -37,6 +38,11 @@ public class RegisterActivity extends AbstractActivityFactory implements Registe
      * The second password entered by the user. 
      */
     EditText passTwo;
+    
+    /**
+     * The textbox for feedback shown to the user. 
+     */
+    TextView feedback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,8 @@ public class RegisterActivity extends AbstractActivityFactory implements Registe
         username = (EditText) findViewById(android.cs2340.R.id.Username_Reg);
         passOne = (EditText) findViewById(R.id.PassRegOne);
         passTwo = (EditText) findViewById(R.id.PassRegTwo);
+        
+        feedback = (TextView) findViewById(R.id.feedback_string);
     }
 
     @Override
@@ -97,7 +105,7 @@ public class RegisterActivity extends AbstractActivityFactory implements Registe
 
     @Override
     public void setInfoErrorMessage(String text) {
-        // TODO Auto-generated method stub
+        feedback.setText(text);
     }
 
     @Override

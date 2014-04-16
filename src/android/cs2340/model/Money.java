@@ -74,6 +74,6 @@ public class Money implements MoneyModel {
 
     @Override
     public String toString() {
-        return String.format("$%d.2", amount);
+        return String.format("$%10.2f", amount);
     }
 }

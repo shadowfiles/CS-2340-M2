@@ -5,15 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-
 import java.io.Serializable;
+
+import android.cs2340.persistence.UserDataSource;
+import android.cs2340.persistence.UserDataTable;
 
 /**
  * Implementation of ReportModel.
  * @author Team 42
  *
  */
-public class SpendingCategoryReport implements ReportModel, Serializable {
+public class Report implements ReportModel, Serializable {
     /**
      * Serial version.
      */
@@ -22,7 +24,7 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
     /**
      * The owner of the accounts being reported on.
      */
-    UserModel user;
+    long userId;
     
     /**
      * Starting date for the reports. 
@@ -50,9 +52,9 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
      * @param theStartDate The starting date of the report.
      * @param theEndDate The date the transaction ends. 
      */
-    public SpendingCategoryReport(UserModel theUser, String theStartDate,
+    public Report(UserModel theUser, String theStartDate,
             String theEndDate) {
-        this.user = theUser;
+        this.userId = theUser.getId();
         this.startDate = theStartDate;
         this.endDate = theEndDate;
 
@@ -61,13 +63,14 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
 
     @Override
     public UserModel getUser() {
-        return user;
+        UserDataSource source = UserDataTable.getSource();
+        return source.getUser(userId);
     }
 
     @Override
     public String getWrittenReport() {
         double total = 0;
-        writtenReport += "Spending Catagory Report for " + user.getUsername()
+        writtenReport += "Spending Catagory Report for " + getUser().getUsername()
                 + "\n ";
         writtenReport += "\tReport from " + startDate + " - " + endDate + "\n";
         for (String s : report.keySet()) {
@@ -101,7 +104,7 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
      * Makes the report.
      */
     private void makeReport() {
-        Collection<AccountModel> accounts = user.getAccounts();
+        Collection<AccountModel> accounts = getUser().getAccounts();
         for (AccountModel a : accounts) {
             Collection<TransactionModel> trans = a.getTransactions();
             for (TransactionModel t : trans) {

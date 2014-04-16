@@ -108,18 +108,6 @@ public class UserDataTable extends Database implements UserDataSource {
         close();
         return user;
     }
-
-    /**
-     * Gets a user based on a cursor.
-     * @param cursor The cursor for the user.
-     * @return The user object.
-     */
-    private UserModel getFirstUser(Cursor cursor) {
-        open();
-        UserModel user = getFirstUser(database, cursor);
-        close();
-        return user;
-    }
     
     /**
      * Gets a user based on a cursor at any location.
@@ -194,13 +182,13 @@ public class UserDataTable extends Database implements UserDataSource {
     
     
     /**
-     * Gets a user based on usernme statically. 
+     * Gets a user based on username statically. 
      * @param database The database being searched.
      * @param username The user's username.
      * @return The UserModel found.
      */
     protected static UserModel getUser(SQLiteDatabase database, String username) {
-        Cursor cursor = database.query(TABLE, allColumns, USERNAME_COLUMN + " = " + username, null,
+        Cursor cursor = database.query(TABLE, allColumns, USERNAME_COLUMN + " = '" + username + "'", null,
                 null, null, null);
         UserModel user = getFirstUser(database, cursor);
         cursor.close();

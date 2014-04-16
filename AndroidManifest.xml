@@ -4,6 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission 
+        android:name="android.permission.INTERNET" />
+    
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
@@ -56,7 +59,7 @@
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
-            android:name="android.cs2340.activity.SpendingReportParametersActivity"
+            android:name="android.cs2340.activity.ReportParametersActivity"
             android:label="@string/title_activity_transaction" >
         </activity>
         <activity
@@ -71,7 +74,11 @@
             android:name="android.cs2340.activity.ReportActivity"
             android:label="@string/title_activity_report" >
         </activity>
-        
+        <activity
+            android:name="android.cs2340.activity.TetrisViewActivity"
+            android:label="@string/title_activity_tetris_view" >
+        </activity>
     </application>
+    
 
 </manifest>

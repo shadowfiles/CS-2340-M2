@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:onClick="logoutButton"
         android:text="@string/logout_text" />
-
+    
     <LinearLayout
         android:id="@+id/account_list"
         android:layout_width="wrap_content"
@@ -44,5 +44,15 @@
         android:layout_alignRight="@+id/create_spending_report_button"
         android:onClick="addAccountButton"
         android:text="@string/add_account" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/account_list"
+        android:layout_alignLeft="@+id/account_list"
+        android:layout_toLeftOf="@+id/logout_user_button"
+        android:text="@string/blank"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

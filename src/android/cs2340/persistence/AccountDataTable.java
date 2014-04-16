@@ -112,7 +112,7 @@ public final class AccountDataTable extends Database implements AccountDataSourc
 
         long insertId = database.insert(TABLE, null, values);
 
-        AccountModel account = new Account(insertId, fullName, accountName,
+        AccountModel account = makeAccount(insertId, fullName, accountName,
                 balance, interest, owner);
         TransactionModel t = transactionDataTable.createTransaction(
                 new SimpleDateFormat("MM/dd/yyyy").format(new Date()),
@@ -157,7 +157,24 @@ public final class AccountDataTable extends Database implements AccountDataSourc
         double interest = longToDouble(cursor.getLong(cursor
                 .getColumnIndex(INTEREST_COLUMN)));
         long id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
-        return new Account(id, fullName, accountName, balance, interest, user);
+        return makeAccount(id, fullName, accountName, balance, interest, user);
+    }
+
+    /**
+     * Makes an account object.
+     * @param id the id.
+     * @param fullName the full name.
+     * @param accountName the account name.
+     * @param balance balance.
+     * @param interest interest.
+     * @param user user.
+     * @return The Account Model.
+     */
+    private static AccountModel makeAccount(long id, String fullName, String accountName, 
+            double balance, double interest, UserModel user) {
+        AccountModel account = new Account(id, fullName, accountName, balance, interest, user);
+        account.addTransactions(transactionDataTable.getTransactions(account));
+        return account;
     }
 
     /**

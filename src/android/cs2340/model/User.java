@@ -99,7 +99,7 @@ public class User implements UserModel {
 
     @Override
     public ReportModel getReport(String dateStart, String dateEnd) {
-        return new SpendingCategoryReport(this, dateStart, dateEnd);
+        return new Report(this, dateStart, dateEnd);
     }
 
     @Override

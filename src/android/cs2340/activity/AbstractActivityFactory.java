@@ -2,8 +2,6 @@ package android.cs2340.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.Context;
 import android.cs2340.persistence.Database;
 
@@ -18,15 +16,6 @@ public abstract class AbstractActivityFactory extends Activity {
      * The context for the app.
      */
     protected static Context context;
-    /**
-     * The preferences for the app. 
-     */
-    protected static SharedPreferences preferences;
-
-    /**
-     * For editing preferences.
-     */
-    protected static Editor editor;
 
     /**
      * The place where we get data from. 
@@ -36,30 +25,29 @@ public abstract class AbstractActivityFactory extends Activity {
     /**
      * The extras passed into the page.
      */
-    protected Bundle extras = getIntent().getExtras();
+    protected Bundle extras;
 
     /**
      * User serial id.
      */
-    protected static final String USER_SERIAL_ID = "user_id";
+    protected static final String USER_ID = "user_id";
     
     /**
      * Account serial id.
      */
-    protected static final String ACCOUNT_SERIAL_ID = "account_id";
+    protected static final String ACCOUNT_ID = "account_id";
 
     /**
      * Transaction serial id.
      */
-    protected static final String TRANSACTION_SERIAL_ID = "transaction_id";
+    protected static final String TRANSACTION_ID = "transaction_id";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-        preferences = context.getSharedPreferences("CS2340WatersWarriors", 0);
-        editor = preferences.edit();
         Database.setContext(context);
+        extras = getIntent().getExtras();
     }
 
     /**

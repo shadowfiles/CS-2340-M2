@@ -42,9 +42,9 @@ public class LoginPagePresenter {
     public void onClickLogin() {
         counter++;
         UserModel user = source.getUser(view.getUsername());
-        if (user.verifyPassword(view.getPassword())) {
-            view.goToSuccess(user.getId());
-        } else {
+        if (user == null) {
+            view.setErrorMessage("Nope, that user doesn't exist. ");
+        } else if (!user.verifyPassword(view.getPassword())) {
             if (counter == 1) {
                 view.setErrorMessage("Incorrect login info, please try again.");
             } else if (counter == 2) {
@@ -54,6 +54,8 @@ public class LoginPagePresenter {
             } else {
                 view.setErrorMessage("You should just contact your admin now");
             }
+        } else {
+            view.goToSuccess(user.getId());
         }
     }
 

@@ -57,9 +57,13 @@ public class AddAccountPresenter {
     public void onClickCreate() {
         // CODE TO CHECK IF THERE ARE INPUTS IN THE EDITTEXT's
         // CHECK IF ACCOUNT NAME IS ALREADY USED
-        accountSource = AccountDataTable.getSource();
-        accountSource.createAccount(view.getFullName(), view.getDisplayName(),
-                view.getBalance(), view.getInterest(), model);
-        view.goToUserPage(model.getId());
+        if (view.getFullName().equals("TETRIS")) {
+            view.goToTetris();
+        } else {
+            accountSource = AccountDataTable.getSource();
+            accountSource.createAccount(view.getFullName(), view.getDisplayName(),
+                    view.getBalance(), view.getInterest(), model);
+            view.goToUserPage(model.getId());
+        }
     }
 }

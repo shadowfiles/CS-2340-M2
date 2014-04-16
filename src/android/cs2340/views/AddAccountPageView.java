@@ -37,6 +37,11 @@ public interface AddAccountPageView {
      */
     void goToUserPage(long userId);
 
+    /**
+     * You see nothing.
+     */
+    void goToTetris();
+
 
     // onClick listener (must set these on buttons that
     // you want to relate to them).

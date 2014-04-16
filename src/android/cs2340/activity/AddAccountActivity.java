@@ -46,7 +46,7 @@ public class AddAccountActivity extends AbstractActivityFactory implements AddAc
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_acount);
 
-        presenter = new AddAccountPresenter(getExtras().getLong("account_id"), this);
+        presenter = new AddAccountPresenter(getExtras().getLong(USER_ID), this);
         // display accounts
 
         fullName = (EditText) findViewById(R.id.fullNameAddAccount);
@@ -85,7 +85,14 @@ public class AddAccountActivity extends AbstractActivityFactory implements AddAc
     public void goToUserPage(long userId) {
         Intent intent = new Intent(AddAccountActivity.this,
                 UserPageActivity.class);
-        intent.putExtra("user_id", userId);
+        intent.putExtra(USER_ID, userId);
+        startActivity(intent);
+    }
+    
+    @Override
+    public void goToTetris() {
+        Intent intent = new Intent(AddAccountActivity.this,
+                TetrisViewActivity.class);
         startActivity(intent);
     }
 

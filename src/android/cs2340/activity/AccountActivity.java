@@ -39,7 +39,7 @@ public class AccountActivity extends AbstractActivityFactory implements AccountP
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-        presenter = new AccountPresenter(getExtras().getLong(ACCOUNT_SERIAL_ID), this);
+        presenter = new AccountPresenter(getExtras().getLong(ACCOUNT_ID), this);
         amount = (TextView) findViewById(R.id.amount_in_account);
         transactionlist = (LinearLayout) findViewById(R.id.transaction_activity);
 
@@ -79,14 +79,14 @@ public class AccountActivity extends AbstractActivityFactory implements AccountP
     @Override
     public void goToTransaction(long accountId) {
         Intent intent = new Intent(this, TransactionActivity.class);
-        intent.putExtra(ACCOUNT_SERIAL_ID, accountId);
+        intent.putExtra(ACCOUNT_ID, accountId);
         startActivity(intent);
     }
 
     @Override
     public void goBack(long userId) {
         Intent intent = new Intent(this, UserPageActivity.class);
-        intent.putExtra(USER_SERIAL_ID, userId);
+        intent.putExtra(USER_ID, userId);
         startActivity(intent);
     }
 

@@ -63,7 +63,7 @@ public class TransactionActivity extends AbstractActivityFactory implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transaction);
 
-        presenter = new TransactionPresenter(getExtras().getLong(ACCOUNT_SERIAL_ID), this);
+        presenter = new TransactionPresenter(getExtras().getLong(ACCOUNT_ID), this);
         amount = (EditText) findViewById(R.id.transaction_amount_field);
         category = (RadioGroup) findViewById(R.id.catagory_selector);
         date = (DatePicker) findViewById(R.id.transaction_date_field);
@@ -131,7 +131,7 @@ public class TransactionActivity extends AbstractActivityFactory implements
     @Override
     public void goToAccount(long accountId) {
         Intent intent = new Intent(this, AccountActivity.class);
-        intent.putExtra(ACCOUNT_SERIAL_ID, accountId);
+        intent.putExtra(ACCOUNT_ID, accountId);
         startActivity(intent);
     }
 

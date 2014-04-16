@@ -17,7 +17,7 @@ import android.widget.DatePicker;
  * @author Team 42
  *
  */
-public class SpendingReportParametersActivity extends AbstractActivityFactory implements
+public class ReportParametersActivity extends AbstractActivityFactory implements
         SpendingReportParametersView {
 
     /**
@@ -93,7 +93,7 @@ public class SpendingReportParametersActivity extends AbstractActivityFactory im
     @Override
     public void goToUserPage(long userId) {
         Intent intent = new Intent(this, UserPageActivity.class);
-        intent.putExtra(USER_SERIAL_ID, userId);
+        intent.putExtra(USER_ID, userId);
         startActivity(intent);
     }
 

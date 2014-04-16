@@ -87,13 +87,12 @@ public class LoginActivity extends AbstractActivityFactory implements LoginPageV
     @Override
     public void setErrorMessage(String text) {
         feedback.setText(text);
-
     }
 
     @Override
     public void goToSuccess(long userId) {
         Intent intent = new Intent(LoginActivity.this, UserPageActivity.class);
-        intent.putExtra(USER_SERIAL_ID, userId);
+        intent.putExtra(USER_ID, userId);
         startActivity(intent);
     }
 

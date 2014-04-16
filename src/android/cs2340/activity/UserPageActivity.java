@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * This class display the detailed information of the user.
@@ -31,14 +32,23 @@ public class UserPageActivity extends AbstractActivityFactory implements UserPag
      */
     private LinearLayout accountlist;
 
+    /**
+     * Feedback.
+     */
+    private TextView feedback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_page);
 
-        presenter = new UserPagePresenter(getExtras().getLong(USER_SERIAL_ID), this);
+        presenter = new UserPagePresenter(getExtras().getLong(USER_ID), this);
         accountlist = (LinearLayout) findViewById(R.id.account_list);
         presenter.drawAccounts();
+        
+        TextView feedback = (TextView) findViewById(R.id.message);
+        
+        feedback.setText("Hello, User " + getExtras().getLong(USER_ID));
     }
 
     @Override
@@ -91,7 +101,7 @@ public class UserPageActivity extends AbstractActivityFactory implements UserPag
     public void goToAddAccount(long userId) {
         Intent intent = new Intent(UserPageActivity.this,
                 AddAccountActivity.class);
-        intent.putExtra(USER_SERIAL_ID, userId);
+        intent.putExtra(USER_ID, userId);
         startActivity(intent);
     }
 
@@ -104,15 +114,15 @@ public class UserPageActivity extends AbstractActivityFactory implements UserPag
 
     @Override
     public void goToCreateSpendingReport(long userId) {
-        Intent intent = new Intent(this, SpendingReportParametersActivity.class);
-        intent.putExtra(USER_SERIAL_ID, userId);
+        Intent intent = new Intent(this, ReportParametersActivity.class);
+        intent.putExtra(USER_ID, userId);
         startActivity(intent);
     }
 
     @Override
     public void goToAccount(long accountId) {
         Intent intent = new Intent(UserPageActivity.this, AccountActivity.class);
-        intent.putExtra(ACCOUNT_SERIAL_ID, accountId);
+        intent.putExtra(ACCOUNT_ID, accountId);
         startActivity(intent);
     }
 
