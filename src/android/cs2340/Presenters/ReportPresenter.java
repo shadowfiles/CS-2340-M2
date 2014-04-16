@@ -40,6 +40,6 @@ public class ReportPresenter {
      * Creates the written report in display.
      */
     public void drawWrittenReport() {
-        view.drawReport(model.getWritenReport());
+        view.drawReport(model.getWrittenReport());
     }
 }

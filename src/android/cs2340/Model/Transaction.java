@@ -5,23 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Withdrawal implementation of the TransactionModel.
- * @author Team42
+ * Class for representing a transaction. 
+ * @author tiff
  *
  */
-public class Withdrawal implements TransactionModel, Serializable {
-    /**
-     * Android required serialization id.
-     */
-    private static final long serialVersionUID = 1;
-    
+public class Transaction implements TransactionModel {
     /**
      * Unique database id. 
      */
     private long id;
     
     /**
-     * The date the Withdrawal was made.
+     * The date the Deposit was made.
      */
     private String dateMade;
     
@@ -31,14 +26,14 @@ public class Withdrawal implements TransactionModel, Serializable {
     private String currentDate;
     
     /**
-     * The category for the withdrawal.
+     * The category for the deposit.
      */
     private String category;
     
     /**
-     * The amount withdrawn.
+     * The amount deposited.
      */
-    private double amount;
+    private MoneyModel amount;
     
     /**
      * The account the transaction is in.
@@ -46,21 +41,21 @@ public class Withdrawal implements TransactionModel, Serializable {
     private AccountModel account;
 
     /**
-     * Constructor for Withdrawal. 
-     * @param anId The id of the withdrawal.
-     * @param theDateMade The date the withdrawal was made.
-     * @param aSource The category of the withdrawal.
-     * @param anAmount The amount of the withdrawal.
-     * @param anAccount The account the withdrawal is in. 
+     * Constructor for Deposit. 
+     * @param anId The id of the deposit.
+     * @param theDateMade The date the deposit was made.
+     * @param aSource The category of the deposit.
+     * @param anAmount The amount of the deposit.
+     * @param anAccount The account the deposit is in.
      */
-    public Withdrawal(long anId, String theDateMade, String aSource, double anAmount,
+    public Transaction(long anId, String theDateMade, String aSource, double anAmount,
             AccountModel anAccount) {
         this.id = anId;
         this.currentDate = new SimpleDateFormat("MM/dd/yyyy")
                 .format(new Date());
         this.dateMade = theDateMade;
         this.category = aSource;
-        this.amount = anAmount;
+        this.amount = new Money(anAmount);
         this.account = anAccount;
     }
 
@@ -81,19 +76,24 @@ public class Withdrawal implements TransactionModel, Serializable {
 
     @Override
     public double getAmount() {
-        return amount;
+        return amount.get();
+    }
+    
+    @Override
+    public boolean isDeposit() {
+        return amount.get() >= 0;
     }
 
     @Override
     public String getWritable() {
-        return dateMade + ": " + category + ", " + amount;
+        return dateMade + ": " + category + ", " + amount.toString();
     }
 
     @Override
     public long getId() {
         return this.id;
     }
-
+    
     @Override
     public AccountModel getAccount() {
         return this.account;

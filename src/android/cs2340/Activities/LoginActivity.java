@@ -2,7 +2,6 @@ package android.cs2340.Activities;
 
 import java.io.Serializable;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Model.UserList;
 import android.cs2340.Model.UserModel;
@@ -21,7 +20,7 @@ import android.cs2340.R;
  * @author Team 42
  * 
  */
-public class LoginActivity extends Activity implements LoginPageView {
+public class LoginActivity extends AbstractActivityFactory implements LoginPageView {
 
     /**
      * The Presenter used by the view. 

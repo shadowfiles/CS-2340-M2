@@ -1,6 +1,5 @@
 package android.cs2340.Activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Model.UserList;
 import android.cs2340.Presenters.RegisterPagePresenter;
@@ -18,7 +17,7 @@ import android.cs2340.R;
  * @author Team 42
  * @see SystemUiHider
  */
-public class RegisterActivity extends Activity implements RegisterPageView {
+public class RegisterActivity extends AbstractActivityFactory implements RegisterPageView {
 
     /**
      * The Presenter used by the view.

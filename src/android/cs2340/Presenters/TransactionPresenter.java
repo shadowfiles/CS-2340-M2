@@ -2,7 +2,7 @@ package android.cs2340.Presenters;
 
 import android.cs2340.Activities.TransactionActivity;
 import android.cs2340.Model.AccountModel;
-import android.cs2340.Persistence.AccountDataSource;
+import android.cs2340.Persistence.AccountDataTable;
 
 /**
  * Presenter for the page to view transactions. 
@@ -24,7 +24,7 @@ public class TransactionPresenter {
     /**
      * The data source for accounts.
      */
-    private AccountDataSource dataSource;
+    private AccountDataTable dataSource;
 
     /**
      * The constructor for the presenter.
@@ -34,7 +34,7 @@ public class TransactionPresenter {
     public TransactionPresenter(AccountModel m, TransactionActivity v) {
         this.model = m;
         this.view = v;
-        this.dataSource = new AccountDataSource(view);
+        this.dataSource = new AccountDataTable(view);
     }
 
     /**

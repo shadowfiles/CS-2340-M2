@@ -4,7 +4,7 @@ import android.cs2340.Activities.AccountActivity;
 import android.cs2340.Model.AccountModel;
 
 /**
- * The presenter for acounts.
+ * The presenter for accounts.
  * @author tiff
  *
  */
@@ -34,8 +34,8 @@ public class AccountPresenter {
      * Sets the balance of the view based on the model.  
      */
     public void setbalance() {
-        double amount = model.getBalance();
-        view.setAmount("" + amount);
+        String amount = model.showBalance();
+        view.setAmount(amount);
     }
 
     /**

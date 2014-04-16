@@ -1,6 +1,5 @@
 package android.cs2340.Model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -9,13 +8,8 @@ import java.util.Collection;
  * @author Team 42
  *
  */
-public class User implements UserModel, Serializable {
+public class User implements UserModel {
 
-    /**
-     * Android required serialization ID.
-     */
-    private static final long serialVersionUID = 1;
-    
     /**
      * Unique ID of the user.
      */

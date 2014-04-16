@@ -1,6 +1,5 @@
 package android.cs2340.Model;
 
-import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -12,12 +11,7 @@ import java.util.HashMap;
  * @author Team 42
  *
  */
-public class SpendingCategoryReport implements ReportModel, Serializable {
-
-    /**
-     * Android required serialization ID.
-     */
-    private static final long serialVersionUID = 1;
+public class SpendingCategoryReport implements ReportModel {
     
     /**
      * The owner of the accounts being reported on.
@@ -42,7 +36,7 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
     /**
      * The String form of the report.
      */
-    String writenReport = "";
+    String writtenReport = "";
 
     @Override
     public UserModel getUser() {
@@ -53,7 +47,7 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
      * Constructor for the report.
      * @param user The user who's requesting the report.
      * @param theStartDate The starting date of the report.
-     * @param theEndDate
+     * @param theEndDate The date the transaction ends. 
      */
     public SpendingCategoryReport(UserModel user, String theStartDate,
             String theEndDate) {
@@ -91,17 +85,17 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
     }
 
     @Override
-    public String getWritenReport() {
+    public String getWrittenReport() {
         double total = 0;
-        writenReport += "Spending Catagory Report for " + theUser.getUsername()
+        writtenReport += "Spending Catagory Report for " + theUser.getUsername()
                 + "\n";
-        writenReport += "\tReport from " + startDate + " - " + endDate + "\n";
+        writtenReport += "\tReport from " + startDate + " - " + endDate + "\n";
         for (String s : report.keySet()) {
-            writenReport += "\t" + s + ":\t\t" + report.get(s) + "\n";
+            writtenReport += "\t" + s + ":\t\t" + report.get(s) + "\n";
             total += report.get(s);
         }
-        writenReport += "Total:\t" + total;
-        return writenReport;
+        writtenReport += "Total:\t" + total;
+        return writtenReport;
     }
 
     // be weary
@@ -113,15 +107,9 @@ public class SpendingCategoryReport implements ReportModel, Serializable {
         Date transDate;
         try {
             transDate = sdf.parse(transactionDate);
-
             Date start = sdf.parse(theStartDate);
             Date end = sdf.parse(theEndDate);
-            if (start.compareTo(transDate) <= 0
-                    && end.compareTo(transDate) >= 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return start.compareTo(transDate) <= 0 && end.compareTo(transDate) >= 0;
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

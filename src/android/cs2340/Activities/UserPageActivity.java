@@ -23,7 +23,7 @@ import android.widget.LinearLayout;
  * @author Team 42
  * 
  */
-public class UserPageActivity extends Activity implements UserPageView {
+public class UserPageActivity extends AbstractActivityFactory implements UserPageView {
 
     /**
      * Presenter used by the View.
@@ -34,11 +34,6 @@ public class UserPageActivity extends Activity implements UserPageView {
      * Layout for the accounts owned by the user.
      */
     private LinearLayout accountlist;
-    
-    /**
-     * Serialization Id for UserModel.
-     */
-    private static final String USER_SERIAL_ID = "theUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

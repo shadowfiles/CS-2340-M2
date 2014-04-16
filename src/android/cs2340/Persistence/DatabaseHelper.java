@@ -39,6 +39,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        UserDataTable.onCreate(db);
+        AccountDataTable.onCreate(db);
+        TransactionDataTable.onCreate(db);
+        UserDataTable.createUser(db, "admin", "pass123");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // delete old tables
+        UserDataTable.onUpgrade(db, oldVersion, newVersion);
+        AccountDataTable.onUpgrade(db, oldVersion, newVersion);
+        TransactionDataTable.onUpgrade(db, oldVersion, newVersion);
+
+        // create new tables
+        onCreate(db);
+    }
+
     /**
      * Gets the instance of the database helper statically.
      * @param c The context to get the database in. 
@@ -49,25 +68,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             instance = new DatabaseHelper(c);
         }
         return instance;
-    }
-
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        UserDataSource.onCreate(db);
-        AccountDataSource.onCreate(db);
-        TransactionDataSource.onCreate(db);
-        UserDataSource.createUser(db, "admin", "pass123");
-    }
-
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // delete old tables
-        UserDataSource.onUpgrade(db, oldVersion, newVersion);
-        AccountDataSource.onUpgrade(db, oldVersion, newVersion);
-        TransactionDataSource.onUpgrade(db, oldVersion, newVersion);
-
-        // create new tables
-        onCreate(db);
     }
 
 }

@@ -10,12 +10,7 @@ import java.util.Collection;
  * @author Team 42
  *
  */
-public class Account implements AccountModel, Serializable {
-
-    /**
-     * Android required serial ID.
-     */
-    private static final long serialVersionUID = 1;
+public class Account implements AccountModel {
     
     /**
      * Unique database ID for a single account. 
@@ -35,7 +30,7 @@ public class Account implements AccountModel, Serializable {
     /**
      * The balance on the account.
      */
-    private double balance;
+    private MoneyModel balance;
     
     /**
      * The interest rate for the account.
@@ -68,7 +63,7 @@ public class Account implements AccountModel, Serializable {
         this.owner = anOwner;
         this.displayName = aDisplayName;
         this.name = aName;
-        this.balance = aBalance;
+        this.balance = new Money(aBalance);
         this.interest = anInterest;
     }
 
@@ -89,7 +84,12 @@ public class Account implements AccountModel, Serializable {
 
     @Override
     public double getBalance() {
-        return balance;
+        return balance.getAmount();
+    }
+    
+    @Override
+    public String showBalance() {
+        return balance.toString();
     }
 
     @Override
@@ -118,7 +118,7 @@ public class Account implements AccountModel, Serializable {
 
     @Override
     public void changeBalance(double amount) {
-        balance += amount;
+        balance.addAmount(amount);
     }
 
     @Override

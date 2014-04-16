@@ -23,7 +23,7 @@ import android.cs2340.R;
  * @author Team 42
  * 
  */
-public class TransactionActivity extends Activity implements
+public class TransactionActivity extends AbstractActivityFactory implements
         TransactionPageView {
 
     /**
@@ -60,11 +60,6 @@ public class TransactionActivity extends Activity implements
      * Presenter used by the view. 
      */
     TransactionPresenter presenter;
-
-    /**
-     * Serial ID for the Account.
-     */
-    private static final String ACCOUNT_SERIAL_ID = "theAccount";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

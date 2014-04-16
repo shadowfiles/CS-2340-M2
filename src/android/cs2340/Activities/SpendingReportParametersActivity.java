@@ -19,7 +19,7 @@ import android.widget.DatePicker;
  * @author Team 42
  *
  */
-public class SpendingReportParametersActivity extends Activity implements
+public class SpendingReportParametersActivity extends AbstractActivityFactory implements
         SpendingReportParametersView {
 
     /**
@@ -36,11 +36,6 @@ public class SpendingReportParametersActivity extends Activity implements
      * DatePicker for the ending date of the report.
      */
     DatePicker endDatePicker;
-
-    /**
-     * Serilizable ID for User.
-     */
-    private static final String USER_SERIAL_ID = "theUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

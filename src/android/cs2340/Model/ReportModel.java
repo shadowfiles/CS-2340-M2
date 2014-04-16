@@ -11,7 +11,7 @@ public interface ReportModel {
      * Gets the report in String form.
      * @return String for the report.
      */
-    String getWritenReport();
+    String getWrittenReport();
 
     /**
      * Checks to see if a date is valid in side of a range. 

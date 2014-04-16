@@ -1,6 +1,5 @@
 package android.cs2340.Activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Presenters.IntroPagePresenter;
 import android.cs2340.Views.IntroPageView;
@@ -14,7 +13,7 @@ import android.cs2340.R;
  * @author Team 42
  * 
  */
-public class FullscreenActivity extends Activity implements IntroPageView {
+public class FullscreenActivity extends AbstractActivityFactory implements IntroPageView {
 
     /**
      * The Presenter used by the view. 

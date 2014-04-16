@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import android.cs2340.R;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Model.ReportModel;
 import android.cs2340.Model.UserModel;
@@ -21,7 +20,7 @@ import android.widget.TextView;
  * @author Team 42
  * 
  */
-public class ReportActivity extends Activity implements ReportView {
+public class ReportActivity extends AbstractActivityFactory implements ReportView {
 
     /**
      * The Presenter used by the view.
@@ -43,20 +42,6 @@ public class ReportActivity extends Activity implements ReportView {
         reportHolder = (LinearLayout) findViewById(R.id.Report_Holder);
 
         presenter.drawWrittenReport();
-        // Collection<AccountModel> accounts = user.getAccounts();
-        // start = getIntent().getExtras().getString("startDate");
-        // end = getIntent().getExtras().getString("endDate");
-        // for(AccountModel account: accounts){
-        // if(account.getTransactions()!=null){
-        // transactions=account.getTransactions();
-        // report = report + "Transaction Made by: " + account.getDisplayName()
-        // + "\n" + toString() + "\n";
-        // }
-        // }
-        // TextView validReport = (TextView)
-        // findViewById(R.layout.activity_report);
-        // validReport.setText(report);
-        // reportview.setText(report);
 
     }
 

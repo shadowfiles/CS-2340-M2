@@ -32,6 +32,12 @@ public interface TransactionModel {
     double getAmount();
 
     /**
+     * Whether the transaction is a deposit.
+     * @return boolean for whether the transaction is a deposit.
+     */
+    boolean isDeposit();
+
+    /**
      * Get a Writable String for the transaction.
      * @return String that's used as a Writable identifier. 
      */

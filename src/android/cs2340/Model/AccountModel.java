@@ -34,6 +34,12 @@ public interface AccountModel {
     double getBalance();
 
     /**
+     * Displays the balance.
+     * @return A String formatted with the balance.
+     */
+    String showBalance();
+
+    /**
      * Get the interest rate of the account. 
      * @return A double for the interest rate on the account.
      */

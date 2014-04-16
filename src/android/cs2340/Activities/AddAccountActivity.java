@@ -19,7 +19,7 @@ import android.widget.EditText;
  * 
  * @author Team 42
  */
-public class AddAccountActivity extends Activity implements AddAccountPageView {
+public class AddAccountActivity extends AbstractActivityFactory implements AddAccountPageView {
 
     /**
      * Presenter used by the view. 
@@ -45,11 +45,6 @@ public class AddAccountActivity extends Activity implements AddAccountPageView {
      * Entered interest of the account added. 
      */
     private EditText interest;
-
-    /**
-     * Serializable ID for the User.
-     */
-    private static final String USER_SERIAL_ID = "theUser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

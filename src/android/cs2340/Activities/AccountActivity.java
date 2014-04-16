@@ -5,7 +5,6 @@ import java.util.Collection;
 
 import android.cs2340.R;
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.cs2340.Model.AccountModel;
 import android.cs2340.Model.UserModel;
@@ -22,7 +21,7 @@ import android.widget.TextView;
  * 
  * @author Team 42
  */
-public class AccountActivity extends Activity implements AccountPageView {
+public class AccountActivity extends AbstractActivityFactory implements AccountPageView {
 
     /**
      * Presenter used by the view. 
@@ -39,21 +38,10 @@ public class AccountActivity extends Activity implements AccountPageView {
      */
     private LinearLayout transactionlist;
 
-    /**
-     * Serialization Id for AccountModel.
-     */
-    private static final String ACCOUNT_SERIAL_ID = "theAccount";
-    
-    /**
-     * Serialization Id for UserModel.
-     */
-    private static final String USER_SERIAL_ID = "theUser";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
         presenter = new AccountPresenter((AccountModel) getIntent().getExtras()
                 .getSerializable(ACCOUNT_SERIAL_ID), this);
         amount = (TextView) findViewById(R.id.amount_in_account);

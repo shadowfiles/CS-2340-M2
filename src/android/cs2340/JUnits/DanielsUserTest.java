@@ -1,10 +1,14 @@
-package android.cs2340.Model;
+package android.cs2340.JUnits;
 
 import java.util.ArrayList;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import android.cs2340.Model.Account;
+import android.cs2340.Model.AccountModel;
+import android.cs2340.Model.User;
 
 /**
  * 
@@ -22,7 +26,7 @@ public class DanielsUserTest {
     /**
      * run before to set up theUser.
      * 
-     * @throws java.lang.Exception
+     * @throws java.lang.Exception Catches any exception that might occur here.
      */
     @Before
     public void setUp() throws Exception {
@@ -42,7 +46,7 @@ public class DanielsUserTest {
     }
 
     /**
-     * Test creating User
+     * Test creating User.
      */
     @Test
     public void TestVerifyPass() {
@@ -50,7 +54,7 @@ public class DanielsUserTest {
     }
 
     /**
-     * Test getAccount
+     * Test getAccount.
      */
     @Test
     public void TestGetAccounts() {
@@ -88,7 +92,7 @@ public class DanielsUserTest {
     }
 
     /**
-     * Test Account adding in group to empty set, and adding NUll
+     * Test Account adding in group to empty set, and adding NUll.
      */
     @Test
     public void TestAddAccountAndAddNull() {
