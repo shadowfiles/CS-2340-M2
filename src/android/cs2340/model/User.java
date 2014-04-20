@@ -23,7 +23,7 @@ public class User implements UserModel {
     /**
      * Hashed version of the user's password.
      */
-    private int password;
+    private String password;
     
     /**
      * List of all the accounts owned by the user.
@@ -36,7 +36,7 @@ public class User implements UserModel {
      * @param theUsername String for the username of the User.
      * @param thePassword int for the hashed password.
      */
-    public User(long theId, String theUsername, int thePassword) {
+    public User(long theId, String theUsername, String thePassword) {
         this(theId, theUsername, thePassword, null);
     }
 
@@ -47,7 +47,7 @@ public class User implements UserModel {
      * @param thePassword int for the hashed password. 
      * @param theaccounts List of the user's accounts.
      */
-    public User(long theId, String theUsername, int thePassword,
+    public User(long theId, String theUsername, String thePassword,
             Collection<AccountModel> theaccounts) {
         this.id = theId;
         this.username = theUsername;
@@ -119,7 +119,7 @@ public class User implements UserModel {
 
     @Override
     public boolean verifyPassword(String pass) {
-        return pass.hashCode() == this.password;
+        return BCrypt.checkpw(pass, password);
     }
 
 }

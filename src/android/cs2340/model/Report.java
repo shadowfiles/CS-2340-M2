@@ -45,7 +45,38 @@ public class Report implements ReportModel, Serializable {
      * The String form of the report.
      */
     String writtenReport = "";
-
+   
+    /**
+     * stuff for graphing
+     */
+    String[] Vprecent = {"0%", "50%", "100%"};
+    /**
+     * stuff for graphing
+     */
+    String[] Hcatigories = {"Food", "Clothing", "Other"};
+    /**
+     * stuff for graphing
+     */
+    float[] Values = new float[3];
+    /**
+     * get Vprecent.
+     */
+    public String[] getVpercent(){
+    	return Vprecent;
+    }
+    /**
+     * get Hcatigories.
+     */
+    public String[] getHcatigories(){
+    	return Hcatigories;
+    }
+    /**
+     * get Values.
+     */
+    public float[] getValues(){
+    	return Values;
+    }
+    
     /**
      * Constructor for the report.
      * @param theUser The user who's requesting the report.
@@ -104,6 +135,7 @@ public class Report implements ReportModel, Serializable {
      * Makes the report.
      */
     private void makeReport() {
+    	int total = 0;
         Collection<AccountModel> accounts = getUser().getAccounts();
         for (AccountModel a : accounts) {
             Collection<TransactionModel> trans = a.getTransactions();
@@ -111,6 +143,20 @@ public class Report implements ReportModel, Serializable {
                 // this could be error (how to check if t is a withdrawal?)
                 if (goodDate(t.getDateMade(), startDate, endDate)) {
                     if (t.getAmount() < 0) {
+                    	
+                    	if(t.getCategory() == "Food"){
+                    		Values[0] += t.getAmount();
+                    		total += t.getAmount();
+                    	}
+                    	else if(t.getCategory() == "Clothing"){
+                    		Values[1] += t.getAmount();
+                    		total += t.getAmount();
+                    	}
+                    	else {
+                    		Values[2] += t.getAmount();
+                    		total += t.getAmount();
+                    	}
+                    	
                         if (!report.containsKey(t.getCategory())) {
                             report.put(t.getCategory(), -t.getAmount());
                         } else {
@@ -123,7 +169,9 @@ public class Report implements ReportModel, Serializable {
                 }
             }
         }
-
+        for(int i = 0; i<Values.length;i++) {
+        	Values[i] = Values[i]/total;
+        }
     }
 
 }

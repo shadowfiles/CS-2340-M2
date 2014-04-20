@@ -1,6 +1,5 @@
 package android.cs2340.activity;
 
-
 import android.cs2340.R;
 import android.os.Bundle;
 import android.content.Intent;
@@ -11,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.cs2340.model.GraphView;
 
 /**
  * The class constructs the page of the spending report.
@@ -29,7 +29,7 @@ public class ReportActivity extends AbstractActivityFactory implements ReportVie
      * The container showing the report. 
      */
     LinearLayout reportHolder;
-
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +51,13 @@ public class ReportActivity extends AbstractActivityFactory implements ReportVie
     }
     
     @Override
-    public void drawReport(String writtenReport) {
+    public void drawReport(String writtenReport, float[] values, String[] hcatigories,
+			String[] vpercent) {
         TextView writtenRep = new TextView(this);
         writtenRep.setText(writtenReport);
         reportHolder.addView(writtenRep);
+        GraphView graph = new GraphView(this, values, "Graph", hcatigories, vpercent, GraphView.BAR);
+        reportHolder.addView(graph);
     }
 
     /**
@@ -72,55 +75,5 @@ public class ReportActivity extends AbstractActivityFactory implements ReportVie
         intent.putExtra("user_id", userId);
         startActivity(intent);
     }
-
-    // //FIX THIS
-    //
-    // private Collection<TransactionAbstract> transactions = new
-    // ArrayList<TransactionAbstract>();
-    // private String start;
-    // private String end;
-    // private String report = "";
-    //
-    // @Override
-    // public String toString(){
-    // String reportByAccount = "";
-    // int size = transactions.size();
-    // double totalSpending = 0;
-    // if (size==0)
-    // return "No spending report. ";
-    // for (TransactionAbstract transaction : transactions) {
-    // String date = transaction.getDateMade();
-    // if(compareDates(date,start)>=0 && compareDates(date,end)<=0 ){ //between
-    // the date range
-    // reportByAccount = reportByAccount + " Spending: " +
-    // transaction.getAmount() + " Source: " + transaction.getCatagory() + "\n";
-    // totalSpending = totalSpending + transaction.getAmount();
-    // }
-    // }
-    // reportByAccount = reportByAccount + "Total Account Spending: " +
-    // totalSpending +"\n";
-    // return reportByAccount;
-    // }
-    //
-    // public double compareDates(String dateA, String dateRange){
-    // try{
-    // SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-    // Date date1 = sdf.parse(dateA);
-    // Date date2 = sdf.parse(dateRange);
-    //
-    // if(date1.compareTo(date2)>0){
-    // return 1;
-    // }else if(date1.compareTo(date2)<0){
-    // return -1;
-    // }else if(date1.compareTo(date2)==0){
-    // return 0;
-    // }
-    // }catch(ParseException ex){
-    // ex.printStackTrace();
-    // }
-    // return 0;
-    // }
-    //
-    //
 
 }

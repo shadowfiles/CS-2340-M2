@@ -51,5 +51,8 @@
     <string name="create_spending_report">Create Spending Report</string>
     <string name="title_activity_tetris">TetrisActivity</string>
     <string name="title_activity_tetris_view">TetrisViewActivity</string>
+    <string name="graph">Graph</string>
+    <string name="view_pie_graph">View Pi Graph</string>
+    <string name="title_activity_pie_graph">PieGraphActivity</string>
 
 </resources>

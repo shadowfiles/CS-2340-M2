@@ -15,7 +15,10 @@ public interface ReportView {
     /**
      * Draws a report based on a String.  
      * @param writtenReport The String for the written report.
+     * @param graph values
+     * @param graph categories
+     * @param graph percents
      */
-    void drawReport(String writtenReport);
-
+	void drawReport(String writtenReport, float[] values, String[] hcatigories,
+			String[] vpercent);
 }

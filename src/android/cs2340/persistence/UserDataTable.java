@@ -9,6 +9,7 @@ import android.content.ContentValues;
 import android.cs2340.model.AccountModel;
 import android.cs2340.model.User;
 import android.cs2340.model.UserModel;
+import android.cs2340.model.BCrypt;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -143,7 +144,7 @@ public class UserDataTable extends Database implements UserDataSource {
      */
     private static UserModel getUser(SQLiteDatabase database, Cursor cursor) {
         String username = cursor.getString(cursor.getColumnIndex(USERNAME_COLUMN));
-        int password = (int) cursor.getLong(cursor.getColumnIndex(PASSWORD_COLUMN));
+        String password = cursor.getString(cursor.getColumnIndex(PASSWORD_COLUMN));
         long id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
         return makeUser(database, id, username, password);
     }
@@ -159,11 +160,11 @@ public class UserDataTable extends Database implements UserDataSource {
             String username, String password) {
         ContentValues values = new ContentValues();
         values.put(USERNAME_COLUMN, username);
-        values.put(PASSWORD_COLUMN, password.hashCode());
+        values.put(PASSWORD_COLUMN, BCrypt.hashpw(password, BCrypt.gensalt()));
 
         long insertId = database.insert(TABLE, null, values);
 
-        return makeUser(database, insertId, username, password.hashCode());
+        return makeUser(database, insertId, username, BCrypt.hashpw(password, BCrypt.gensalt()));
     }
 
     /**
@@ -203,7 +204,7 @@ public class UserDataTable extends Database implements UserDataSource {
      * @return The user.
      */
     protected static UserModel makeUser(SQLiteDatabase db, long id,
-            String username, int password) {
+            String username, String password) {
         UserModel user = new User(id, username, password);
         Collection<AccountModel> accounts = AccountDataTable.getAccounts(db,
                 user);
