@@ -7,6 +7,8 @@
 
 package android.cs2340;
 
+import android.view.View;
+
 public final class R {
     public static final class anim {
         public static final int abc_fade_in=0x7f040000;
@@ -1266,6 +1268,7 @@ containing a value of this type.
         public static final int activity_transaction=0x7f030023;
         public static final int activity_user_page=0x7f030024;
         public static final int support_simple_spinner_dropdown_item=0x7f030025;
+		public static View activity_pie_graph;
     }
     public static final class menu {
         public static final int account=0x7f0c0000;
@@ -1279,6 +1282,7 @@ containing a value of this type.
         public static final int tetris_view=0x7f0c0008;
         public static final int transaction=0x7f0c0009;
         public static final int user_page=0x7f0c000a;
+		public static int pie_graph;
     }
     public static final class string {
         public static final int Report_Summary=0x7f0a003b;

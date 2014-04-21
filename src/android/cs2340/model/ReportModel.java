@@ -27,5 +27,20 @@ public interface ReportModel {
      * @return boolean for if the date fits between start and end date.
      */
     boolean goodDate(String transactionDate, String startDate, String endDate);
-
+    /**
+     * get list of string percentages.
+     * @return strings of percentages
+     */
+    public String[] getVpercent();
+    /**
+     * get list of categories.
+     * @return list of categories
+     */
+    public String[] getHcatigories();
+    /**
+     * get list of values.
+     * @return list of values
+     */
+    public float[] getValues();
+    
 }

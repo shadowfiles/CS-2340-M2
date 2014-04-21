@@ -44,4 +44,14 @@
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/scroll_report"
+        android:layout_below="@+id/scroll_report"
+        android:layout_toLeftOf="@+id/create_spending_report_button"
+        android:onClick="goToPie"
+        android:text="@string/view_pie_graph" />
+
 </RelativeLayout>
