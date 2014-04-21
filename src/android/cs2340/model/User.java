@@ -24,6 +24,11 @@ public class User implements UserModel {
      * Hashed version of the user's password.
      */
     private int password;
+
+    /**
+     * The email for the user. 
+     */
+    private String email;
     
     /**
      * List of all the accounts owned by the user.
@@ -35,23 +40,26 @@ public class User implements UserModel {
      * @param theId long for the ID of the user.
      * @param theUsername String for the username of the User.
      * @param thePassword int for the hashed password.
+     * @param e String for the user's email.
      */
-    public User(long theId, String theUsername, int thePassword) {
-        this(theId, theUsername, thePassword, null);
+    public User(long theId, String theUsername, int thePassword, String e) {
+        this(theId, theUsername, thePassword, e, null);
     }
 
     /**
      * Constructor for the user object.
      * @param theId long for the unique id of the user.
      * @param theUsername String for the username.
-     * @param thePassword int for the hashed password. 
+     * @param thePassword int for the hashed password.
+     * @param e String for the user's email. 
      * @param theaccounts List of the user's accounts.
      */
-    public User(long theId, String theUsername, int thePassword,
+    public User(long theId, String theUsername, int thePassword, String e, 
             Collection<AccountModel> theaccounts) {
         this.id = theId;
         this.username = theUsername;
         this.password = thePassword;
+        this.email = e;
         this.accounts = theaccounts;
     }
 
@@ -90,6 +98,11 @@ public class User implements UserModel {
             writeables.add(a.getWritable());
         }
         return writeables;
+    }
+    
+    @Override
+    public String getEmail() {
+        return email;
     }
 
     @Override

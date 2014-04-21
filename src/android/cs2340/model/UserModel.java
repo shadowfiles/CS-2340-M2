@@ -65,6 +65,13 @@ public interface UserModel {
      * @return Writable String.
      */
     String getWritable();
+    
+
+    /**
+     * Gets the email for the user.
+     * @return String for the email for the user. 
+     */
+    String getEmail();
 
     /**
      * Checks to see if a password is valid.

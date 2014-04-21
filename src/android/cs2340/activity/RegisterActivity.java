@@ -40,6 +40,11 @@ public class RegisterActivity extends AbstractActivityFactory implements Registe
     EditText passTwo;
     
     /**
+     * The email entered by the user. 
+     */
+    EditText email;
+    
+    /**
      * The textbox for feedback shown to the user. 
      */
     TextView feedback;
@@ -54,6 +59,7 @@ public class RegisterActivity extends AbstractActivityFactory implements Registe
         username = (EditText) findViewById(android.cs2340.R.id.Username_Reg);
         passOne = (EditText) findViewById(R.id.PassRegOne);
         passTwo = (EditText) findViewById(R.id.PassRegTwo);
+        email = (EditText) findViewById(R.id.RegisterEmail);
         
         feedback = (TextView) findViewById(R.id.feedback_string);
     }
@@ -101,6 +107,11 @@ public class RegisterActivity extends AbstractActivityFactory implements Registe
     @Override
     public String getPassTwo() {
         return passTwo.getText().toString();
+    }
+    
+    @Override
+    public String getEmail() {
+        return email.getText().toString();
     }
 
     @Override

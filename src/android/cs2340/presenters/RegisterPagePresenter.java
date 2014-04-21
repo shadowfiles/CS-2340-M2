@@ -41,7 +41,7 @@ public class RegisterPagePresenter {
             //error
             view.setInfoErrorMessage("The username you picked is already taken! ");
         } else {
-            source.createUser(view.getUsername(), view.getPassOne());
+            source.createUser(view.getUsername(), view.getPassOne(), view.getEmail());
             view.goToIntro();
         }
     }

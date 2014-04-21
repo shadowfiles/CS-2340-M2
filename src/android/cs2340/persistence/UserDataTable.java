@@ -33,11 +33,16 @@ public class UserDataTable extends Database implements UserDataSource {
      * The password column. 
      */
     private static final String PASSWORD_COLUMN = "password";
+    
+    /**
+     * The email column. 
+     */
+    private static final String EMAIL_COLUMN = "email";
 
     /**
      * Array of all the user columns. 
      */
-    private static String[] allColumns = {ID_COLUMN, USERNAME_COLUMN, PASSWORD_COLUMN};
+    private static String[] allColumns = {ID_COLUMN, USERNAME_COLUMN, PASSWORD_COLUMN, EMAIL_COLUMN};
     
     /**
      * The data source for the accounts.
@@ -75,9 +80,9 @@ public class UserDataTable extends Database implements UserDataSource {
     }
 
     @Override
-    public UserModel createUser(String username, String password) {
+    public UserModel createUser(String username, String password, String email) {
         open();
-        UserModel user = createUser(database, username, password);
+        UserModel user = createUser(database, username, password, email);
         close();
         return user;
     }
@@ -145,25 +150,28 @@ public class UserDataTable extends Database implements UserDataSource {
         String username = cursor.getString(cursor.getColumnIndex(USERNAME_COLUMN));
         int password = (int) cursor.getLong(cursor.getColumnIndex(PASSWORD_COLUMN));
         long id = cursor.getLong(cursor.getColumnIndex(ID_COLUMN));
-        return makeUser(database, id, username, password);
+        String email = cursor.getString(cursor.getColumnIndex(EMAIL_COLUMN));
+        return makeUser(database, id, username, password, email);
     }
 
     /**
      * Creates a user statically. 
      * @param database The database to make the user in.
      * @param username The username for the user.
-     * @param password The password for the user. 
+     * @param password The password for the user.
+     * @param email String for the email of the user.   
      * @return The UserModel created. 
      */
     protected static UserModel createUser(SQLiteDatabase database,
-            String username, String password) {
+            String username, String password, String email) {
         ContentValues values = new ContentValues();
         values.put(USERNAME_COLUMN, username);
         values.put(PASSWORD_COLUMN, password.hashCode());
+        values.put(EMAIL_COLUMN, email);
 
         long insertId = database.insert(TABLE, null, values);
 
-        return makeUser(database, insertId, username, password.hashCode());
+        return makeUser(database, insertId, username, password.hashCode(), email);
     }
 
     /**
@@ -200,11 +208,12 @@ public class UserDataTable extends Database implements UserDataSource {
      * @param id The id for the user. 
      * @param username The username for the user.
      * @param password The password.
+     * @param email String for the email of the user. 
      * @return The user.
      */
     protected static UserModel makeUser(SQLiteDatabase db, long id,
-            String username, int password) {
-        UserModel user = new User(id, username, password);
+            String username, int password, String email) {
+        UserModel user = new User(id, username, password, email);
         Collection<AccountModel> accounts = AccountDataTable.getAccounts(db,
                 user);
         user.addAccounts(accounts);
@@ -218,7 +227,9 @@ public class UserDataTable extends Database implements UserDataSource {
     protected static void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE + " ("
                 + ID_COLUMN + " integer primary key autoincrement, "
-                + USERNAME_COLUMN + " text not null, " + PASSWORD_COLUMN + " integer not null, "
+                + USERNAME_COLUMN + " text not null, "
+                + EMAIL_COLUMN + " text not null, "
+                + PASSWORD_COLUMN + " integer not null, "
                 + "unique(" + USERNAME_COLUMN + ") on conflict replace" + "); ");
     }
 

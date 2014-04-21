@@ -16,9 +16,10 @@ public interface UserDataSource {
      * Creates a user.
      * @param username The user's username. 
      * @param password The password.
+     * @param email The email.
      * @return The UserModel for the created user. 
      */
-    UserModel createUser(String username, String password);
+    UserModel createUser(String username, String password, String email);
     
     /**
      * Gets all of the users in the database. 

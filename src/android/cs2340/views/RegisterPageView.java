@@ -26,6 +26,12 @@ public interface RegisterPageView {
     String getPassTwo();
 
     /**
+     * Gets the email entered in the page.
+     * @return String for the email.
+     */
+    String getEmail();
+
+    /**
      * Changes the error message.  
      * @param text String for the new error message. 
      */

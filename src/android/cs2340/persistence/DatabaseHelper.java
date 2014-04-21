@@ -44,7 +44,7 @@ public final class DatabaseHelper extends SQLiteOpenHelper {
         UserDataTable.onCreate(db);
         AccountDataTable.onCreate(db);
         TransactionDataTable.onCreate(db);
-        UserDataTable.createUser(db, "admin", "pass123");
+        UserDataTable.createUser(db, "admin", "pass123", "zhangtiff@gmail.com");
     }
 
     @Override

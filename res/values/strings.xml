@@ -51,5 +51,6 @@
     <string name="create_spending_report">Create Spending Report</string>
     <string name="title_activity_tetris">TetrisActivity</string>
     <string name="title_activity_tetris_view">TetrisViewActivity</string>
+    <string name="email_text">Email</string>
 
 </resources>
