@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="android.cs2340"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="android.cs2340.activity.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/FullscreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.SuccessActivity"
+            android:label="@string/title_activity_sucess" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.RegisterActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_register"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.AddAccountActivity"
+            android:label="@string/title_activity_add_acount" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.UserPageActivity"
+            android:label="@string/title_activity_user_page" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.AccountActivity"
+            android:label="@string/title_activity_account" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.TransactionActivity"
+            android:label="@string/title_activity_transaction" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.ReportParametersActivity"
+            android:label="@string/title_activity_transaction" >
+        </activity>
+        <activity
+            android:name="android.cs2340.SpendingReport"
+            android:label="@string/title_activity_spending_report" >
+        </activity>
+        <activity
+            android:name="android.cs2340.SpendingReportParameters"
+            android:label="@string/title_activity_spending_report_parameters" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.ReportActivity"
+            android:label="@string/title_activity_report" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.TetrisViewActivity"
+            android:label="@string/title_activity_tetris_view" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.PieGraphActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_pie_graph"
+            android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name="android.cs2340.activity.PieGraphActivity"
+            android:label="@string/title_activity_pie_graph" >
+        </activity>
+    </application>
+
+</manifest>

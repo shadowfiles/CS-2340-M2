@@ -73,6 +73,7 @@ public interface UserModel {
      */
     String getEmail();
 
+
     /**
      * Checks to see if a password is valid.
      * @param password String for the password being checked.
