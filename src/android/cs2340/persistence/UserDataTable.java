@@ -167,20 +167,12 @@ public class UserDataTable extends Database implements UserDataSource {
             String username, String password, String email) {
         ContentValues values = new ContentValues();
         values.put(USERNAME_COLUMN, username);
-<<<<<<< HEAD
-        values.put(PASSWORD_COLUMN, password.hashCode());
+        values.put(PASSWORD_COLUMN, BCrypt.hashpw(password, BCrypt.gensalt()));
         values.put(EMAIL_COLUMN, email);
 
         long insertId = database.insert(TABLE, null, values);
 
-        return makeUser(database, insertId, username, password.hashCode(), email);
-=======
-        values.put(PASSWORD_COLUMN, BCrypt.hashpw(password, BCrypt.gensalt()));
-
-        long insertId = database.insert(TABLE, null, values);
-
-        return makeUser(database, insertId, username, BCrypt.hashpw(password, BCrypt.gensalt()));
->>>>>>> origin
+        return makeUser(database, insertId, username, password, email);
     }
 
     /**
@@ -221,13 +213,8 @@ public class UserDataTable extends Database implements UserDataSource {
      * @return The user.
      */
     protected static UserModel makeUser(SQLiteDatabase db, long id,
-<<<<<<< HEAD
-            String username, int password, String email) {
+            String username, String password, String email) {
         UserModel user = new User(id, username, password, email);
-=======
-            String username, String password) {
-        UserModel user = new User(id, username, password);
->>>>>>> origin
         Collection<AccountModel> accounts = AccountDataTable.getAccounts(db,
                 user);
         user.addAccounts(accounts);
@@ -243,7 +230,7 @@ public class UserDataTable extends Database implements UserDataSource {
                 + ID_COLUMN + " integer primary key autoincrement, "
                 + USERNAME_COLUMN + " text not null, "
                 + EMAIL_COLUMN + " text not null, "
-                + PASSWORD_COLUMN + " integer not null, "
+                + PASSWORD_COLUMN + " text not null, "
                 + "unique(" + USERNAME_COLUMN + ") on conflict replace" + "); ");
     }
 

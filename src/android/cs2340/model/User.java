@@ -23,16 +23,12 @@ public class User implements UserModel {
     /**
      * Hashed version of the user's password.
      */
-<<<<<<< HEAD
-    private int password;
+    private String password;
 
     /**
      * The email for the user. 
      */
     private String email;
-=======
-    private String password;
->>>>>>> origin
     
     /**
      * List of all the accounts owned by the user.
@@ -46,13 +42,8 @@ public class User implements UserModel {
      * @param thePassword int for the hashed password.
      * @param e String for the user's email.
      */
-<<<<<<< HEAD
-    public User(long theId, String theUsername, int thePassword, String e) {
+    public User(long theId, String theUsername, String thePassword, String e) {
         this(theId, theUsername, thePassword, e, null);
-=======
-    public User(long theId, String theUsername, String thePassword) {
-        this(theId, theUsername, thePassword, null);
->>>>>>> origin
     }
 
     /**
@@ -63,11 +54,7 @@ public class User implements UserModel {
      * @param e String for the user's email. 
      * @param theaccounts List of the user's accounts.
      */
-<<<<<<< HEAD
-    public User(long theId, String theUsername, int thePassword, String e, 
-=======
-    public User(long theId, String theUsername, String thePassword,
->>>>>>> origin
+    public User(long theId, String theUsername, String thePassword, String e, 
             Collection<AccountModel> theaccounts) {
         this.id = theId;
         this.username = theUsername;

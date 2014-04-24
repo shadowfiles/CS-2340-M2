@@ -30,11 +30,7 @@ public class DanielsUserTest {
      */
     @Before
     public void setUp() throws Exception {
-<<<<<<< HEAD
-        theUser = new User(1, "testUser", "testPass".hashCode(), "testemail@email.com");
-=======
-        theUser = new User(1, "testUser", "testPass");
->>>>>>> origin
+        theUser = new User(1, "testUser", "testPass", "testemail@email.com");
     }
 
     /**
@@ -67,11 +63,8 @@ public class DanielsUserTest {
         ArrayList<AccountModel> accountList = new ArrayList<AccountModel>();
         accountList.add(one);
         accountList.add(two);
-<<<<<<< HEAD
-        theUser = new User(1, "test", "test".hashCode(), "email@email.com", accountList);
-=======
-        theUser = new User(1, "test", "test", accountList);
->>>>>>> origin
+        theUser = new User(1, "test", "test", "email@email.com", accountList);
+
         Assert.assertEquals("didnt get accounts right", accountList,
                 theUser.getAccounts());
     }
@@ -90,11 +83,8 @@ public class DanielsUserTest {
         ArrayList<AccountModel> accountList = new ArrayList<AccountModel>();
         accountList.add(one);
         accountList.add(two);
-<<<<<<< HEAD
-        theUser = new User(1, "test", "test".hashCode(), "myemail@emails.com", accountList);
-=======
-        theUser = new User(1, "test", "test", accountList);
->>>>>>> origin
+        theUser = new User(1, "test", "test", "myemail@emails.com", accountList);
+
         Assert.assertEquals("didnt get accounts one", one,
                 theUser.getAccount("testOne"));
         Assert.assertEquals("didnt get accounts two", two,

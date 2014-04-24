@@ -48,11 +48,9 @@ public class TiffsAccountTest {
     @Before
     public void setUp() throws Exception {
         account = new Account(1, TEST_ACCOUNT_NAME, TEST_DISPLAY_NAME, 1000.24,
-<<<<<<< HEAD
-                100.50, new User(1, TEST_USERNAME, "testerizer".hashCode(), "email@email.com"));
-=======
-                100.50, new User(1, TEST_USERNAME, "testerizer"));
->>>>>>> origin
+
+                100.50, new User(1, TEST_USERNAME, "testerizer", "email@email.com"));
+
     }
 
     /**
